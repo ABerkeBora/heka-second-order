@@ -1,0 +1,23 @@
+{
+  "status": "PENDING",
+  "checkedAt": "2026-10-31T04:07:36.012048+00:00",
+  "source": "GitHub public commit fetched into earlier clean clone; detached at exact V2 SHA",
+  "testedCommit": "8dceb90f124c260e31bc14cab69533c6079dd2e1",
+  "codeManifestFilesCompared": 41,
+  "checks": {
+    "npmCi": true,
+    "typecheck": true,
+    "productionBuild": true,
+    "contractBuild": true,
+    "productionStartPort3101": true,
+    "rootAndNextBothHttp200": false,
+    "bothApiNamespacesEmpty": true,
+    "noWalletOrPrivateEnvironmentCopied": true,
+    "noPublishedEvidenceInjectedAsLiveState": true,
+    "codeManifestMatches": true
+  },
+  "warnings": [
+    "Plain vendor Git revision discovery warnings;535sources/licenses independently matched official pinned archives in V1 evidence/vendor-integrity.json."
+  ],
+  "initialFailure": "Direct/next404 under hidden .verify checkout: absolute sendFile dotfile policy. Root index and both APIs were200. Source fix awaiting actual clean-clone retest."
+}

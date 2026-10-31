@@ -126,7 +126,7 @@ register("/api/next", "next");
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(root, "dist")));
   app.get("/{*splat}", (_, res) =>
-    res.sendFile(path.join(root, "dist", "index.html")),
+    res.sendFile("index.html", { root: path.join(root, "dist") }),
   );
 } else {
   const { createServer } = await import("vite");

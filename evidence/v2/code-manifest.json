@@ -30,7 +30,7 @@
     "src/llm.ts": "17a02895b1ddedc9a25413c3c904829b5854878e73e4801366b5a62e50d0caef",
     "src/next.ts": "930697d4334759a855fd5dced4e7d2de37c0568b0940ac1f9acea247df52e769",
     "src/safety.test.ts": "76fa85de14068027128487ed582e9f920747c03204709b8c9b1d87f440cf5338",
-    "src/server.ts": "a02ba153a17ac9381292eac4849ed4ef3f1d1bf57bf8ae1a52119d574b563b7b",
+    "src/server.ts": "224350c4525bdf25a186b0f39cdb8dc2ab6914cc0e09b4e5b09fa44916f37be8",
     "src/source.ts": "52cf4eff077f176e8e66024b140c853213709e164c989a52bc54b490095d7fc5",
     "src/store.ts": "79d5fbe79e780e3bdaa3667ff7102cd558e7c90dcd276bd1e233d6d733c3c7a6",
     "src/vendor/airnode-v2.ts": "5a497ff59c741c7abd0f0e2de2d919cb7df50edf23c8869d2b20d215e68f243d",
