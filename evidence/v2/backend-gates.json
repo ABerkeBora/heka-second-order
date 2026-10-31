@@ -191,8 +191,8 @@
     "authorizeNext acceptance creates a scoped local intent; the automatic runIntent economic execution is outside this focused gate test.",
     "The closed-source fixture throws under the production createProof contract; source verification itself is not reimplemented here."
   ],
-  "startedAt": "2026-10-31T04:02:12.757Z",
-  "checkedAt": "2026-10-31T04:02:13.031Z",
+  "startedAt": "2026-10-31T04:09:53.412Z",
+  "checkedAt": "2026-10-31T04:09:53.611Z",
   "command": "node scripts/next-gates-test.mjs",
   "productionFilesCopied": [
     "src/next.ts",
@@ -203,7 +203,7 @@
   ],
   "productionSourceSha256": {
     "src/next.ts": "930697d4334759a855fd5dced4e7d2de37c0568b0940ac1f9acea247df52e769",
-    "src/engine.ts": "d6a4407b54a2cb820b205291d2c31caddb6d099739bddf60eb97fa1a7e34b9ae",
+    "src/engine.ts": "55ba03d3ce2f22474b77ef746e8d9d0c8c8a1a3560e4a9d60310d49d5a19a16d",
     "src/store.ts": "79d5fbe79e780e3bdaa3667ff7102cd558e7c90dcd276bd1e233d6d733c3c7a6",
     "src/intent.ts": "194cc05cf0cf4e03a226ad096614a138d84ae5038fe46ba0241fe563cadd6d75",
     "src/vendor/airnode-v2.ts": "5a497ff59c741c7abd0f0e2de2d919cb7df50edf23c8869d2b20d215e68f243d"

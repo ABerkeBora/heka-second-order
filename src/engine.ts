@@ -822,7 +822,10 @@ export async function tamperChecks(intent: any) {
     !(intent.phase === 1 && Date.now() / 1000 < Number(p.policy.tradeClosesAt))
   )
     for (const name of ["Duplicate intent", "Over budget"]) {
-      const previous = state.evidence.checks.find((c: any) => c.name === name);
+      const previous =
+        (state.evidence as any).marketId === intent.contractAddress
+          ? state.evidence.checks.find((c: any) => c.name === name)
+          : undefined;
       if (previous)
         checks.push({
           ...previous,
