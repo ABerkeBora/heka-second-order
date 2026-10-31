@@ -1,0 +1,213 @@
+{
+  "status": "PASS",
+  "mode": "Isolated production-module guard regression; source/model/chain dependencies are fixtures, no real source/model or chain activity",
+  "historicalClock": "2026-10-31T03:05:00Z",
+  "caseCount": 20,
+  "cases": [
+    {
+      "name": "whole-week rejects before catalog/model/preparation",
+      "status": "PASS",
+      "reasonCode": "UNSUPPORTED_WINDOW",
+      "proofCalls": 0,
+      "modelCalls": 0,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "absent Cardano pair rejects without substitution",
+      "status": "PASS",
+      "reasonCode": "NO_CATALOG_MATCH",
+      "proofCalls": 0,
+      "modelCalls": 0,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "model normalization drift rejects before preparation",
+      "status": "PASS",
+      "reasonCode": "normalization_mismatch",
+      "proofCalls": 0,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "allowed but wrong asset rejects before preparation",
+      "status": "PASS",
+      "reasonCode": "ASSET_MISMATCH",
+      "proofCalls": 0,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "wrong model operator rejects before preparation",
+      "status": "PASS",
+      "reasonCode": "normalization_mismatch",
+      "proofCalls": 0,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "compose preflight rejects condition source drift",
+      "status": "PASS",
+      "reasonCode": "source_changed",
+      "proofCalls": 1,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "real engine preparation rejects condition before collateral setup",
+      "status": "PASS",
+      "reasonCode": "PREPARATION_REJECTED",
+      "proofCalls": 3,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "compose preflight rejects outcomes source drift",
+      "status": "PASS",
+      "reasonCode": "source_changed",
+      "proofCalls": 1,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "real engine preparation rejects outcomes before collateral setup",
+      "status": "PASS",
+      "reasonCode": "PREPARATION_REJECTED",
+      "proofCalls": 3,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "compose preflight rejects end source drift",
+      "status": "PASS",
+      "reasonCode": "source_changed",
+      "proofCalls": 1,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "real engine preparation rejects end before collateral setup",
+      "status": "PASS",
+      "reasonCode": "PREPARATION_REJECTED",
+      "proofCalls": 3,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "compose preflight rejects closed source drift",
+      "status": "PASS",
+      "reasonCode": "validation_unavailable",
+      "proofCalls": 1,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "real engine preparation rejects closed before collateral setup",
+      "status": "PASS",
+      "reasonCode": "PREPARATION_REJECTED",
+      "proofCalls": 3,
+      "modelCalls": 1,
+      "chainDependencyAttempts": 0,
+      "positions": 0
+    },
+    {
+      "name": "valid proposal traverses actual preparation without funding",
+      "status": "PASS",
+      "economicCalls": [
+        "TestCollateral",
+        "mint",
+        "mint",
+        "SecondOrderMarket",
+        "initialize"
+      ],
+      "proofCalls": 4,
+      "fundingCalls": 0
+    },
+    {
+      "name": "dirty objective cannot authorize prior review",
+      "status": "PASS",
+      "newChainDependencyAttempts": 0,
+      "newPositions": 0
+    },
+    {
+      "name": "wrong review ID rejects",
+      "status": "PASS",
+      "newChainDependencyAttempts": 0,
+      "newPositions": 0
+    },
+    {
+      "name": "previous proposal ID rejects",
+      "status": "PASS",
+      "newChainDependencyAttempts": 0,
+      "newPositions": 0
+    },
+    {
+      "name": "latest rejected review invalidates retained accepted proposal",
+      "status": "PASS",
+      "newChainDependencyAttempts": 0,
+      "newPositions": 0
+    },
+    {
+      "name": "exact latest objective/review/proposal accepts one scoped intent",
+      "status": "PASS",
+      "positions": 1,
+      "mandatePerAction": "1000000",
+      "mandateMaxActions": 1,
+      "mandateMaxAgentTransactions": 8,
+      "chainDependencyAttemptsDuringAuthorization": 0
+    },
+    {
+      "name": "new unsupported review prevents old-proposal authorization",
+      "status": "PASS",
+      "existingPositionsPreserved": 1,
+      "newChainDependencyAttempts": 0
+    }
+  ],
+  "assertions": {
+    "actualNextComposeAndAuthorize": true,
+    "actualEnginePreparation": true,
+    "actualNamespacedStore": true,
+    "invalidTargetsBeforeAnyChainDependency": true,
+    "preparationSourceDriftBeforeCollateralSetup": true,
+    "dirtyOrStaleApprovalRejected": true,
+    "exactLatestApprovalAccepted": true,
+    "v1FixtureNamespaceUnchanged": true,
+    "noNetworkOrRealKeys": true
+  },
+  "limits": [
+    "Dependency fixtures do not prove Airnode cryptography, LLM quality or EVM execution; those have separate integration evidence.",
+    "Positive fixture preparation records mock deploy/mint/initialize boundaries, never a live payment.",
+    "authorizeNext acceptance creates a scoped local intent; the automatic runIntent economic execution is outside this focused gate test.",
+    "The closed-source fixture throws under the production createProof contract; source verification itself is not reimplemented here."
+  ],
+  "startedAt": "2026-10-31T04:02:12.757Z",
+  "checkedAt": "2026-10-31T04:02:13.031Z",
+  "command": "node scripts/next-gates-test.mjs",
+  "productionFilesCopied": [
+    "src/next.ts",
+    "src/engine.ts",
+    "src/store.ts",
+    "src/intent.ts",
+    "src/vendor/airnode-v2.ts"
+  ],
+  "productionSourceSha256": {
+    "src/next.ts": "930697d4334759a855fd5dced4e7d2de37c0568b0940ac1f9acea247df52e769",
+    "src/engine.ts": "d6a4407b54a2cb820b205291d2c31caddb6d099739bddf60eb97fa1a7e34b9ae",
+    "src/store.ts": "79d5fbe79e780e3bdaa3667ff7102cd558e7c90dcd276bd1e233d6d733c3c7a6",
+    "src/intent.ts": "194cc05cf0cf4e03a226ad096614a138d84ae5038fe46ba0241fe563cadd6d75",
+    "src/vendor/airnode-v2.ts": "5a497ff59c741c7abd0f0e2de2d919cb7df50edf23c8869d2b20d215e68f243d"
+  },
+  "isolatedSandboxUnderIgnoredVerify": true,
+  "realApplicationRuntimeAccessed": false
+}

@@ -1,0 +1,44 @@
+{
+  "id": "28331b79-af65-45d9-a45a-6767e5b25c5f",
+  "objective": "Cardano Up OR Ethereum Up in the same next 5-minute window.",
+  "createdAt": "2026-10-31T03:58:57.678Z",
+  "status": "unsupported/no-action",
+  "reasons": [
+    {
+      "code": "NO_CATALOG_MATCH",
+      "message": "The authenticated discovered catalog has no pair matching both requested assets, Up/Down event, directions and exact future window. No alternative was substituted."
+    }
+  ],
+  "normalized": {
+    "version": 1,
+    "event": "crypto-up-down",
+    "legs": [
+      {
+        "asset": "ADA",
+        "direction": "Up"
+      },
+      {
+        "asset": "ETH",
+        "direction": "Up"
+      }
+    ],
+    "operator": "OR",
+    "windowMinutes": 5,
+    "window": "same-next"
+  },
+  "catalogCheck": {
+    "checkedAt": "2026-10-31T03:58:57.682Z",
+    "requestHash": "0xcbc423c2164c454d4fe797cbac607f9cd270ee6710bc64494ebc72985dc2c690",
+    "candidateIds": [
+      "6406428",
+      "6406429",
+      "6406430",
+      "6406431",
+      "6406432",
+      "6406433"
+    ],
+    "matchingPairs": 0
+  },
+  "decidedAt": "2026-10-31T03:58:57.682Z",
+  "economicAction": "none"
+}

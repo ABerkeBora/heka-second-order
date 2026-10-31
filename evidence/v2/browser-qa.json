@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-31T04:05:05.350Z",
+  "status": "PASS",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "fontsLoaded": "loaded",
+      "gradients": 0,
+      "innerWidth": 1440,
+      "panels": [
+        699.84375,
+        424.15625
+      ],
+      "scrollWidth": 1440,
+      "smallControls": [
+        {
+          "height": 32,
+          "text": ""
+        },
+        {
+          "height": 34,
+          "text": "Inspect evidence "
+        },
+        {
+          "height": 36,
+          "text": "Check objective"
+        },
+        {
+          "height": 20,
+          "text": ""
+        },
+        {
+          "height": 20,
+          "text": ""
+        },
+        {
+          "height": 15.9453125,
+          "text": "Recipient and execution limits+"
+        },
+        {
+          "height": 36,
+          "text": "View funded position"
+        },
+        {
+          "height": 28,
+          "text": "Open activity "
+        }
+      ]
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "fontsLoaded": "loaded",
+      "gradients": 0,
+      "innerWidth": 768,
+      "panels": [
+        367.9921875,
+        340
+      ],
+      "scrollWidth": 768,
+      "smallControls": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "fontsLoaded": "loaded",
+      "gradients": 0,
+      "innerWidth": 390,
+      "panels": [
+        354,
+        354
+      ],
+      "scrollWidth": 390,
+      "smallControls": []
+    }
+  ],
+  "assertions": {
+    "exactViewportWidthsVerified": true,
+    "noHorizontalPageOverflow": true,
+    "allPhoneTabletTouchTargetsAtLeast44": true,
+    "fontsLoaded": true,
+    "minimumTextAtLeast11": true,
+    "zeroGradients": true,
+    "dirtyObjectiveDisablesFunding": true,
+    "unsupportedObjectiveShowsNoDefaultBasket": true,
+    "checkingStateIsPending": true
+  },
+  "walkthrough": [
+    "Real absent-event no-action visible",
+    "Actual structured model proposal accepted and independently matched",
+    "Dirty objective disabled budget; backend wrong-objective400",
+    "Full bounded mandate reviewed before one browser approval",
+    "Automatic buyer and counterparty funding confirmed",
+    "Malformed envelope inline rejection without transaction",
+    "All seven deployed proof/duplicate/budget/protected-state checks PASS"
+  ],
+  "substitution": "Supported CUA screenshot and rendered-DOM checks used instead of skill CDP inspector"
+}

@@ -2228,3 +2228,41 @@ small {
     min-height: 44px;
   }
 }
+
+/* V2 adds semantic review to the existing basket. V1 keeps its task layout. */
+.version-nav{display:flex;gap:13px;align-items:center;white-space:nowrap;font-size:11px}
+.version-nav a{color:var(--faint)}.version-nav a[aria-current="page"]{color:var(--text)}.version-nav a:hover{color:#fff}
+.supported-objective{font-size:11px;line-height:1.6;color:var(--faint);margin-top:9px;max-width:760px}
+.objective-unchecked{font-size:12px;color:var(--muted);padding:15px 0 0;line-height:1.6}
+.objective-comparison{margin-top:17px;padding-top:15px;border-top:1px solid #303030}
+.comparison-heading{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.comparison-heading h3{font-size:14px;font-weight:500}.comparison-heading>span{font-size:11px;color:var(--accent);white-space:nowrap}
+.objective-comparison.unsupported .comparison-heading>span{color:var(--negative)}
+.comparison-notice{font-size:11px;line-height:1.6;color:var(--muted);margin-top:8px}.comparison-notice p+p{margin-top:5px}
+.comparison-columns,.comparison-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.comparison-columns{font-size:11px;color:var(--faint);margin-top:14px;padding-bottom:8px}
+.comparison-row{padding:10px 0;border-top:1px solid #292929;align-items:start}
+.comparison-row>div{display:flex;flex-direction:column;gap:4px;min-width:0;overflow-wrap:anywhere}
+.comparison-row strong{font-size:13px;font-weight:500;color:#e2e2e2}.comparison-row span{font-size:11px;color:var(--muted);line-height:1.5}
+.comparison-row p{font-size:12px;line-height:1.6}.comparison-row code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px}
+.comparison-rule{padding:8px 0}.comparison-rule>div{gap:3px}.comparison-model{font-size:11px;color:var(--faint);margin-top:8px}
+@media(max-width:1100px){.version-nav a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px}}
+@media(max-width:620px){.version-nav{margin-top:6px;justify-content:flex-start;gap:5px}.supported-objective{font-size:12px;line-height:1.6}.objective-unchecked{font-size:13px}.comparison-heading h3{font-size:14px;line-height:1.5}.comparison-heading>span{font-size:11px}.comparison-notice{font-size:12px}.comparison-columns{font-size:12px}.comparison-row{gap:13px;padding:11px 0}.comparison-row strong{font-size:14px}.comparison-row span,.comparison-row p,.comparison-model{font-size:12px}.comparison-row code{font-size:12px}.comparison-rule strong{font-size:13px}}
+
+@media (max-width: 1100px) {
+  .mandate-scope summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 950px) {
+  .workspace-next .work-grid {
+    grid-template-columns: minmax(340px, 1.15fr) minmax(340px, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .workspace-next .work-grid { grid-template-columns: minmax(0, 1fr); }
+}

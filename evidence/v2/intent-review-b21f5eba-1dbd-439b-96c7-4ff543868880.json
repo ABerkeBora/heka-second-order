@@ -1,0 +1,14 @@
+{
+  "id": "b21f5eba-1dbd-439b-96c7-4ff543868880",
+  "objective": "Ethereum Up OR Solana Up throughout the entire week.",
+  "createdAt": "2026-10-31T03:58:55.360Z",
+  "status": "unsupported/no-action",
+  "reasons": [
+    {
+      "code": "UNSUPPORTED_WINDOW",
+      "message": "Only one next available 5-minute or 15-minute window is supported; continuous or calendar-period exposure is unsupported."
+    }
+  ],
+  "decidedAt": "2026-10-31T03:58:55.362Z",
+  "economicAction": "none"
+}

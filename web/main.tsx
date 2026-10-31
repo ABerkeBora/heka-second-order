@@ -26,6 +26,33 @@ type Step = {
   txHash?: string;
   timestamp?: string;
 };
+type IntentReview = {
+  id: string;
+  objective: string;
+  status: "checking" | "accepted" | "unsupported/no-action";
+  proposalId?: string;
+  reason?: string;
+  reasons?: { code: string; message: string }[];
+  normalized?: {
+    version: number;
+    event: "crypto-up-down";
+    legs: { asset: string; direction: "Up" | "Down" }[];
+    operator: "AND" | "OR";
+    windowMinutes: 5 | 15;
+    window: "same-next";
+  };
+  matches?: {
+    legIndex: number;
+    marketId: string;
+    asset: string;
+    direction: string;
+    outcomeIndex: number;
+    startTime: string | number;
+    endTime: string | number;
+    durationMinutes: number;
+  }[];
+  model?: { model?: string; name?: string; [key: string]: unknown };
+};
 type Proposal = {
   id: string;
   marketIds: string[];
@@ -40,6 +67,7 @@ type Proposal = {
   policyHash?: string;
   ready?: boolean;
   error?: string;
+  intentReview?: IntentReview;
   policy?: {
     tradeClosesAt?: string;
     deadline?: string;
@@ -107,6 +135,7 @@ type AppState = {
   };
   markets?: Market[];
   proposal?: Proposal | null;
+  intentReview?: IntentReview | null;
   proposals?: Proposal[];
   intents?: Intent[];
   evidence?: { marketId?: string; checkedAt?: string; checks?: Check[] };
@@ -115,6 +144,10 @@ type AppState = {
   discovery?: { updatedAt?: string; checkedAt?: string; error?: string };
 };
 const emptyState: AppState = { markets: [], intents: [] };
+const isNext = /^\/next\/?$/.test(window.location.pathname);
+const apiPath = (path: string) => isNext && !path.startsWith("/api/next")
+  ? path.replace(/^\/api(?=\/|$)/, "/api/next")
+  : path;
 const short = (value?: string | null) =>
   value ? `${value.slice(0, 7)}…${value.slice(-5)}` : "Pending deployment";
 const stamp = (value?: string | number) => {
@@ -233,6 +266,35 @@ function TxLink({
   ) : null;
 }
 
+function ObjectiveComparison({ review, proposal, dirty }: { review?: IntentReview | null; proposal?: Proposal | null; dirty: boolean }) {
+  if (!review) return <div className="objective-unchecked">Check the objective to compare the requested outcomes with exact source records.</div>;
+  const normalized = review.normalized;
+  const matches = review.matches || [];
+  const unsupported = review.status === "unsupported/no-action";
+  const policyMatched = proposal?.intentReview?.id === review.id;
+  const accepted = review.status === "accepted" && policyMatched;
+  const checking = !unsupported && !accepted;
+  const durations = [...new Set(matches.map(match => match.durationMinutes))];
+  return <section className={`objective-comparison${unsupported && !dirty ? " unsupported" : ""}`} aria-labelledby="comparison-title">
+    <div className="comparison-heading">
+      <h3 id="comparison-title">{dirty ? "Objective changed" : unsupported ? "Unsupported objective. No funding." : checking ? "Checking objective" : "Objective and source match"}</h3>
+      <span>{dirty ? "Check again" : unsupported ? "No action" : checking ? "Pending" : "Checked"}</span>
+    </div>
+    {dirty ? <p className="comparison-notice">The text differs from the last checked objective. Check it again before funding.</p> : unsupported ? <div className="comparison-notice"><p>No basket will be deployed or funded for this objective.</p>{(review.reasons?.length ? review.reasons.map(reason => reason.message) : [review.reason || "This objective is outside the supported source grammar."]).map((reason, index) => <p key={index}>{reason}</p>)}</div> : checking ? <p className="comparison-notice">Waiting for model normalization and independent source validation. No funding is authorized.</p> : <p className="comparison-notice">Asset, direction, operator and window were checked independently of the model.</p>}
+    <div className="comparison-columns"><span>{dirty ? "Last checked request" : "Requested"}</span><span>Matched source</span></div>
+    {normalized?.legs?.length ? normalized.legs.map((leg, index) => {
+      const match = matches.find(item => item.legIndex === index);
+      const source = proposal?.sourceMarkets?.find(market => market.id === match?.marketId);
+      return <div className="comparison-row" key={`${leg.asset}-${index}`}><div><strong>{leg.asset} {leg.direction}</strong><span>Crypto Up/Down</span></div><div>{accepted && match ? <><strong>{match.asset} {source?.outcomes?.[match.outcomeIndex] || match.direction}</strong><span>Market <code>{match.marketId}</code> · outcome {match.outcomeIndex}</span><span>{stamp(match.startTime)} → {stamp(match.endTime)}</span></> : <span>{checking ? "Awaiting validation" : "No matching source"}</span>}</div></div>;
+    }) : <div className="comparison-row"><div><p>{review.objective}</p></div><div><span>{checking ? "Awaiting validation" : "No matching basket"}</span></div></div>}
+    {normalized && <>
+      <div className="comparison-row comparison-rule"><div><span>Combination</span><strong>{normalized.operator}</strong></div><div><span>Locked operator</span><strong>{accepted ? proposal?.operator : checking ? "Awaiting validation" : "Not locked"}</strong></div></div>
+      <div className="comparison-row comparison-rule"><div><span>Same source window</span><strong>{normalized.windowMinutes} minutes</strong></div><div><span>Matched duration</span><strong>{accepted && durations.length ? `${durations.join(" / ")} minutes` : checking ? "Awaiting validation" : "No window matched"}</strong></div></div>
+    </>}
+    {review.model && <p className="comparison-model">Runtime model: {review.model.model || review.model.name || "recorded with this review"}</p>}
+  </section>;
+}
+
 function App() {
   const [state, setState] = useState<AppState>(emptyState);
   const [loading, setLoading] = useState(true);
@@ -240,8 +302,12 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [view, setView] = useState<"compose" | "activity">("compose");
   const [objective, setObjective] = useState(
-    "Find two upcoming outcomes that belong together. Require both to win.",
+    isNext
+      ? "Ethereum Up OR Solana Up in the same next 5-minute window."
+      : "Find two upcoming outcomes that belong together. Require both to win.",
   );
+  const [objectiveTouched, setObjectiveTouched] = useState(false);
+  const [reviewHydrated, setReviewHydrated] = useState(false);
   const [stake, setStake] = useState("1");
   const [side, setSide] = useState("YES");
   const [selectedMarket, setSelectedMarket] = useState<Market | null>(null);
@@ -258,6 +324,15 @@ function App() {
   const markets = state.markets || [];
   const intents = state.intents || [];
   const proposal = state.proposal || state.proposals?.at(-1) || null;
+  const intentReview = state.intentReview || proposal?.intentReview;
+  const objectiveDirty = isNext && !!intentReview && objective !== intentReview.objective;
+  const semanticAccepted = !isNext || (
+    intentReview?.status === "accepted" &&
+    !objectiveDirty &&
+    proposal?.intentReview?.id === intentReview.id &&
+    (!intentReview.proposalId || intentReview.proposalId === proposal?.id)
+  );
+  const composeBusyLabel = isNext ? "Checking objective" : "Composing basket";
   const intent = intents[0];
   const proposalIntent = intents.find(
     (item) => item.proposalId === proposal?.id,
@@ -300,7 +375,8 @@ function App() {
     accepted &&
     !!proposal?.contractAddress &&
     proposal?.ready === true &&
-    fundingOpen;
+    fundingOpen &&
+    semanticAccepted;
   const contractAddress =
     view === "compose"
       ? proposal?.contractAddress || config.contractAddress
@@ -366,6 +442,14 @@ function App() {
   );
 
   useEffect(() => {
+    if (isNext && !reviewHydrated && !objectiveTouched && intentReview?.objective) {
+      setObjective(intentReview.objective);
+      setReviewHydrated(true);
+    }
+    if (isNext && intentReview?.status === "unsupported/no-action" && !objectiveDirty) setError(null);
+  }, [intentReview?.id, objectiveDirty, objectiveTouched, reviewHydrated]);
+
+  useEffect(() => {
     if (!drawer && !selectedMarket) return;
     const previous = document.activeElement as HTMLElement | null;
     const dialog = document.querySelector<HTMLElement>('[role="dialog"]');
@@ -403,7 +487,7 @@ function App() {
   }, [drawer, selectedMarket]);
 
   const refresh = useCallback(async () => {
-    const response = await fetch("/api/state");
+    const response = await fetch(apiPath("/api/state"));
     const data = await response.json();
     if (!response.ok)
       throw new Error(
@@ -429,7 +513,7 @@ function App() {
     setBusy(label);
     setError(null);
     try {
-      const response = await fetch(path, {
+      const response = await fetch(apiPath(path), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -463,7 +547,7 @@ function App() {
         }
       }
       const response = await fetch(
-        tamper ? "/api/tamper-check" : "/api/evidence",
+        apiPath(tamper ? "/api/tamper-check" : "/api/evidence"),
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -498,9 +582,9 @@ function App() {
   }
 
   return (
-    <div className="workspace">
+    <div className={`workspace${isNext ? " workspace-next" : ""}`}>
       <header className="topbar">
-        <a className="brand" href="/" aria-label="Second Order home">
+        <a className="brand" href={isNext ? "/next" : "/"} aria-label="Second Order home">
           <Mark />
           <span>
             Second Order<span className="brand-sub">Outcome baskets</span>
@@ -675,7 +759,7 @@ function App() {
                 <form
                   onSubmit={(event) => {
                     event.preventDefault();
-                    act("/api/propose", { objective }, "Composing basket");
+                    act("/api/propose", { objective }, composeBusyLabel);
                   }}
                 >
                   <label className="sr-only" htmlFor="objective">
@@ -685,7 +769,7 @@ function App() {
                     id="objective"
                     rows={2}
                     value={objective}
-                    onChange={(event) => setObjective(event.target.value)}
+                    onChange={(event) => { setObjective(event.target.value); setObjectiveTouched(true); }}
                     maxLength={500}
                   />
                   <button
@@ -693,19 +777,19 @@ function App() {
                     disabled={!!busy || !objective.trim()}
                     type="submit"
                   >
-                    {busy === "Composing basket"
-                      ? "Agent is composing…"
-                      : "Ask agent to compose"}
+                    {busy === composeBusyLabel
+                      ? isNext ? "Checking objective…" : "Agent is composing…"
+                      : isNext ? "Check objective" : "Ask agent to compose"}
                     <Arrow />
                   </button>
                 </form>
                 <div className="composer-foot">
                   <span>
-                    Model selects from the eligible sources. A separate
-                    validator checks the proposal.
+                    {isNext ? "Two crypto assets · Up / Down · AND / OR · same 5- or 15-minute window." : "Model selects from the eligible sources. A separate validator checks the proposal."}
                   </span>
                   <span>{proposal?.model || "Local runtime LLM"}</span>
                 </div>
+                {isNext && <p className="supported-objective">Use two supported assets from the catalog. “Next” means the next matching window in that catalog. Whole-week forecasts and absent events are unsupported and cause no action.</p>}
               </section>
               <div className="work-grid">
                 <section
@@ -717,13 +801,15 @@ function App() {
                     {proposal ? (
                       <Status
                         value={
-                          accepted ? "Validated proposal" : "Rejected proposal"
+                          isNext && !semanticAccepted ? objectiveDirty ? "Objective changed" : "No matching approval" : accepted ? "Validated proposal" : "Rejected proposal"
                         }
                       />
                     ) : (
-                      <span className="muted">Awaiting proposal</span>
+                      <span className="muted">{isNext ? intentReview?.status === "unsupported/no-action" ? "No matching basket" : "Awaiting objective check" : "Awaiting proposal"}</span>
                     )}
                   </div>
+                  {isNext && <ObjectiveComparison review={intentReview} proposal={proposal} dirty={objectiveDirty} />}
+                  {(!isNext || proposal) && <>
                   <div className="basket-sources">
                     {[0, 1].map((index) => {
                       const market = proposalSources[index];
@@ -757,7 +843,7 @@ function App() {
                           </div>
                           <p className="basket-question">
                             {market?.question ||
-                              (busy === "Composing basket"
+                              (busy === composeBusyLabel
                                 ? "Selecting an eligible market…"
                                 : "Your agent will select a market.")}
                           </p>
@@ -815,14 +901,14 @@ function App() {
                     ))}
                   </div>
                   <div className="basket-summary">
-                    {proposal?.reason ? (
+                    {!isNext && (proposal?.reason ? (
                       <p>{proposal.reason}</p>
                     ) : (
                       <p>
                         The same rule is used for every combination. No combined
                         probability is inferred from source prices.
                       </p>
-                    )}
+                    ))}
                     {proposal?.policy?.deadline && (
                       <span className="policy-deadline">
                         Refund deadline{" "}
@@ -836,6 +922,7 @@ function App() {
                       </span>
                     )}
                   </div>
+                  </>}
                 </section>
                 <section
                   className="mandate-panel"
@@ -1035,7 +1122,7 @@ function App() {
                       }
                       const result = await act(
                         "/api/authorize",
-                        { proposalId: proposal?.id, side, stakeUnits },
+                        { proposalId: proposal?.id, side, stakeUnits, ...(isNext ? { objective, reviewId: intentReview?.id } : {}) },
                         "Authorizing agent",
                       );
                       if (result) setView("activity");
@@ -1053,6 +1140,10 @@ function App() {
                   {proposalIntent ? (
                     <p className="authorization-note">
                       Budget delegated. Open its recorded activity.
+                    </p>
+                  ) : isNext && !semanticAccepted ? (
+                    <p className="authorization-note">
+                      {objectiveDirty ? "Objective changed. Check it again before funding." : intentReview?.status === "unsupported/no-action" ? "Unsupported objective. No funding is authorized." : "Check this objective before authorizing a budget."}
                     </p>
                   ) : !proposal ? (
                     <p className="authorization-note">
@@ -1414,6 +1505,7 @@ function App() {
               Attested source integrity. Source truth remains a trust
               assumption.
             </span>
+            <nav className="version-nav" aria-label="Product versions"><a href="/" aria-current={!isNext ? "page" : undefined}>V1</a><a href="/next" aria-current={isNext ? "page" : undefined}>V2</a></nav>
             <span>AND / OR only</span>
           </footer>
         </main>

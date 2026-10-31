@@ -1,0 +1,58 @@
+
+> heka-second-order@1.0.0 test
+> node --test src/**/*.test.ts
+
+✔ raw grammar produces exact two-leg directions, operator and bounded window (1.665625ms)
+✔ supported aliases include known absent-catalog assets without inventing a market (0.316125ms)
+✔ weekly and continuous objectives fail before source selection (0.084625ms)
+✔ thresholds, between-times, unknown events and unspecified time are outside the grammar (0.081542ms)
+✔ mixed or repeated operators are ambiguous and duplicate aliases cannot create two legs (0.080958ms)
+✔ unknown assets, invalid objective types and oversized text are unsupported (0.069042ms)
+✔ model normalization equality is exact and rejects unknown fields or semantic drift (0.21225ms)
+✔ real-source-shaped candidate pair matches semantic labels, absolute interval and OR (0.924459ms)
+✔ source ID order may differ while the independent raw-intent legs remain unchanged (0.2035ms)
+✔ nested outcome strings and reversed label order require the actual direction index (0.456333ms)
+✔ the original Ethereum/XRP goal cannot be satisfied by Ethereum/Solana fallback (0.118ms)
+✔ Cardano absent-event goal cannot accept a bounded but different source (0.08075ms)
+✔ model normalized intent mismatch and operator drift are independently rejected (0.235167ms)
+✔ unknown, ambiguous and duplicate IDs cannot identify source exposure (0.148708ms)
+✔ two IDs cannot bypass distinct-asset and condition checks (0.210417ms)
+✔ wrong duration and a mixed absolute window cannot pass a valid ID allowlist (0.129875ms)
+✔ explicit 15-minute windows match only their 15-minute title and epoch (0.108833ms)
+✔ endDate must be an absolute valid date rather than a parser-coercible calendar error (0.1385ms)
+✔ title and slug cannot disagree with the absolute source interval (0.160167ms)
+✔ source title is verified as an exact event rather than an asset-word match (0.180584ms)
+✔ a same-duration pair outside the canonical window grid is unsupported (0.062334ms)
+✔ not-yet-ended is insufficient: already-started and start-boundary windows reject (0.081916ms)
+✔ next means earliest jointly available window in the bounded pool (0.296083ms)
+✔ ISO offsets and missing slugs retain exact title/absolute-time checks (0.086791ms)
+✔ unsupported source state, identity and outcome shape fail closed (0.157458ms)
+✔ malformed proposal/intent/clock/market inputs return reasons rather than throwing (0.148958ms)
+✔ proposal accepts only the supplied two distinct open markets and preserves selected outcomes (2.671333ms)
+✔ proposal rejects unknown IDs and repeated IDs even when the output shape is valid (0.292042ms)
+✔ proposal rejects closed, ineligible, expired and imminently closing candidates (0.231125ms)
+✔ proposal rejects non-binary outcome indexes, fractions and coercible strings (0.63225ms)
+✔ proposal rejects unsupported operators and unexpected model fields (0.287709ms)
+✔ proposal rejects malformed schema and oversized rationale (0.245166ms)
+✔ proposal fails closed on an invalid candidate end date (0.074875ms)
+✔ fresh envelope cannot refresh an old source observation (0.10825ms)
+✔ source and envelope freshness are independent checks at their exact boundaries (0.08175ms)
+✔ source update timestamp must parse and cannot exceed the future tolerance (0.139875ms)
+✔ envelope time must be a safe integer and cannot exceed future tolerance (0.113875ms)
+✔ microsecond source strings are parsed without treating signature time as source time (0.051125ms)
+✔ binary array parser handles actual JSON-string fields and rejects malformed outcomes (0.12175ms)
+✔ semantic outcome hash ignores JSON whitespace but binds order and exact labels (1.070917ms)
+✔ request identity binds market ID, operation, projection and parameter types (0.698167ms)
+✔ request identity is stable under object-key order, including a reordered phase projection (0.281917ms)
+✔ proof serialization preserves signed UTF-8 bytes, field order, nested strings and whitespace (0.072334ms)
+✔ real create and terminal artifacts match independently locked request hashes and signer (23.275792ms)
+✔ edited signed data, timestamp and wrong phase cannot pass real attestation checks (3.865084ms)
+✔ re-serializing equivalent signed JSON is not a valid way to construct a proof (1.89275ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 221.349708

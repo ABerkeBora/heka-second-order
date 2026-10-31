@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "assertions": {
+    "defaultV1PathsUnchanged": true,
+    "nextRuntimeAndEvidenceIsolated": true,
+    "nextStartsEmptyDespiteV1StateAndJournal": true,
+    "sameLogicalSetupIdUsesDistinctReceipt": true,
+    "nextWritesPreserveV1Bytes": true,
+    "contextSafeAcrossConcurrentAsyncWork": true,
+    "nestedContextRestored": true,
+    "oneGlobalExclusiveQueue": true,
+    "oneGlobalPidLock": true,
+    "scopedDelegationExpiryGuard": true,
+    "scopedStateProxySpreadAndJson": true,
+    "privateScopedRuntimeFiles": true,
+    "pathTraversalNamespaceAndEvidenceRejected": true
+  },
+  "queueExecution": [
+    {
+      "namespace": "v1",
+      "index": 0
+    },
+    {
+      "namespace": "next",
+      "index": 1
+    },
+    {
+      "namespace": "v1",
+      "index": 2
+    },
+    {
+      "namespace": "next",
+      "index": 3
+    }
+  ],
+  "legacyHash": "0xd2f173ea5350eec791da437d16bf05cf4dcfd18f76027b203c6e1aca3323ab7f",
+  "nextHash": "0xb23b519654c35366fc0285fc97d0d89be9a7d5436d662798c4d578661a8afdfc",
+  "defaultJournalEntries": 1,
+  "nextJournalEntries": 2,
+  "checkedAt": "2026-10-31T03:55:45.845Z",
+  "command": "node scripts/namespace-test.mjs",
+  "mode": "Isolated mocked RPC/store context regression; no live chain or application runtime",
+  "newMockAcceptedTransactions": 2,
+  "rpcCounters": {
+    "eth_chainId": 8,
+    "eth_fillTransaction": 2,
+    "eth_getTransactionCount": 2,
+    "eth_getBlockByNumber": 2,
+    "eth_maxPriorityFeePerGas": 2,
+    "eth_estimateGas": 4,
+    "eth_call": 4,
+    "eth_getTransactionReceipt": 10,
+    "eth_sendRawTransaction": 2
+  },
+  "productionSourceSha256": {
+    "src/store.ts": "79d5fbe79e780e3bdaa3667ff7102cd558e7c90dcd276bd1e233d6d733c3c7a6",
+    "src/chain.ts": "898fa514f6ea4532abfbf8a8ee617da94bada64003e9e65bd26900afa6aa1cd2"
+  },
+  "limitations": [
+    "Context callers must wrap each engine/API/background task in withStore; one shared exclusive queue serializes all economic workflows.",
+    "Existing runtime export is intentionally global for PID lock; use runtimePath() for scoped state/journal paths.",
+    "Mock RPC and public fixture key only; no real wallet, actual .runtime, Airnode, Ollama or port3101 touched."
+  ]
+}

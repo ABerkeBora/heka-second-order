@@ -1,0 +1,93 @@
+{
+  "id": "218199ae-a94e-446f-b9ea-804fb2aabafb",
+  "decision": "unsupported",
+  "normalized": {
+    "version": 1,
+    "event": "crypto-up-down",
+    "legs": [
+      {
+        "asset": "ETH",
+        "direction": "Up"
+      },
+      {
+        "asset": "SOL",
+        "direction": "Up"
+      }
+    ],
+    "operator": "OR",
+    "windowMinutes": 5,
+    "window": "same-next"
+  },
+  "marketIds": [],
+  "selectedOutcomeIndexes": [],
+  "reason": "No candidate matches ETH Up or SOL Up in 5-minute window. Candidates are for XRP, BTC, BNB, Hyperliquid, Solana, Ethereum but not both ETH and SOL with Up direction.",
+  "model": "qwen3:4b",
+  "input": {
+    "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+    "candidates": [
+      {
+        "id": "6406428",
+        "question": "XRP Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "xrp-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      },
+      {
+        "id": "6406429",
+        "question": "Bitcoin Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "btc-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      },
+      {
+        "id": "6406430",
+        "question": "BNB Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "bnb-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      },
+      {
+        "id": "6406431",
+        "question": "Hyperliquid Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "hype-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      },
+      {
+        "id": "6406432",
+        "question": "Solana Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "sol-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      },
+      {
+        "id": "6406433",
+        "question": "Ethereum Up or Down - October 31, 12:05AM-12:10AM ET",
+        "slug": "eth-updown-5m-1793419500",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T04:10:00Z"
+      }
+    ]
+  },
+  "startedAt": "2026-10-31T03:57:39.567Z",
+  "createdAt": "2026-10-31T03:57:53.821Z",
+  "latencyMs": 14254
+}

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-31T04:02:53.633Z",
+  "status": "PASS",
+  "mode": "Actual funded V2 restart and explicit reconciliation before finality",
+  "intentId": "30e23be6-245b-42ee-ba34-3dd314aafe57",
+  "transactionCount": 11,
+  "transactionHashes": [
+    "0xd5d843c64594f528bf888ecd8e6de93a132a52c4c6c6d4c37ee36c07cb4f292c",
+    "0x6f8ce227216c69a254a7e898be2bd660a862346669da793f7fadcf3aa28c5150",
+    "0x66ca44989f5ab65b0ca99166ef07aa84ab0fae777c47ca8a13289843561e5512",
+    "0x1c43f26aa7637c9d8f662000f49a1935beec4ad9b397ae05111842f2135a7978",
+    "0xf72f934409c56b3d086164853b2a870ee0ae253106c203b6e41c2ac155316f6a",
+    "0x4ad33087669a3082b3502740618659a4bcb322da2fb6adfafcc2c20bd6f2ecf4",
+    "0x0a8648872dfb952f50553a03cdf0c1d0aeba39c3a54bff7771aa0262d11105f9",
+    "0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc",
+    "0xb1e715c9febf1aac80b2e13530aee365f91ca51ebd7f5e2b1f637bc637d173f5",
+    "0x28c864065c16f64debffbe1f0139a66c4a8a59de222b781b92a93797bd8e446e",
+    "0xb29698970677045a0676f2a18e817ef28a0e29eeb802aeab22d93dfd47fa075e"
+  ],
+  "reserveUnits": "2000000",
+  "assertions": {
+    "hashSetUnchanged": true,
+    "noAdditionalStake": true,
+    "confirmedFundingRestored": true
+  }
+}

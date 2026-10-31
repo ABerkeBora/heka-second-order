@@ -18,7 +18,15 @@ import {
 import { privateKeyToAccount } from "viem/accounts";
 import { baseSepolia } from "viem/chains";
 import { estimateL1Fee, estimateOperatorFee } from "viem/op-stack";
-import { root, runtime, evidence, state } from "./store.ts";
+import {
+  root,
+  runtime,
+  runtimePath,
+  storeNamespace,
+  evidence,
+  state,
+  type StoreNamespace,
+} from "./store.ts";
 export const client = createPublicClient({
   chain: baseSepolia,
   transport: http(process.env.RPC_URL || "https://sepolia.base.org", {
@@ -63,15 +71,28 @@ export function roles() {
   return (_roles = j.roles);
 }
 export const address = (role: string) => roles()[role].address as Address;
-const journalFile = path.join(runtime, "transactions.json");
-const journal: Record<string, any> = fs.existsSync(journalFile)
-  ? JSON.parse(fs.readFileSync(journalFile, "utf8"))
-  : {};
+// Journal loading is lazy and namespaced. A next request never consults a v1 receipt.
+const journals = new Map<StoreNamespace, Record<string, any>>();
+function currentJournal(): Record<string, any> {
+  const namespace = storeNamespace();
+  let journal = journals.get(namespace);
+  if (!journal) {
+    const file = path.join(runtimePath(), "transactions.json");
+    journal = fs.existsSync(file)
+      ? JSON.parse(fs.readFileSync(file, "utf8"))
+      : {};
+    journals.set(namespace, journal!);
+  }
+  return journal!;
+}
 function persist() {
+  const directory = runtimePath();
+  fs.mkdirSync(directory, { recursive: true, mode: 0o700 });
+  const journalFile = path.join(directory, "transactions.json");
   fs.writeFileSync(
     journalFile + ".tmp",
     JSON.stringify(
-      journal,
+      currentJournal(),
       (_, v) => (typeof v === "bigint" ? v.toString() : v),
       2,
     ),
@@ -80,11 +101,12 @@ function persist() {
   fs.renameSync(journalFile + ".tmp", journalFile);
 }
 export function transactions() {
-  return Object.values(journal).map(({ raw, ...rest }) => rest);
+  return Object.values(currentJournal()).map(({ raw, ...rest }) => rest);
 }
 let ownsLock = false;
 function acquireLock() {
   if (ownsLock) return;
+  fs.mkdirSync(runtime, { recursive: true, mode: 0o700 });
   const lock = path.join(runtime, "executor.lock");
   try {
     const pid = Number(fs.readFileSync(lock, "utf8"));
@@ -130,6 +152,7 @@ export async function send(
       JSON.stringify({ role, to: tx.to?.toLowerCase() || null, data: tx.data }),
     ),
   );
+  const journal = currentJournal();
   let entry = journal[id];
   if (entry) {
     const existingFingerprint = entry.fingerprint;
@@ -284,7 +307,7 @@ export const read = (
 ) => client.readContract({ address: contract, abi, functionName, args });
 
 export async function reconcile(id: string) {
-  const entry = journal[id];
+  const entry = currentJournal()[id];
   if (!entry) return null;
   const tx = parseTransaction(entry.raw);
   return send(id, entry.role, {

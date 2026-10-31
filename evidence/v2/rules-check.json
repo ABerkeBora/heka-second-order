@@ -1,0 +1,19 @@
+{
+  "checkedAtUtc": "2026-10-31T04:06:28.031261+00:00",
+  "timezone": "Europe/Berlin",
+  "gate": "finish",
+  "selectedTracks": [
+    "API3"
+  ],
+  "sources": [
+    "https://hackathon.tum-blockchain.com/prizes#api3",
+    "https://hackathon.tum-blockchain.com/prizes#how-to-submit"
+  ],
+  "method": "Real browser reload, API3 aria-selected verified, qualification/submission/judging expanded and read; separate general tab read",
+  "changesObserved": false,
+  "deadline": "2026-10-31T15:00:00+01:00",
+  "oneSubmissionPerTeam": true,
+  "videoMaximumSeconds": 150,
+  "videoRecorded": false,
+  "entrySubmitted": false
+}

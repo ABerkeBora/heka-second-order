@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-10-31T04:02:15.237149+00:00",
+  "network": "Base Sepolia",
+  "chainId": 84532,
+  "status": "PASS",
+  "review": {
+    "id": "7726e559-8522-4de5-bc81-f19593d37871",
+    "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+    "createdAt": "2026-10-31T03:59:05.010Z",
+    "status": "accepted",
+    "reasons": [],
+    "normalized": {
+      "version": 1,
+      "event": "crypto-up-down",
+      "legs": [
+        {
+          "asset": "ETH",
+          "direction": "Up"
+        },
+        {
+          "asset": "SOL",
+          "direction": "Up"
+        }
+      ],
+      "operator": "OR",
+      "windowMinutes": 5,
+      "window": "same-next"
+    },
+    "catalogCheck": {
+      "checkedAt": "2026-10-31T03:59:05.013Z",
+      "requestHash": "0xcbc423c2164c454d4fe797cbac607f9cd270ee6710bc64494ebc72985dc2c690",
+      "candidateIds": [
+        "6406428",
+        "6406429",
+        "6406430",
+        "6406431",
+        "6406432",
+        "6406433"
+      ],
+      "matchingPairs": 1
+    },
+    "model": {
+      "id": "0698af68-c000-4c8f-8535-8c6ad65e6d2c",
+      "name": "qwen3:4b",
+      "decision": "accept",
+      "reason": "Both ETH Up and SOL Up markets are available in the same 5-minute window (2026-10-31T04:05:00.000Z-2026-10-31T04:10:00.000Z) as per independentlyMatchedPairs. Selected outcomes match the requested direction and asset.",
+      "normalized": {
+        "version": 1,
+        "event": "crypto-up-down",
+        "legs": [
+          {
+            "asset": "ETH",
+            "direction": "Up"
+          },
+          {
+            "asset": "SOL",
+            "direction": "Up"
+          }
+        ],
+        "operator": "OR",
+        "windowMinutes": 5,
+        "window": "same-next"
+      },
+      "startedAt": "2026-10-31T03:59:05.014Z",
+      "latencyMs": 17259
+    },
+    "matches": [
+      {
+        "legIndex": 0,
+        "proposalIndex": 0,
+        "marketId": "6406433",
+        "conditionId": "0xe7180390bfcdf2ae9dcd941e995f555539462cec45668430ecaf6337d3c94e12",
+        "asset": "ETH",
+        "direction": "Up",
+        "outcomeIndex": 0,
+        "startTime": 1793419500000,
+        "endTime": 1793419800000,
+        "startDate": "2026-10-31T04:05:00.000Z",
+        "endDate": "2026-10-31T04:10:00.000Z",
+        "durationMinutes": 5
+      },
+      {
+        "legIndex": 1,
+        "proposalIndex": 1,
+        "marketId": "6406432",
+        "conditionId": "0x699fc21b091cd33343cd9b04b679189707fffb4256a60448449259559979b787",
+        "asset": "SOL",
+        "direction": "Up",
+        "outcomeIndex": 0,
+        "startTime": 1793419500000,
+        "endTime": 1793419800000,
+        "startDate": "2026-10-31T04:05:00.000Z",
+        "endDate": "2026-10-31T04:10:00.000Z",
+        "durationMinutes": 5
+      }
+    ],
+    "proposalId": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c",
+    "decidedAt": "2026-10-31T03:59:22.540Z",
+    "economicAction": "Awaiting bounded mandate"
+  },
+  "proposalId": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c",
+  "contractAddress": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+  "tokenAddress": "0xac32bd83e88540c4509845ad7add0c3969d5df51",
+  "intentId": "30e23be6-245b-42ee-ba34-3dd314aafe57",
+  "mandate": {
+    "network": "Base Sepolia",
+    "chainId": 84532,
+    "asset": "0xac32bd83e88540c4509845ad7add0c3969d5df51",
+    "tokenSymbol": "SOU",
+    "recipient": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+    "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+    "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+    "side": "YES",
+    "perAction": "1000000",
+    "total": "1000000",
+    "maxActions": 1,
+    "expiresAt": 1793419755,
+    "fundingExpiresAt": 1793419755,
+    "automationExpiresAt": 1793422200,
+    "maxAgentTransactions": 8,
+    "gasCapWei": "300000000000000",
+    "totalGasCapWei": "1500000000000000",
+    "apiFeeUnits": "0",
+    "limits": "Spend, recipient, beneficiary, expiry and intent enforced on chain; gas caps enforced in local executor"
+  },
+  "fundingSteps": [
+    {
+      "id": "996db2dc-1c60-42a6-8b10-0a665dd635a7",
+      "action": "Mandate accepted",
+      "message": "One immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.",
+      "status": "confirmed",
+      "timestamp": "2026-10-31T04:00:58.780Z"
+    },
+    {
+      "id": "890a33f5-5a3c-47c9-841d-9480a79cc770",
+      "action": "buyer mandate",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x4ad33087669a3082b3502740618659a4bcb322da2fb6adfafcc2c20bd6f2ecf4",
+      "timestamp": "2026-10-31T04:01:02.106Z"
+    },
+    {
+      "id": "dc8e36d5-8c60-4ec1-ba4f-100e78a96b63",
+      "action": "buyer allowance",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x0a8648872dfb952f50553a03cdf0c1d0aeba39c3a54bff7771aa0262d11105f9",
+      "timestamp": "2026-10-31T04:01:04.200Z"
+    },
+    {
+      "id": "52133f3f-5569-42a4-82b0-5b698677b679",
+      "action": "Agent funded position",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc",
+      "timestamp": "2026-10-31T04:01:06.939Z"
+    },
+    {
+      "id": "f76ad31d-4f79-4c69-8d3f-48c7fbb183d1",
+      "action": "counterparty mandate",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xb1e715c9febf1aac80b2e13530aee365f91ca51ebd7f5e2b1f637bc637d173f5",
+      "timestamp": "2026-10-31T04:01:09.150Z"
+    },
+    {
+      "id": "eaf1d2cb-efa5-470f-bc01-085848b05bc1",
+      "action": "counterparty allowance",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x28c864065c16f64debffbe1f0139a66c4a8a59de222b781b92a93797bd8e446e",
+      "timestamp": "2026-10-31T04:01:11.262Z"
+    },
+    {
+      "id": "9279fc18-a520-4431-a456-2a0b3fca188c",
+      "action": "Counterparty funded opposite side",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xb29698970677045a0676f2a18e817ef28a0e29eeb802aeab22d93dfd47fa075e",
+      "timestamp": "2026-10-31T04:01:13.875Z"
+    }
+  ],
+  "reserveUnits": "2000000",
+  "assertions": {
+    "actualStructuredLocalModel": true,
+    "normalizationIndependentlyMatched": true,
+    "exactRequestedAssetsDirectionsOperatorWindow": true,
+    "oneInitialBrowserDelegation": true,
+    "buyerAndCounterpartyFundConfirmed": true,
+    "distinctV2AssetAndMarket": true,
+    "v2JournalCountAtFunding": 11
+  },
+  "yesStakeUnits": "1000000",
+  "noStakeUnits": "1000000"
+}

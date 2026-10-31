@@ -1,0 +1,69 @@
+{
+  "id": "68b76773-85b4-46dd-bb7c-5c5ce805f4bb",
+  "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+  "createdAt": "2026-10-31T03:57:39.561Z",
+  "status": "unsupported/no-action",
+  "reasons": [
+    {
+      "code": "model_no_match",
+      "message": "No candidate matches ETH Up or SOL Up in 5-minute window. Candidates are for XRP, BTC, BNB, Hyperliquid, Solana, Ethereum but not both ETH and SOL with Up direction."
+    }
+  ],
+  "normalized": {
+    "version": 1,
+    "event": "crypto-up-down",
+    "legs": [
+      {
+        "asset": "ETH",
+        "direction": "Up"
+      },
+      {
+        "asset": "SOL",
+        "direction": "Up"
+      }
+    ],
+    "operator": "OR",
+    "windowMinutes": 5,
+    "window": "same-next"
+  },
+  "catalogCheck": {
+    "checkedAt": "2026-10-31T03:57:39.566Z",
+    "requestHash": "0xcbc423c2164c454d4fe797cbac607f9cd270ee6710bc64494ebc72985dc2c690",
+    "candidateIds": [
+      "6406428",
+      "6406429",
+      "6406430",
+      "6406431",
+      "6406432",
+      "6406433"
+    ],
+    "matchingPairs": 1
+  },
+  "model": {
+    "id": "218199ae-a94e-446f-b9ea-804fb2aabafb",
+    "name": "qwen3:4b",
+    "decision": "unsupported",
+    "reason": "No candidate matches ETH Up or SOL Up in 5-minute window. Candidates are for XRP, BTC, BNB, Hyperliquid, Solana, Ethereum but not both ETH and SOL with Up direction.",
+    "normalized": {
+      "version": 1,
+      "event": "crypto-up-down",
+      "legs": [
+        {
+          "asset": "ETH",
+          "direction": "Up"
+        },
+        {
+          "asset": "SOL",
+          "direction": "Up"
+        }
+      ],
+      "operator": "OR",
+      "windowMinutes": 5,
+      "window": "same-next"
+    },
+    "startedAt": "2026-10-31T03:57:39.567Z",
+    "latencyMs": 14254
+  },
+  "decidedAt": "2026-10-31T03:57:53.821Z",
+  "economicAction": "none"
+}

@@ -9,7 +9,15 @@ import {
   parseAbiItem,
 } from "viem";
 import { generatePrivateKey, privateKeyToAccount } from "viem/accounts";
-import { state, save, step, evidence, cleanError, root } from "./store.ts";
+import {
+  state,
+  save,
+  step,
+  evidence,
+  cleanError,
+  root,
+  evidenceDirectory,
+} from "./store.ts";
 import {
   discover,
   createProof,
@@ -23,6 +31,7 @@ import {
 } from "./source.ts";
 import { deriveRequestHash } from "./vendor/airnode-v2.ts";
 import { propose } from "./llm.ts";
+import { matchIntent } from "./intent.ts";
 import {
   address,
   client,
@@ -119,6 +128,34 @@ export async function prepareProposal(proposal: any) {
     delete proposal.contractAddress;
     proposal.ready = false;
   }
+  // V2 validates the exact signed inputs before any deploy/mint setup side effect.
+  const prevalidated: any[] = [];
+  if (proposal.intentReview) {
+    for (const id of proposal.marketIds) {
+      const proof = await createProof(id);
+      const m = proposal.sourceMarkets?.find((m: any) => m.id === id);
+      if (
+        !m ||
+        m.conditionId !== proof.data.conditionId ||
+        Date.parse(m.endDate) !== Date.parse(proof.data.endDate) ||
+        outcomeHash(m.outcomes) !==
+          outcomeHash(
+            typeof proof.data.outcomes === "string"
+              ? JSON.parse(proof.data.outcomes)
+              : proof.data.outcomes,
+          )
+      )
+        throw Error("V2 signed source changed before any contract setup");
+      prevalidated.push(proof);
+    }
+    const checked = matchIntent(
+      proposal.normalizedIntent,
+      proposal,
+      proposal.sourceMarkets,
+    );
+    if (checked.status !== "matched")
+      throw Error(checked.reasons.map((r) => r.message).join(" "));
+  }
   await setupCollateral();
   const recovered = await reconcile(`proposal:${proposal.id}:initialize-v2`);
   if (recovered) {
@@ -136,11 +173,24 @@ export async function prepareProposal(proposal: any) {
   const sources = [];
   for (let i = 0; i < 2; i++) {
     const id = proposal.marketIds[i];
-    const { response, data } = await createProof(id);
+    const { response, data } = prevalidated[i] || (await createProof(id));
     sourceProofs.push(proofArgs(response));
     const m =
       proposal.sourceMarkets?.find((m: any) => m.id === id) ||
       state.markets.find((m) => m.id === id);
+    if (
+      proposal.intentReview &&
+      (!m ||
+        m.conditionId !== data.conditionId ||
+        Date.parse(m.endDate) !== Date.parse(data.endDate) ||
+        outcomeHash(m.outcomes) !==
+          outcomeHash(
+            typeof data.outcomes === "string"
+              ? JSON.parse(data.outcomes)
+              : data.outcomes,
+          ))
+    )
+      throw Error("V2 signed source changed after intent validation");
     sources.push({
       marketId: id,
       conditionId: data.conditionId,
@@ -635,7 +685,10 @@ export async function tamperChecks(intent: any) {
   const abi = marketAbi();
   const before = await read(intent.contractAddress, abi, "marketState");
   const checks: any[] = [];
-  const savedPath = path.join(root, "evidence", `open-proof-${intent.id}.json`);
+  const savedPath = path.join(
+    evidenceDirectory(),
+    `open-proof-${intent.id}.json`,
+  );
   const open = await createProof(p.marketIds[0]).catch((error) => {
     if (!fs.existsSync(savedPath)) throw error;
     const response = JSON.parse(fs.readFileSync(savedPath, "utf8")).response;
@@ -683,7 +736,7 @@ export async function tamperChecks(intent: any) {
   ];
   const discovered = JSON.parse(
     fs.readFileSync(
-      path.join(root, "evidence", "latest-discovery.json"),
+      path.join(evidenceDirectory(), "latest-discovery.json"),
       "utf8",
     ),
   );

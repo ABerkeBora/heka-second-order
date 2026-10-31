@@ -1,0 +1,375 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-31T04:00:15.966Z",
+  "mode": "Read-only public RPC contract/policy verification; no key access or transaction submission",
+  "namespace": "next",
+  "chainId": 84532,
+  "contract": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+  "token": "0xac32bd83e88540c4509845ad7add0c3969d5df51",
+  "proposalId": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c",
+  "reviewId": "7726e559-8522-4de5-bc81-f19593d37871",
+  "deploymentTransaction": "0x1c43f26aa7637c9d8f662000f49a1935beec4ad9b397ae05111842f2135a7978",
+  "initializationTransaction": "0xf72f934409c56b3d086164853b2a870ee0ae253106c203b6e41c2ac155316f6a",
+  "contractExplorer": "https://sepolia.basescan.org/address/0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+  "checkCount": 56,
+  "checks": [
+    {
+      "name": "Active namespace",
+      "status": "PASS",
+      "expected": "next",
+      "actual": "next"
+    },
+    {
+      "name": "Collateral is this namespace's token",
+      "status": "PASS",
+      "expected": "0xac32bd83e88540c4509845ad7add0c3969d5df51",
+      "actual": "0xaC32BD83E88540c4509845ad7ADD0c3969d5df51"
+    },
+    {
+      "name": "Immutable policy.operatorIsOr",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Immutable policy.tradeClosesAt",
+      "status": "PASS",
+      "expected": "1793419755",
+      "actual": "1793419755"
+    },
+    {
+      "name": "Immutable policy.deadline",
+      "status": "PASS",
+      "expected": "1793421600",
+      "actual": "1793421600"
+    },
+    {
+      "name": "Immutable policy.maxEnvelopeAge",
+      "status": "PASS",
+      "expected": 300,
+      "actual": 300
+    },
+    {
+      "name": "Immutable policy.maxSourceAge",
+      "status": "PASS",
+      "expected": 900,
+      "actual": 900
+    },
+    {
+      "name": "Operator matches normalized intent",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Source count",
+      "status": "PASS",
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "Source0.marketId",
+      "status": "PASS",
+      "expected": "6406433",
+      "actual": "6406433"
+    },
+    {
+      "name": "Source0.conditionId",
+      "status": "PASS",
+      "expected": "0xe7180390bfcdf2ae9dcd941e995f555539462cec45668430ecaf6337d3c94e12",
+      "actual": "0xe7180390bfcdf2ae9dcd941e995f555539462cec45668430ecaf6337d3c94e12"
+    },
+    {
+      "name": "Source0.outcomesHash",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "actual": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "Source0.createRequestHash",
+      "status": "PASS",
+      "expected": "0xbe75b1b6301ef455a9323153e776008bfb587aea350fc4b95fa3984a5ac6bd5f",
+      "actual": "0xbe75b1b6301ef455a9323153e776008bfb587aea350fc4b95fa3984a5ac6bd5f"
+    },
+    {
+      "name": "Source0.settlementRequestHash",
+      "status": "PASS",
+      "expected": "0x264522570b7f6ac50228c18c16372e61aa5de81f16043945f100f792f0128a26",
+      "actual": "0x264522570b7f6ac50228c18c16372e61aa5de81f16043945f100f792f0128a26"
+    },
+    {
+      "name": "Source0.signer",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "actual": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "Source0.selectedOutcome",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Source0.endTime",
+      "status": "PASS",
+      "expected": "1793419800",
+      "actual": "1793419800"
+    },
+    {
+      "name": "Source0.proposalId",
+      "status": "PASS",
+      "expected": "6406433",
+      "actual": "6406433"
+    },
+    {
+      "name": "Source0.selectedIndex",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Source0.trustedSigner",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "actual": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "Source0.independentCreateRequestHash",
+      "status": "PASS",
+      "expected": "0xbe75b1b6301ef455a9323153e776008bfb587aea350fc4b95fa3984a5ac6bd5f",
+      "actual": "0xbe75b1b6301ef455a9323153e776008bfb587aea350fc4b95fa3984a5ac6bd5f"
+    },
+    {
+      "name": "Source0.independentSettlementRequestHash",
+      "status": "PASS",
+      "expected": "0x264522570b7f6ac50228c18c16372e61aa5de81f16043945f100f792f0128a26",
+      "actual": "0x264522570b7f6ac50228c18c16372e61aa5de81f16043945f100f792f0128a26"
+    },
+    {
+      "name": "Source0.recordCondition",
+      "status": "PASS",
+      "expected": "0xe7180390bfcdf2ae9dcd941e995f555539462cec45668430ecaf6337d3c94e12",
+      "actual": "0xe7180390bfcdf2ae9dcd941e995f555539462cec45668430ecaf6337d3c94e12"
+    },
+    {
+      "name": "Source0.semanticOutcomeHash",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "actual": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "Source0.absoluteEndTime",
+      "status": "PASS",
+      "expected": "1793419800",
+      "actual": "1793419800"
+    },
+    {
+      "name": "Source1.marketId",
+      "status": "PASS",
+      "expected": "6406432",
+      "actual": "6406432"
+    },
+    {
+      "name": "Source1.conditionId",
+      "status": "PASS",
+      "expected": "0x699fc21b091cd33343cd9b04b679189707fffb4256a60448449259559979b787",
+      "actual": "0x699fc21b091cd33343cd9b04b679189707fffb4256a60448449259559979b787"
+    },
+    {
+      "name": "Source1.outcomesHash",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "actual": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "Source1.createRequestHash",
+      "status": "PASS",
+      "expected": "0xd61c17f1a9d6d656a563fda1ee2387fe77295159478ed066374a306c4ca5fe16",
+      "actual": "0xd61c17f1a9d6d656a563fda1ee2387fe77295159478ed066374a306c4ca5fe16"
+    },
+    {
+      "name": "Source1.settlementRequestHash",
+      "status": "PASS",
+      "expected": "0x7a2d4fce8d04f50588955626fb8dc979aa2c318aee8fdbf784175a96bb5ea35f",
+      "actual": "0x7a2d4fce8d04f50588955626fb8dc979aa2c318aee8fdbf784175a96bb5ea35f"
+    },
+    {
+      "name": "Source1.signer",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "actual": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "Source1.selectedOutcome",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Source1.endTime",
+      "status": "PASS",
+      "expected": "1793419800",
+      "actual": "1793419800"
+    },
+    {
+      "name": "Source1.proposalId",
+      "status": "PASS",
+      "expected": "6406432",
+      "actual": "6406432"
+    },
+    {
+      "name": "Source1.selectedIndex",
+      "status": "PASS",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Source1.trustedSigner",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "actual": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "Source1.independentCreateRequestHash",
+      "status": "PASS",
+      "expected": "0xd61c17f1a9d6d656a563fda1ee2387fe77295159478ed066374a306c4ca5fe16",
+      "actual": "0xd61c17f1a9d6d656a563fda1ee2387fe77295159478ed066374a306c4ca5fe16"
+    },
+    {
+      "name": "Source1.independentSettlementRequestHash",
+      "status": "PASS",
+      "expected": "0x7a2d4fce8d04f50588955626fb8dc979aa2c318aee8fdbf784175a96bb5ea35f",
+      "actual": "0x7a2d4fce8d04f50588955626fb8dc979aa2c318aee8fdbf784175a96bb5ea35f"
+    },
+    {
+      "name": "Source1.recordCondition",
+      "status": "PASS",
+      "expected": "0x699fc21b091cd33343cd9b04b679189707fffb4256a60448449259559979b787",
+      "actual": "0x699fc21b091cd33343cd9b04b679189707fffb4256a60448449259559979b787"
+    },
+    {
+      "name": "Source1.semanticOutcomeHash",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "actual": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "Source1.absoluteEndTime",
+      "status": "PASS",
+      "expected": "1793419800",
+      "actual": "1793419800"
+    },
+    {
+      "name": "Distinct source IDs",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Distinct source conditions",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Captured review accepted",
+      "status": "PASS",
+      "expected": "accepted",
+      "actual": "accepted"
+    },
+    {
+      "name": "Captured review binds proposal",
+      "status": "PASS",
+      "expected": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c",
+      "actual": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c"
+    },
+    {
+      "name": "Captured objective supported",
+      "status": "PASS",
+      "expected": "supported",
+      "actual": "supported"
+    },
+    {
+      "name": "Model normalization equals independent objective",
+      "status": "PASS",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Recorded assets/event/directions/window match at decision",
+      "status": "PASS",
+      "expected": "matched",
+      "actual": "matched"
+    },
+    {
+      "name": "Deployment receipt success",
+      "status": "PASS",
+      "expected": "success",
+      "actual": "success"
+    },
+    {
+      "name": "Deployment receipt contract",
+      "status": "PASS",
+      "expected": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+      "actual": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442"
+    },
+    {
+      "name": "Immutable createdAt equals deployment block",
+      "status": "PASS",
+      "expected": "1793419171",
+      "actual": "1793419171"
+    },
+    {
+      "name": "Initialization receipt success",
+      "status": "PASS",
+      "expected": "success",
+      "actual": "success"
+    },
+    {
+      "name": "Deployed market code matches compiled artifact, immutable ranges masked",
+      "status": "PASS",
+      "expected": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88",
+      "actual": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88"
+    },
+    {
+      "name": "Collateral bytecode matches compiled TestCollateral",
+      "status": "PASS",
+      "expected": "0x5f70d7bc0a489ea945bc114f49bed2507cfa0c179692f4bbc7e35617f78e4967",
+      "actual": "0x5f70d7bc0a489ea945bc114f49bed2507cfa0c179692f4bbc7e35617f78e4967"
+    },
+    {
+      "name": "SOU decimals",
+      "status": "PASS",
+      "expected": 6,
+      "actual": 6
+    },
+    {
+      "name": "SOU symbol",
+      "status": "PASS",
+      "expected": "SOU",
+      "actual": "SOU"
+    }
+  ],
+  "observedState": {
+    "phase": 1,
+    "tradingHalted": false,
+    "result": false,
+    "sourceFinal": [
+      false,
+      false
+    ],
+    "sourceSelectedWon": [
+      false,
+      false
+    ],
+    "yesStake": "0",
+    "noStake": "0",
+    "reserve": "0",
+    "winnerRemainingStake": "0"
+  },
+  "limits": [
+    "Code/policy equality does not prove upstream truth or profitable outcomes.",
+    "Observed market state is recorded without claiming an uncompleted settlement or payout.",
+    "Objective matching is reconstructed at the saved review time, not asserted as a new future position."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-31T04:00:56.854Z",
+  "status": "PASS",
+  "httpStatus": 400,
+  "error": "Check the exact current objective before delegating. Unsupported or changed objectives cannot fund a previous proposal.",
+  "proposalId": "9f16f2f2-3f6d-4bd1-a13f-022199fad70c",
+  "reviewId": "7726e559-8522-4de5-bc81-f19593d37871",
+  "transactionCount": 5,
+  "positions": 0,
+  "assertions": {
+    "changedOperatorRejected": true,
+    "journalUnchanged": true,
+    "positionsUnchanged": true
+  }
+}
