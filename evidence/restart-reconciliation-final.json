@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-31T03:45:32.909217+00:00",
+  "mode": "Actual Base Sepolia confirmed-receipt reconciliation after production process restart",
+  "intentId": "a359938e-b769-4a8e-afbe-37556ab50e86",
+  "marketId": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+  "checks": {
+    "transactionCountUnchanged": true,
+    "transactionHashesUnchanged": true,
+    "reserveZero": true,
+    "buyerPayoutReconstructedFromClaim": true,
+    "statusClaimed": true
+  },
+  "transactionCount": 31,
+  "deliveries": {
+    "buyer": {
+      "amountUnits": "2000000",
+      "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "refund": false,
+      "transactionHash": "0xfa707e07383cd999e92539b563f7c8efd2bbefe7c7c88850b1775ec2b584cf14"
+    },
+    "counterparty": {
+      "amountUnits": "0",
+      "beneficiary": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "payer": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "refund": false,
+      "transactionHash": "0x29e6b1ee921f532f3991f9272b41bcbecf3891bd12fee7275aaa0106d0c8a141"
+    }
+  }
+}

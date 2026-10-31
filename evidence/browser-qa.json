@@ -1,102 +1,62 @@
 {
-  "checkedAt": "2026-10-31T03:05:04.432Z",
-  "route": "http://localhost:3101",
-  "build": "production",
-  "method": "Supported CUA browser controls and read-only rendered DOM; substituted for TasteSkill CDP inspector",
-  "measurements": [
+  "checkedAt": "2026-10-31T03:51:02.363Z",
+  "mode": "Production V1 final full-mandate OR settlement",
+  "intentId": "a359938e-b769-4a8e-afbe-37556ab50e86",
+  "checks": [
+    "Real local structured model call",
+    "Initial bounded mandate then automatic real funding",
+    "Confirmed source attestations and automatic collection",
+    "Malformed response rejected with inline error",
+    "Evidence scoped to its market",
+    "Empty clean-clone does not show historical evidence as a live position"
+  ],
+  "viewports": [
     {
-      "documentWidth": 1440,
-      "fontFamily": "\"IBM Plex Sans\", sans-serif",
-      "fontLoaded": true,
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "fontsLoaded": "loaded",
       "gradients": 0,
-      "headings": [
-        {
-          "size": "26px",
-          "text": "Agent activity"
-        }
-      ],
-      "smallText": [],
-      "smallVisibleButtons": [
-        {
-          "height": 63,
-          "text": "Activity",
-          "width": 43.3828125
-        },
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "smallControls": [
         {
           "height": 32,
-          "text": "",
-          "width": 32
+          "text": ""
         },
         {
           "height": 34,
-          "text": "Inspect evidence",
-          "width": 143.40625
+          "text": "Inspect evidence "
         },
-        {
-          "height": 28,
-          "text": "Evidence",
-          "width": 73.8203125
-        }
-      ],
-      "viewport": {
-        "height": 900,
-        "width": 1440
-      }
-    },
-    {
-      "documentWidth": 768,
-      "fontFamily": "\"IBM Plex Sans\", sans-serif",
-      "fontLoaded": true,
-      "gradients": 0,
-      "headings": [
-        {
-          "size": "26px",
-          "text": "Agent activity"
-        }
-      ],
-      "smallText": [],
-      "smallVisibleButtons": [
         {
           "height": 34,
-          "text": "Inspect evidence",
-          "width": 143.40625
+          "text": "Reconcile and check sources"
         },
         {
           "height": 28,
-          "text": "Evidence",
-          "width": 73.8203125
+          "text": "Evidence "
         }
-      ],
-      "viewport": {
-        "height": 1024,
-        "width": 768
-      }
+      ]
     },
     {
-      "documentWidth": 390,
-      "fontFamily": "\"IBM Plex Sans\", sans-serif",
-      "fontLoaded": true,
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "fontsLoaded": "loaded",
       "gradients": 0,
-      "headings": [
-        {
-          "size": "24px",
-          "text": "Agent activity"
-        }
-      ],
-      "smallText": [],
-      "smallVisibleButtons": [],
-      "viewport": {
-        "height": 844,
-        "width": 390
-      }
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "smallControls": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "fontsLoaded": "loaded",
+      "gradients": 0,
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "smallControls": []
     }
-  ],
-  "walkthrough": [
-    "Real model proposal/deployment through browser",
-    "Bounded funding and independent counterparty receipts",
-    "Real source finality and correct losing/winning result",
-    "Malformed envelope rejected inline",
-    "Check results bound to exact market; unfunded other market rejected",
-    "Fixed beneficiary claim events and zero balance displayed honestly"
   ]
 }

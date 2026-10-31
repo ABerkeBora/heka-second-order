@@ -1158,7 +1158,9 @@ function App() {
                         <p>
                           {buyerDelivery?.refund
                             ? "Your original stake was returned."
-                            : "Original stakes are eligible for refund under the fixed policy."}
+                            : intent.buyerStakeUnits === "0"
+                              ? "No buyer stake was funded."
+                              : "Original stakes are eligible for refund under the fixed policy."}
                         </p>
                       </div>
                     ) : null}

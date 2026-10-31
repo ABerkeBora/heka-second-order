@@ -1,0 +1,84 @@
+{
+  "marketId": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+  "intentId": "a359938e-b769-4a8e-afbe-37556ab50e86",
+  "network": "Base Sepolia",
+  "chainId": 84532,
+  "checkedAt": "2026-10-31T03:17:07.125Z",
+  "checks": [
+    {
+      "name": "Edited value",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Different request",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Wrong signer",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Stale real response",
+      "status": "PASS",
+      "message": "Expected ResponseTooOld; contract returned ResponseTooOld",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Duplicate intent",
+      "status": "PASS",
+      "message": "Expected DuplicateIntent; contract returned DuplicateIntent",
+      "mode": "RPC simulation on deployed funding path"
+    },
+    {
+      "name": "Over budget",
+      "status": "PASS",
+      "message": "Expected BudgetExceeded; contract returned BudgetExceeded",
+      "mode": "RPC simulation on deployed funding path"
+    },
+    {
+      "name": "Protected state unchanged",
+      "status": "PASS",
+      "message": "Reserve and source state compared before and after read-only rejection checks"
+    }
+  ],
+  "before": {
+    "phase": 1,
+    "tradingHalted": false,
+    "result": false,
+    "sourceFinal": [
+      false,
+      false
+    ],
+    "sourceSelectedWon": [
+      false,
+      false
+    ],
+    "yesStake": "1000000",
+    "noStake": "1000000",
+    "reserve": "2000000",
+    "winnerRemainingStake": "0"
+  },
+  "after": {
+    "phase": 1,
+    "tradingHalted": false,
+    "result": false,
+    "sourceFinal": [
+      false,
+      false
+    ],
+    "sourceSelectedWon": [
+      false,
+      false
+    ],
+    "yesStake": "1000000",
+    "noStake": "1000000",
+    "reserve": "2000000",
+    "winnerRemainingStake": "0"
+  }
+}

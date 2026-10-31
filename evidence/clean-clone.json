@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-31T03:07:35.522212+00:00",
+  "checkedAt": "2026-10-31T03:19:31.306891+00:00",
   "repository": "https://github.com/ABerkeBora/heka-second-order",
-  "testedCommit": "be2731a6c759d40af5561a89f053b1b234f58231",
-  "source": "fresh GitHub clone",
+  "testedCommit": "b7c24c7be12663605d4d7c36ee592ade2e38a090",
+  "source": "fresh GitHub clone, fast-forwarded to final code candidate",
   "checks": {
     "npmCi": true,
     "forgeBuild": true,
@@ -11,10 +11,12 @@
     "apiMarketsEmpty": true,
     "apiIntentsEmpty": true,
     "noWalletOrPrivateEnvironmentCopied": true,
-    "noPublishedEvidenceInjectedAsLiveState": true
+    "noPublishedEvidenceInjectedAsLiveState": true,
+    "allCodeManifestFilesMatch": true
   },
+  "codeFilesCompared": 31,
   "warnings": [
-    "Foundry reports parent repository revision for plain vendored directories; immutable archive revisions and source provenance are pinned separately. Compiler succeeded."
+    "Plain vendored directories inherit parent Git revision discovery. Independently535 source/license files match exact pinned official archives."
   ],
   "screenshot": "evidence/screenshots/clean-clone-empty.jpg"
 }

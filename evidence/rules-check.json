@@ -6,12 +6,14 @@
     "https://hackathon.tum-blockchain.com/prizes#api3",
     "https://hackathon.tum-blockchain.com/prizes#how-to-submit"
   ],
-  "method": "Reloaded real browser page; separately selected general and API3 tabs; expanded submission/judging/examples",
+  "method": "Real browser API3 tab selected and verified aria-selected=true, submission/judging expanded; separately read general How to submit tab",
   "changedRequirementsObserved": false,
   "deadline": "2026-10-31T15:00:00+01:00",
   "oneSubmissionPerTeam": true,
   "maximumPartnerTracks": 3,
   "videoMaximumSeconds": 150,
   "videoRecorded": false,
-  "competitionEntrySubmitted": false
+  "competitionEntrySubmitted": false,
+  "finalRecheckUtc": "2026-10-31T03:51:17.832106+00:00",
+  "finalRecheckBerlin": "2026-10-31 04:51\u201304:53 Europe/Berlin"
 }

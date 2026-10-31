@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "network": "Private ephemeral Anvil, chain ID84532; no public chain transactions",
+  "historicalTime": 1793414439,
+  "initialState": {
+    "phase": "Open",
+    "yesStakeUnits": "1000000",
+    "noStakeUnits": "0",
+    "reserveUnits": "1000000",
+    "buyerBalanceUnits": "4000000",
+    "intentStatus": "recoverable"
+  },
+  "afterFundingCutoff": {
+    "timestamp": 1793414560,
+    "phase": "Void",
+    "reserveUnits": "0",
+    "buyerBalanceUnits": "5000000",
+    "buyerRefundUnits": "1000000",
+    "intentStatus": "refunded"
+  },
+  "afterAutomationExpiry": {
+    "timestamp": 1793418640,
+    "intentStatus": "refunded",
+    "noNewTransactions": true
+  },
+  "assertions": {
+    "actualProductionEngineRunIntent": true,
+    "actualCompiledEvmContracts": true,
+    "realHistoricalOpenSignaturesAccepted": true,
+    "unmatchedAutomaticallyVoided": true,
+    "fullBuyerStakeRefunded": true,
+    "reserveZero": true,
+    "noCounterpartyFundingRetry": true,
+    "onlyVoidAndRefundTransactions": true,
+    "terminalRefundedStatePreservedAfterExpiry": true,
+    "noSourceOrModelRequests": true
+  },
+  "localAddresses": {
+    "token": "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+    "market": "0xe7f1725e7734ce288f8367e1bb143e90bb3f0512",
+    "buyer": "0x70997970C51812dc3A010C7d01b50e0d17dc79C8",
+    "counterparty": "0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC"
+  },
+  "localOnlyTransactions": {
+    "setupFundingHash": "0x24c44330a5e42cd298c9f526eeb8c6096fe9e9f755bde039dbded6e4e54d8b55",
+    "voidHash": "0x82ba1d0a5f0691744954d76dc21ee89ef2dd76a13cdc8a4b8b5cc226d4f5a98e",
+    "refundHash": "0xfd15ae7bb0b2d7ebcdb00167f989a8758812d6692565c9fa481bb07bf623bd1a"
+  },
+  "buyerTransactionCountDelta": 2,
+  "counterpartyTransactionCountDelta": 0,
+  "journalActions": [
+    "unmatched-refund-regression:void",
+    "unmatched-refund-regression:claim:buyer"
+  ],
+  "checkedAt": "2026-10-31T03:43:19.422Z",
+  "command": "node scripts/unmatched-refund-test.mjs",
+  "productionSourceSha256": {
+    "src/engine.ts": "027fcb9d40cfdc92bfce358aa95529843705ce5f81c2450d1778ba86e9637980",
+    "src/chain.ts": "9c8ef83491c37e2595066e09ec9ed78cb291c30cbcc87753ddeb7a1843ea2456",
+    "src/store.ts": "651d074cc6441d0705baa1d87040f7b6c758e35eea6d0d848365e92bb7ebd94a",
+    "out/SecondOrderMarket.sol/SecondOrderMarket.json": "cd1b23b9b2c7d9469b38cdcdcca18d42f219608d7b35492616efcecc2fa8f363",
+    "out/TestCollateral.sol/TestCollateral.json": "05829fcbe2556d7169eee3ddfbd1c932515d58a549ccec101927dfbb9237b961"
+  },
+  "limitations": [
+    "Actual local EVM/backend regression with historical authentic API3 proofs; not live prediction exposure or public-network payment evidence.",
+    "Anvil OP GasPriceOracle code is replaced by a zero-return fixture to isolate void/refund behavior; this is not live rollup fee-estimation proof.",
+    "Public Anvil fixture keys are used only on the private ephemeral local chain.",
+    "No app runtime, real wallet files, Airnode, Ollama or port3101 used."
+  ]
+}

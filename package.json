@@ -16,7 +16,9 @@
     "test:contracts": "forge test",
     "deploy": "node --env-file-if-exists=.env scripts/deploy.ts",
     "verify:live": "node --env-file-if-exists=.env scripts/live-evidence.ts",
-    "test:recovery": "node scripts/recovery-test.mjs"
+    "test:recovery": "node scripts/recovery-test.mjs",
+    "wallets:create": "node scripts/create-test-wallets.ts",
+    "test:refund": "node scripts/unmatched-refund-test.mjs"
   },
   "dependencies": {
     "express": "5.1.0",

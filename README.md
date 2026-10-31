@@ -53,7 +53,7 @@ Keep the wallet JSON outside published source or inside ignored `.local/`. Set p
 }
 ```
 
-Use three distinct, isolated test accounts. Fund only with Base Sepolia test ETH. The reviewed setup started with 0.01 test ETH for deployment and 0.001 test ETH each for buyer and counterparty; actual gas varies. The application mints its worthless SOU collateral once per role and journals those setup transactions. The selected free data calls need no aUSD payment. Never use mainnet keys, enter keys in the UI, send them to the model or commit `.env`, wallet files or `.runtime/`.
+Use three distinct, isolated test accounts. If you do not already have test roles, `npm run wallets:create` generates them offline in ignored `.local/test-wallets.json` with0600 permissions, refuses to overwrite an existing file and prints only public addresses. Set `WALLET_FILE` to that generated absolute path. The command does not fund accounts or contact a chain. Fund only with Base Sepolia test ETH; the [official CDP faucet](https://portal.cdp.coinbase.com/products/faucet) is one option. The reviewed setup started with 0.01 test ETH for deployment and 0.001 test ETH each for buyer and counterparty; actual gas varies. The application mints its worthless SOU collateral once per role and journals those setup transactions. The selected free data calls need no aUSD payment. Never use mainnet keys, enter keys in the UI, send them to the model or commit `.env`, wallet files or `.runtime/`.
 
 Ollama must already be running at the configured address and serve the configured model. The application does not install models or stop/restart a shared runtime. It fails visibly if the real model call is unavailable; there is no deterministic substitute presented as an LLM call.
 
@@ -65,6 +65,7 @@ A fresh clone starts empty. Published evidence is a historical record, not a fix
 npm test
 npm run test:contracts
 npm run test:recovery
+npm run test:refund
 npm run typecheck
 npm run build
 ```
@@ -80,7 +81,7 @@ npm run deploy
 npm run verify:live
 ```
 
-`deploy` creates or reconciles the test collateral and a fresh real-model proposal/market. `verify:live` uses an existing initialized proposal, authorizes the bounded buyer test position if absent, and reconciles execution. These commands send real testnet transactions. Keep `.runtime/state.json` and `.runtime/transactions.json` across restarts; do not erase the journal to reset the screen or imply that chain history disappeared.
+`deploy` creates or reconciles the test collateral and current proposal, or calls the real model when none exists. Use the UI to compose a fresh future-window scenario after an old one closes. `verify:live` uses an existing initialized proposal, authorizes the bounded buyer test position if absent, and reconciles execution. These commands send real testnet transactions. Keep `.runtime/state.json` and `.runtime/transactions.json` across restarts; do not erase the journal to reset the screen or imply that chain history disappeared.
 
 For a judge-supplied envelope, stop the server, preserve its runtime journal, and use:
 
@@ -95,21 +96,22 @@ Source index1 selects the other fixed source. `MARKET_ADDRESS` may explicitly se
 
 ## Recorded integration
 
-Network: **Base Sepolia, chain ID 84532**. The reviewed funded market is [0x80249acd6afd72d4d2826b788b0e972848a073e4](https://sepolia.basescan.org/address/0x80249acd6afd72d4d2826b788b0e972848a073e4), with [SOU collateral](https://sepolia.basescan.org/address/0x78f97e3b9b1b367f60355ddcc06fb157d7d33d08).
+The final V1 acceptance run is the [Ethereum/Solana OR market](https://sepolia.basescan.org/address/0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a) on **Base Sepolia84532**, using [six-decimal SOU collateral](https://sepolia.basescan.org/address/0x78f97e3b9b1b367f60355ddcc06fb157d7d33d08). Its initial mandate persisted the exact recipient/asset/beneficiary, one funding action, integer collateral caps, separate funding and automation expiries, eight-transaction limit and gas/data caps **before any funding action**.
 
-The agent's [buyer funding transaction](https://sepolia.basescan.org/tx/0x9a1e7fdf5e3f064cb12b9cb4f6432ee90087c34793a4c26fc285d837b08e014c) and the separate [counterparty funding transaction](https://sepolia.basescan.org/tx/0xcb63e6961be15badfd7f8ed6e5061da82824b752d47c3da6abe9962d21ca28d8) each deposited 1,000,000 SOU base units, creating a recorded 2.00 SOU reserve. This is test funding, not customer demand or revenue.
+The runtime model selected Up for Ethereum6406061 and Solana6406069 with OR. Its bounded pool lacked XRP; the model stated this and proposed Solana, and that exact policy was reviewed before the initial funding approval. V1 permits this reviewed alternative; the separately authorized V2 goal adds strict objective matching and no-action rejection rather than substitution.
 
-Evidence files:
+The agent [funded the buyer1SOU](https://sepolia.basescan.org/tx/0x3bf41978c6469812f555b127e4a231bcc24ca89263249ef1b62615b530af8ef8); the separate test role [funded the opposite side1SOU](https://sepolia.basescan.org/tx/0xf1287b80e7b095956a21c8a1e5df1569b1e3f2d4da1cea95e6394ed01ef4360e). Both selected Up outcomes won. The agent submitted [source0](https://sepolia.basescan.org/tx/0x2b6cc219ece273ad874301dc798b885d34aabbdf88a57a0b29966a9cd5609086) and [source1](https://sepolia.basescan.org/tx/0x8219fc21db0ade623bdcd3f4b81f8429c06526d3531199921dcb511ea6b284aa); OR settled **YES**. The buyer [collected2SOU](https://sepolia.basescan.org/tx/0xfa707e07383cd999e92539b563f7c8efd2bbefe7c7c88850b1775ec2b584cf14) and the counterparty [claimed0SOU](https://sepolia.basescan.org/tx/0x29e6b1ee921f532f3991f9272b41bcbecf3891bd12fee7275aaa0106d0c8a141). Both claims confirmed; accounted reserve is **zero**. These are test flows, not customer demand, revenue or a prediction-profit guarantee.
 
-- [Funded position and independent role receipts](evidence/funded-position.json)
-- [Actual runtime model input, proposal and validator decision](evidence/llm-4d4e246c-afd0-4847-a324-698891409d16.json)
-- [Immutable policy and contract deployment](evidence/policy-4d4e246c-afd0-4847-a324-698891409d16.json)
-- [Deployed RPC rejection results and unchanged protected state](evidence/rejections-29e88761-5cee-43d0-8a87-4b1ac50b9752.json)
-- [Transaction receipts and gas accounting](evidence/transactions.json)
+Primary evidence:
 
-The two genuine final records were submitted by the agent in [source0](https://sepolia.basescan.org/tx/0x4aa93d6ea1bb065b5ea5d90a3b86e6a3879067e71b3b5226d7d74920d10d7b89) and [source1](https://sepolia.basescan.org/tx/0xba469def95fb56a83df2e63d18a84f7f74666f0c333de6cb445491600920ad85). Ethereum's selected Up outcome lost, XRP's won, and AND settled **NO**. The buyer's YES position [claimed0SOU](https://sepolia.basescan.org/tx/0x85e129612f33c11e2195f5c6bf2ba4de3865a4bb851a7ac55ea339f89bf713ee); the separate counterparty [collected2SOU](https://sepolia.basescan.org/tx/0xef5fcb107d5f291adc4f656873c06f52345c189122efc6d020393bb277c488f9). Both claims confirmed and the accounted reserve is zero. This is a completed test economic flow, not a profitable prediction claim.
+- [Final complete mandate, decisions, receipts and delivered result](evidence/intent-a359938e-b769-4a8e-afbe-37556ab50e86.json)
+- [Actual runtime model proposal](evidence/llm-d2f44402-9601-4516-b69a-3ec40360c842.json)
+- [Immutable policy](evidence/policy-d2f44402-9601-4516-b69a-3ec40360c842.json) and [independent72-check deployment verification](evidence/contract-verification-final.json)
+- [Four deployed proof-guard rejections plus duplicate/cap and unchanged reserve](evidence/rejections-a359938e-b769-4a8e-afbe-37556ab50e86.json)
+- [Transaction receipts and gas records](evidence/transactions.json)
+- [Earlier genuine AND run and schema history](docs/LIVE_RUNS.md)
 
-The [completed intent](evidence/intent-29e88761-5cee-43d0-8a87-4b1ac50b9752.json) links mandate, validation, funding, raw proofs and delivered results. [Real process restart reconciliation](evidence/restart-reconciliation.json) reconstructed delivery from the claim events with unchanged transaction/hash counts. [A separate isolated mocked-RPC fault test](evidence/recovery-test.json) covers persisted-before-broadcast failure, SIGKILL, exact-byte restart and changed-argument rejection; it is not a live payment receipt.
+The earlier AND run settled NO and delivered0SOU to the buyer and2SOU to the counterparty. Its initial schema is preserved as recorded, without retroactively adding final-schema fields. [Real process restart reconciliation](evidence/restart-reconciliation.json) kept transaction/hash counts unchanged and recovered delivery from claim events. [A separate mocked-RPC fault test](evidence/recovery-test.json) covers persisted-before-broadcast failure, SIGKILL, exact-byte recovery, changed-argument rejection and expiry. [The local Anvil/backend regression](evidence/unmatched-refund-test.json) proves an unmatched buyer stake is automatically voided/refunded after funding closes, without retrying expired counterparty funding. These local tests are not live payment receipts.
 
 ## Source and trust model
 

@@ -1,0 +1,806 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-31T03:19:09.859Z",
+  "timezone": "Europe/Berlin",
+  "mode": "Read-only Base Sepolia RPC; no wallet/private keys loaded and no transaction signed or broadcast",
+  "network": "Base Sepolia",
+  "chainId": 84532,
+  "address": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+  "explorer": "https://sepolia.basescan.org/address/0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+  "proposalId": "d2f44402-9601-4516-b69a-3ec40360c842",
+  "intentId": "a359938e-b769-4a8e-afbe-37556ab50e86",
+  "blockNumber": "52474403",
+  "blockHash": "0x9ff8d2a95a23a8806e57a52bce85a89030f45d0221d30b9d87ff140b2a3ea25b",
+  "blockTimestamp": "1793416749",
+  "deploymentTransactionHash": "0x51f8d5b2ce75b36903f0c28ff1e951f6007943b4d60fc4146a863a87244fec68",
+  "artifactSha256": "cd1b23b9b2c7d9469b38cdcdcca18d42f219608d7b35492616efcecc2fa8f363",
+  "localStateSnapshotSha256": "ae414e92b13b88f9b093afa458887f08be5baff18a4ecd7a45b1118c9d5935dc",
+  "collateral": "0x78f97e3b9b1b367F60355ddcc06fb157d7d33D08",
+  "createdAt": "1793416282",
+  "policy": {
+    "sources": [
+      {
+        "marketId": "6406061",
+        "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+        "settlementRequestHash": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      },
+      {
+        "marketId": "6406069",
+        "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+        "settlementRequestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      }
+    ],
+    "operatorIsOr": true,
+    "tradeClosesAt": "1793416755",
+    "deadline": "1793418600",
+    "maxEnvelopeAge": 300,
+    "maxSourceAge": 900
+  },
+  "sourceComparisons": [
+    {
+      "index": 0,
+      "labels": [
+        "Up",
+        "Down"
+      ],
+      "selectedLabel": "Up",
+      "createRequest": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6406061"
+        },
+        "responseProjection": {
+          "marketId": "/id",
+          "conditionId": "/conditionId",
+          "closed": "/closed",
+          "endDate": "/endDate",
+          "outcomes": "/outcomes",
+          "updatedAt": "/updatedAt"
+        }
+      },
+      "settlementRequest": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6406061"
+        },
+        "responseProjection": {
+          "marketId": "/id",
+          "conditionId": "/conditionId",
+          "closed": "/closed",
+          "status": "/umaResolutionStatus",
+          "outcomes": "/outcomes",
+          "outcomePrices": "/outcomePrices",
+          "updatedAt": "/updatedAt"
+        }
+      },
+      "derivedCreateRequestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+      "derivedSettlementRequestHash": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+      "actual": {
+        "marketId": "6406061",
+        "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+        "settlementRequestHash": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      }
+    },
+    {
+      "index": 1,
+      "labels": [
+        "Up",
+        "Down"
+      ],
+      "selectedLabel": "Up",
+      "createRequest": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6406069"
+        },
+        "responseProjection": {
+          "marketId": "/id",
+          "conditionId": "/conditionId",
+          "closed": "/closed",
+          "endDate": "/endDate",
+          "outcomes": "/outcomes",
+          "updatedAt": "/updatedAt"
+        }
+      },
+      "settlementRequest": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6406069"
+        },
+        "responseProjection": {
+          "marketId": "/id",
+          "conditionId": "/conditionId",
+          "closed": "/closed",
+          "status": "/umaResolutionStatus",
+          "outcomes": "/outcomes",
+          "outcomePrices": "/outcomePrices",
+          "updatedAt": "/updatedAt"
+        }
+      },
+      "derivedCreateRequestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+      "derivedSettlementRequestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+      "actual": {
+        "marketId": "6406069",
+        "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+        "settlementRequestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      }
+    }
+  ],
+  "bytecode": {
+    "runtimeBytes": 15441,
+    "artifactRuntimeBytes": 15441,
+    "actualRuntimeHash": "0x59240b44da1523175fdca39f6bae6bb6033a401f04a72a0db6cb1440fe98c483",
+    "artifactRuntimeHash": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88",
+    "immutableMaskRanges": [
+      {
+        "astId": "120",
+        "start": 751,
+        "length": 32,
+        "withinBothBytecodes": true
+      },
+      {
+        "astId": "120",
+        "start": 1274,
+        "length": 32,
+        "withinBothBytecodes": true
+      },
+      {
+        "astId": "120",
+        "start": 3092,
+        "length": 32,
+        "withinBothBytecodes": true
+      },
+      {
+        "astId": "122",
+        "start": 1344,
+        "length": 32,
+        "withinBothBytecodes": true
+      },
+      {
+        "astId": "122",
+        "start": 6216,
+        "length": 32,
+        "withinBothBytecodes": true
+      }
+    ],
+    "normalizedRuntimeMatchesArtifact": true,
+    "normalizedActualRuntimeHash": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88",
+    "normalizedArtifactRuntimeHash": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88"
+  },
+  "checkCount": 72,
+  "passedCheckCount": 72,
+  "failedCheckCount": 0,
+  "checks": [
+    {
+      "name": "network.chainId",
+      "status": "PASS",
+      "expected": 84532,
+      "observed": 84532
+    },
+    {
+      "name": "proposal.id",
+      "status": "PASS",
+      "expected": "d2f44402-9601-4516-b69a-3ec40360c842",
+      "observed": "d2f44402-9601-4516-b69a-3ec40360c842"
+    },
+    {
+      "name": "intent.proposalId",
+      "status": "PASS",
+      "expected": "d2f44402-9601-4516-b69a-3ec40360c842",
+      "observed": "d2f44402-9601-4516-b69a-3ec40360c842"
+    },
+    {
+      "name": "proposal.contractAddress",
+      "status": "PASS",
+      "expected": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+      "observed": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a"
+    },
+    {
+      "name": "intent.contractAddress",
+      "status": "PASS",
+      "expected": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+      "observed": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a"
+    },
+    {
+      "name": "policy.localKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "sources",
+        "operatorIsOr",
+        "tradeClosesAt",
+        "deadline",
+        "maxEnvelopeAge",
+        "maxSourceAge"
+      ],
+      "observed": [
+        "sources",
+        "operatorIsOr",
+        "tradeClosesAt",
+        "deadline",
+        "maxEnvelopeAge",
+        "maxSourceAge"
+      ]
+    },
+    {
+      "name": "policy.onchainKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "sources",
+        "operatorIsOr",
+        "tradeClosesAt",
+        "deadline",
+        "maxEnvelopeAge",
+        "maxSourceAge"
+      ],
+      "observed": [
+        "sources",
+        "operatorIsOr",
+        "tradeClosesAt",
+        "deadline",
+        "maxEnvelopeAge",
+        "maxSourceAge"
+      ]
+    },
+    {
+      "name": "policy.exactlyTwoSources",
+      "status": "PASS",
+      "expected": 2,
+      "observed": 2
+    },
+    {
+      "name": "collateral.matchesRecordedDeployment",
+      "status": "PASS",
+      "expected": "0x78f97e3b9b1b367f60355ddcc06fb157d7d33d08",
+      "observed": "0x78f97e3b9b1b367F60355ddcc06fb157d7d33D08"
+    },
+    {
+      "name": "collateral.matchesIntentMandateAsset",
+      "status": "PASS",
+      "expected": "0x78f97e3b9b1b367f60355ddcc06fb157d7d33d08",
+      "observed": "0x78f97e3b9b1b367F60355ddcc06fb157d7d33D08"
+    },
+    {
+      "name": "deployment.receiptSuccess",
+      "status": "PASS",
+      "expected": "success",
+      "observed": "success"
+    },
+    {
+      "name": "deployment.receiptContractAddress",
+      "status": "PASS",
+      "expected": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+      "observed": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a"
+    },
+    {
+      "name": "createdAt.matchesDeploymentBlockTimestamp",
+      "status": "PASS",
+      "expected": "1793416282",
+      "observed": "1793416282"
+    },
+    {
+      "name": "operator.modelIsOR",
+      "status": "PASS",
+      "expected": "OR",
+      "observed": "OR"
+    },
+    {
+      "name": "operator.localPolicyIsOR",
+      "status": "PASS",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "name": "operator.onchainMatchesLocal",
+      "status": "PASS",
+      "expected": true,
+      "observed": true
+    },
+    {
+      "name": "policy.tradeClosesAt",
+      "status": "PASS",
+      "expected": "1793416755",
+      "observed": "1793416755"
+    },
+    {
+      "name": "policy.deadline",
+      "status": "PASS",
+      "expected": "1793418600",
+      "observed": "1793418600"
+    },
+    {
+      "name": "policy.maxEnvelopeAge",
+      "status": "PASS",
+      "expected": 300,
+      "observed": 300
+    },
+    {
+      "name": "policy.maxSourceAge",
+      "status": "PASS",
+      "expected": 900,
+      "observed": 900
+    },
+    {
+      "name": "source[0].localKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ],
+      "observed": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ]
+    },
+    {
+      "name": "source[0].onchainKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ],
+      "observed": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ]
+    },
+    {
+      "name": "source[0].marketId.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "6406061",
+      "observed": "6406061"
+    },
+    {
+      "name": "source[0].conditionId.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63",
+      "observed": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63"
+    },
+    {
+      "name": "source[0].outcomesHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "observed": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "source[0].createRequestHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+      "observed": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed"
+    },
+    {
+      "name": "source[0].settlementRequestHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+      "observed": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d"
+    },
+    {
+      "name": "source[0].signer.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "observed": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "source[0].selectedOutcome.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[0].endTime.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "1793416800",
+      "observed": "1793416800"
+    },
+    {
+      "name": "source[0].identity.matchesRequestedMarket",
+      "status": "PASS",
+      "expected": "6406061",
+      "observed": "6406061"
+    },
+    {
+      "name": "source[0].identity.matchesModelChoice",
+      "status": "PASS",
+      "expected": "6406061",
+      "observed": "6406061"
+    },
+    {
+      "name": "source[0].identity.matchesRecordedSource",
+      "status": "PASS",
+      "expected": {
+        "id": "6406061",
+        "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63"
+      },
+      "observed": {
+        "id": "6406061",
+        "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63"
+      }
+    },
+    {
+      "name": "source[0].labels.binaryOrderedStrings",
+      "status": "PASS",
+      "expected": [
+        "Up",
+        "Down"
+      ],
+      "observed": [
+        "Up",
+        "Down"
+      ]
+    },
+    {
+      "name": "source[0].outcomesHash.matchesDecodedLabelsAndOrder",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "observed": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "source[0].selectedOutcome.matchesModelIndex",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[0].selectedOutcome.isUpIndexZero",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[0].createHash.independentlyDerivedExactRequest",
+      "status": "PASS",
+      "expected": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+      "observed": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed"
+    },
+    {
+      "name": "source[0].settlementHash.independentlyDerivedExactRequest",
+      "status": "PASS",
+      "expected": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+      "observed": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d"
+    },
+    {
+      "name": "source[0].phaseHashesDiffer",
+      "status": "PASS",
+      "expected": "different hashes",
+      "observed": {
+        "create": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+        "settlement": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d"
+      }
+    },
+    {
+      "name": "source[0].signer.matchesPinnedAirnode",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "observed": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "source[0].endTime.matchesSourceEndDate",
+      "status": "PASS",
+      "expected": "1793416800",
+      "observed": "1793416800"
+    },
+    {
+      "name": "source[0].time.tradingClosesBeforeEnd",
+      "status": "PASS",
+      "expected": "tradeClosesAt < endTime",
+      "observed": {
+        "tradeClosesAt": "1793416755",
+        "endTime": "1793416800"
+      }
+    },
+    {
+      "name": "source[0].time.endBeforeRefundDeadline",
+      "status": "PASS",
+      "expected": "endTime < deadline",
+      "observed": {
+        "endTime": "1793416800",
+        "deadline": "1793418600"
+      }
+    },
+    {
+      "name": "source[1].localKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ],
+      "observed": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ]
+    },
+    {
+      "name": "source[1].onchainKnownFieldsOnly",
+      "status": "PASS",
+      "expected": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ],
+      "observed": [
+        "marketId",
+        "conditionId",
+        "outcomesHash",
+        "createRequestHash",
+        "settlementRequestHash",
+        "signer",
+        "selectedOutcome",
+        "endTime"
+      ]
+    },
+    {
+      "name": "source[1].marketId.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "6406069",
+      "observed": "6406069"
+    },
+    {
+      "name": "source[1].conditionId.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+      "observed": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699"
+    },
+    {
+      "name": "source[1].outcomesHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "observed": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "source[1].createRequestHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+      "observed": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca"
+    },
+    {
+      "name": "source[1].settlementRequestHash.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+      "observed": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d"
+    },
+    {
+      "name": "source[1].signer.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "observed": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "source[1].selectedOutcome.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[1].endTime.matchesRecordedPolicy",
+      "status": "PASS",
+      "expected": "1793416800",
+      "observed": "1793416800"
+    },
+    {
+      "name": "source[1].identity.matchesRequestedMarket",
+      "status": "PASS",
+      "expected": "6406069",
+      "observed": "6406069"
+    },
+    {
+      "name": "source[1].identity.matchesModelChoice",
+      "status": "PASS",
+      "expected": "6406069",
+      "observed": "6406069"
+    },
+    {
+      "name": "source[1].identity.matchesRecordedSource",
+      "status": "PASS",
+      "expected": {
+        "id": "6406069",
+        "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699"
+      },
+      "observed": {
+        "id": "6406069",
+        "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699"
+      }
+    },
+    {
+      "name": "source[1].labels.binaryOrderedStrings",
+      "status": "PASS",
+      "expected": [
+        "Up",
+        "Down"
+      ],
+      "observed": [
+        "Up",
+        "Down"
+      ]
+    },
+    {
+      "name": "source[1].outcomesHash.matchesDecodedLabelsAndOrder",
+      "status": "PASS",
+      "expected": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+      "observed": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8"
+    },
+    {
+      "name": "source[1].selectedOutcome.matchesModelIndex",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[1].selectedOutcome.isUpIndexZero",
+      "status": "PASS",
+      "expected": 0,
+      "observed": 0
+    },
+    {
+      "name": "source[1].createHash.independentlyDerivedExactRequest",
+      "status": "PASS",
+      "expected": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+      "observed": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca"
+    },
+    {
+      "name": "source[1].settlementHash.independentlyDerivedExactRequest",
+      "status": "PASS",
+      "expected": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+      "observed": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d"
+    },
+    {
+      "name": "source[1].phaseHashesDiffer",
+      "status": "PASS",
+      "expected": "different hashes",
+      "observed": {
+        "create": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+        "settlement": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d"
+      }
+    },
+    {
+      "name": "source[1].signer.matchesPinnedAirnode",
+      "status": "PASS",
+      "expected": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "observed": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E"
+    },
+    {
+      "name": "source[1].endTime.matchesSourceEndDate",
+      "status": "PASS",
+      "expected": "1793416800",
+      "observed": "1793416800"
+    },
+    {
+      "name": "source[1].time.tradingClosesBeforeEnd",
+      "status": "PASS",
+      "expected": "tradeClosesAt < endTime",
+      "observed": {
+        "tradeClosesAt": "1793416755",
+        "endTime": "1793416800"
+      }
+    },
+    {
+      "name": "source[1].time.endBeforeRefundDeadline",
+      "status": "PASS",
+      "expected": "endTime < deadline",
+      "observed": {
+        "endTime": "1793416800",
+        "deadline": "1793418600"
+      }
+    },
+    {
+      "name": "bytecode.present",
+      "status": "PASS",
+      "expected": "nonempty runtime",
+      "observed": 15441
+    },
+    {
+      "name": "bytecode.runtimeLength",
+      "status": "PASS",
+      "expected": 15441,
+      "observed": 15441
+    },
+    {
+      "name": "bytecode.immutableReferenceRangesValid",
+      "status": "PASS",
+      "expected": "all compiler immutable ranges in bounds",
+      "observed": [
+        {
+          "astId": "120",
+          "start": 751,
+          "length": 32,
+          "withinBothBytecodes": true
+        },
+        {
+          "astId": "120",
+          "start": 1274,
+          "length": 32,
+          "withinBothBytecodes": true
+        },
+        {
+          "astId": "120",
+          "start": 3092,
+          "length": 32,
+          "withinBothBytecodes": true
+        },
+        {
+          "astId": "122",
+          "start": 1344,
+          "length": 32,
+          "withinBothBytecodes": true
+        },
+        {
+          "astId": "122",
+          "start": 6216,
+          "length": 32,
+          "withinBothBytecodes": true
+        }
+      ]
+    },
+    {
+      "name": "bytecode.normalizedRuntimeMatchesArtifact",
+      "status": "PASS",
+      "expected": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88",
+      "observed": "0x5e4905a1ef03e84ff14ce34a246d63411f3a1719ad1b0fc2645f1e13ed885b88"
+    }
+  ],
+  "limits": [
+    "Checks snapshot the recorded proposal policy and deployed contract at the recorded block. They do not claim the later event has settled.",
+    "Compiler-declared immutable byte ranges are masked only for runtime comparison; collateral and createdAt are separately read and checked.",
+    "Outcome label order is independently ABI-hashed from the recorded real source labels; the contract exposes its immutable hash rather than plaintext labels.",
+    "Airnode signer and exact request identity establish the configured trust root, not upstream truth or cache consistency."
+  ]
+}

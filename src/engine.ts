@@ -422,19 +422,31 @@ export async function runIntent(intent: any) {
       save();
       return intent;
     }
+    const p = pExpiry;
     let m = await syncIntent(intent);
-    if (
-      Number(m.phase) === 1 &&
-      (intent.status === "authorizing" ||
-        intent.status === "funding" ||
-        intent.status === "recoverable")
-    ) {
-      await fundingSteps(intent);
-      m = await syncIntent(intent);
+    const fundingPending = ["authorizing", "funding", "recoverable"].includes(
+      intent.status,
+    );
+    const canStillFund =
+      !m.tradingHalted &&
+      Math.floor(Date.now() / 1000) <
+        Number(intent.mandate.fundingExpiresAt || intent.mandate.expiresAt) &&
+      Math.floor(Date.now() / 1000) < Number(p.policy.tradeClosesAt);
+    if (Number(m.phase) === 1 && fundingPending) {
+      if (canStillFund) {
+        await fundingSteps(intent);
+        m = await syncIntent(intent);
+      } else {
+        intent.status = "waiting";
+        save();
+      }
     }
-    const p = state.proposals.find((p) => p.id === intent.proposalId);
     if (Number(m.phase) === 1) {
-      if (Math.floor(Date.now() / 1000) >= Number(p.policy.deadline)) {
+      if (
+        Math.floor(Date.now() / 1000) >= Number(p.policy.deadline) ||
+        (Math.floor(Date.now() / 1000) >= Number(p.policy.tradeClosesAt) &&
+          (m.yesStake === 0n || m.noStake === 0n))
+      ) {
         const r = await write(
           `${intent.id}:void`,
           "buyer",

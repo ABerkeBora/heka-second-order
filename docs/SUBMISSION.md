@@ -1,13 +1,13 @@
 # Second Order submission draft
 
-This is draft copy for the user's review. No competition entry has been submitted, and no finished video is claimed here. Replace the video field only after recording and checking a video of at most 2.5 minutes. The recorded live flow completed with NO settlement, buyer0SOU and counterparty2SOU; confirm the final user submission and video separately.
+This is draft copy for the user's review. No competition entry has been submitted, and no finished video is claimed here. Replace the video field only after recording and checking a video of at most 2.5 minutes. The primary final-schema live flow completed with OR/YES settlement, buyer 2 SOU, counterparty 0 and reserve zero. The earlier AND/NO integration run remains separate historical evidence; confirm the user submission and video separately.
 
 **Project:** Second Order  
 **Selected partner track:** API3 — Any API in your contract  
 **Repository:** [ABerkeBora/heka-second-order](https://github.com/ABerkeBora/heka-second-order) — final publication and clean-clone evidence are recorded in the morning handoff.  
 **Video:** PENDING, maximum 150 seconds.  
 **Network:** Base Sepolia, chain ID 84532.  
-**Funded contract:** [0x80249acd6afd72d4d2826b788b0e972848a073e4](https://sepolia.basescan.org/address/0x80249acd6afd72d4d2826b788b0e972848a073e4).
+**Funded contract:** [0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a](https://sepolia.basescan.org/address/0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a).
 
 ## One-sentence description
 
@@ -35,9 +35,9 @@ The relying users are the buyer, counterparty and anyone triggering delivery on 
 
 ## Agentic payment evidence
 
-The real qwen3:4b proposal selected Ethereum and XRP upside records and AND, then passed independent validation. After one bounded mandate, the buyer agent [funded its position](https://sepolia.basescan.org/tx/0x9a1e7fdf5e3f064cb12b9cb4f6432ee90087c34793a4c26fc285d837b08e014c). The [separate counterparty](https://sepolia.basescan.org/tx/0xcb63e6961be15badfd7f8ed6e5061da82824b752d47c3da6abe9962d21ca28d8) funded the opposite side. Each stake is 1.00 SOU, yielding a 2.00 SOU recorded reserve. The agent submitted both authenticated terminal records and AND settled NO: Ethereum Up lost and XRP Up won. The buyer's losingYES position [claimed0SOU](https://sepolia.basescan.org/tx/0x85e129612f33c11e2195f5c6bf2ba4de3865a4bb851a7ac55ea339f89bf713ee), while the counterparty's NO position [collected2SOU](https://sepolia.basescan.org/tx/0xef5fcb107d5f291adc4f656873c06f52345c189122efc6d020393bb277c488f9). Both claims confirmed; the reserve is zero. The signed second record [drove the result on chain](https://sepolia.basescan.org/tx/0xba469def95fb56a83df2e63d18a84f7f74666f0c333de6cb445491600920ad85).
+The final V1 runtime-model proposal selected Ethereum 6406061 and Solana 6406069 Up outcomes with OR. The bounded pool did not include XRP; the model stated that alternative and the exact Ethereum/Solana policy was reviewed before authorization. V1 permits a reviewed alternative and does not claim strict natural-language target matching. Strict no-fallback target validation is queued for V2, which is not presented as an active or delivered feature here. The final initial mandate recorded both expiry windows, one funding action, eight transaction limit and all asset/recipient/fee caps before the agent acted. The buyer [funded 1 SOU](https://sepolia.basescan.org/tx/0x3bf41978c6469812f555b127e4a231bcc24ca89263249ef1b62615b530af8ef8), and the [separate counterparty funded 1 SOU](https://sepolia.basescan.org/tx/0xf1287b80e7b095956a21c8a1e5df1569b1e3f2d4da1cea95e6394ed01ef4360e). Both Up outcomes won, OR settled YES, the buyer [collected 2 SOU](https://sepolia.basescan.org/tx/0xfa707e07383cd999e92539b563f7c8efd2bbefe7c7c88850b1775ec2b584cf14), the [counterparty claimed 0 SOU](https://sepolia.basescan.org/tx/0x29e6b1ee921f532f3991f9272b41bcbecf3891bd12fee7275aaa0106d0c8a141), and the reserve is zero. The [completed final intent](../evidence/intent-a359938e-b769-4a8e-afbe-37556ab50e86.json) contains the full receipt/delivery chain. An earlier genuine AND run separately settled NO and delivered 0 to buyer / 2 to counterparty; its initial schema did not record the later explicit automation-expiry and transaction-count fields, and those fields are not retroactively claimed for that run. Neither run is represented as customer adoption or guaranteed profit.
 
-The journal saves the exact signed transaction and hash before broadcast. Retries reconcile receipts and rebroadcast the same bytes instead of charging again. Reused IDs with changed transaction arguments are rejected. On-chain consumed funding intents and claim flags provide a separate duplicate-execution guard. There is no automatic top-up.
+The journal saves the exact signed transaction and hash before broadcast. Retries reconcile receipts and rebroadcast the same bytes instead of charging again. Reused IDs with changed transaction arguments are rejected. On-chain consumed funding intents and claim flags provide a separate duplicate-execution guard. There is no automatic top-up. The [final production restart reconciliation](../evidence/restart-reconciliation-final.json) preserved the same 31 transaction hashes/count, reconstructed the buyer's 2 SOU claim, and retained claimed state with zero reserve. An isolated [mocked-RPC fault/restart/expiry test](../evidence/recovery-test.json) additionally rejects new signing/preparation or pending rebroadcast after expiry; it is not live payment evidence.
 
 ## Tamper test and judge reproduction
 
@@ -51,6 +51,8 @@ Recorded read-only Base Sepolia RPC calls reject:
 - A response signed with an unexpected test key: `NotSignedByAirnode`.
 
 Additional deployed funding-path calls reject duplicate intent and over-budget actions. The before/after reserve and source state agree. These rejection checks are read-only RPC execution, not fabricated broadcast receipts. Foundry tests separately cover fixed-beneficiary delivery, replay/double claim, source identity/order, phase binding, timestamp boundaries, ambiguous payouts, timeout refund, donations, integer dust and reserve conservation.
+
+The [final deployed runtime/policy inspection](../evidence/contract-verification-final.json) passed 72 checks. The [pinned vendor integrity comparison](../evidence/vendor-integrity.json) matched 535 source/license files byte-for-byte. Local verification passed 29 Foundry tests including 256 fuzz cases, 20 Node tests, typecheck and production build. The [production-engine unmatched-refund test](../evidence/unmatched-refund-test.json) ran actual compiled contracts on private Anvil: at the funding cutoff an unmatched pool voided, returned the complete stake and stopped new transactions after automation expiry. This local refund evidence is distinct from the two public-chain settlement/claim runs.
 
 See the repository's `evidence/` files, `docs/CONTRACT.md` and setup README for exact requests, calls, saved real signatures and receipts. The finished video must show the valid action and these four rejection cases.
 
@@ -68,4 +70,4 @@ The selected Gamma calls are free. No fake 402 payment is added to claim paid-da
 
 ## Türkçe teslim notu
 
-Bu metin kullanıcı incelemesi için taslaktır; başvuru gönderilmedi. Canlı settlement/claim tamamlandı ve yukarıdaki gerçek linklerle kaydedildi. Public push/clone sonucu sabah handoff'unda; video henüz yok. Video kaydı zorunlu ve şu anda PENDING. Genel kural takım başına tek submission, en fazla üç partner track; son tarih 31 Ekim 2026 15:00 Europe/Berlin olarak tekrar doğrulanmalı. Mevcut zorunlu tablodaki unresolved maddeler PASS diye sunulmamalı.
+Bu metin kullanıcı incelemesi için taslaktır; başvuru gönderilmedi. Canlı settlement/claim tamamlandı ve yukarıdaki gerçek linklerle kaydedildi. Public repo ve temiz clone production kontrolü PASS; yeni kapanış kanıtlarının son push'unu root tamamlıyor. Son durum sabah handoff'unda; video henüz yok. Video kaydı zorunlu ve şu anda PENDING. Genel kural takım başına tek submission, en fazla üç partner track; son tarih 31 Ekim 2026 15:00 Europe/Berlin. Doğru API3 ve genel submission tabları 04:51–04:53 yeniden kontrol edildi; şartlarda değişiklik görülmedi (`evidence/rules-check.json`). Mevcut zorunlu tablodaki unresolved maddeler PASS diye sunulmamalı.

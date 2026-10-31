@@ -1,0 +1,23 @@
+{
+  "request": {
+    "operation": "getMarketById",
+    "parameters": {
+      "id": "6406061"
+    },
+    "responseProjection": {
+      "marketId": "/id",
+      "conditionId": "/conditionId",
+      "closed": "/closed",
+      "endDate": "/endDate",
+      "outcomes": "/outcomes",
+      "updatedAt": "/updatedAt"
+    }
+  },
+  "response": {
+    "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "requestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+    "timestamp": "1793416626",
+    "data": "{\"closed\":false,\"conditionId\":\"0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63\",\"endDate\":\"2026-10-31T03:20:00Z\",\"marketId\":\"6406061\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T03:15:22.673584Z\"}",
+    "signature": "0x3e72e0a0ef089ff2ae538a5db9813cfbf0df47cdef7b136599113c794aa449847f1711941a4b6f5677022680e0e8d762ccff90c9873d9b4c60f314ae9862905c1c"
+  }
+}

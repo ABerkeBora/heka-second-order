@@ -1,0 +1,33 @@
+{
+  "request": {
+    "operation": "getMarketById",
+    "parameters": {
+      "id": "6406069"
+    },
+    "responseProjection": {
+      "marketId": "/id",
+      "conditionId": "/conditionId",
+      "closed": "/closed",
+      "status": "/umaResolutionStatus",
+      "outcomes": "/outcomes",
+      "outcomePrices": "/outcomePrices",
+      "updatedAt": "/updatedAt"
+    }
+  },
+  "response": {
+    "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "requestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+    "timestamp": "1793417143",
+    "data": "{\"closed\":true,\"conditionId\":\"0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699\",\"marketId\":\"6406069\",\"outcomePrices\":\"[\\\"1\\\", \\\"0\\\"]\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"status\":\"resolved\",\"updatedAt\":\"2026-10-31T03:22:28.204546Z\"}",
+    "signature": "0xdf19305e7d2d175c251e0c0c6b260c26cfc740822972f04df5b20176190832a0303cdd5478c8553f2100fb2ec02007a923dd5af14456b443180bc0e287a4d28e1b"
+  },
+  "data": {
+    "closed": true,
+    "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+    "marketId": "6406069",
+    "outcomePrices": "[\"1\", \"0\"]",
+    "outcomes": "[\"Up\", \"Down\"]",
+    "status": "resolved",
+    "updatedAt": "2026-10-31T03:22:28.204546Z"
+  }
+}

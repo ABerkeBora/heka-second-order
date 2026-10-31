@@ -2219,3 +2219,12 @@ small {
     min-width: 44px;
   }
 }
+@media (max-width: 1100px) {
+  .primary-button,
+  .composer .primary-button,
+  .evidence-drawer > .primary-button,
+  input:not([type="checkbox"]):not([type="radio"]),
+  select {
+    min-height: 44px;
+  }
+}

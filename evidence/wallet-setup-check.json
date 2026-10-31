@@ -1,0 +1,11 @@
+{
+  "mode": "Offline un-funded disposable setup test",
+  "testOnly": true,
+  "chainId": 84532,
+  "uniqueRoleAddresses": 3,
+  "permissions": "0600",
+  "noKeysPrinted": true,
+  "overwriteRefused": true,
+  "existingFileUnchanged": true,
+  "noFundsOrNetworkAccess": true
+}
