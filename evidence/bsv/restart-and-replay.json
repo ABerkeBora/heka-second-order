@@ -1,0 +1,34 @@
+{
+  "checkedAt": "2026-10-31T09:39:04.840Z",
+  "status": "PASS",
+  "intentId": "56093e21-b8d8-4aac-8641-21d806dcfbea",
+  "method": "Actual funded server process restarted, same intent reconciled via HTTP; duplicate mandate refused before signing",
+  "sameFundingHashes": true,
+  "fundings": [
+    {
+      "role": "buyer",
+      "txid": "8bcbad918a7521cd3b5e0aa4a970f6610f41299f37b3322c51b1409f88af40fe",
+      "refundReady": true,
+      "network": {
+        "txid": "8bcbad918a7521cd3b5e0aa4a970f6610f41299f37b3322c51b1409f88af40fe",
+        "txStatus": "SEEN_MULTIPLE_NODES",
+        "checkedAt": "2026-10-31T09:39:04.181Z"
+      }
+    },
+    {
+      "role": "counterparty",
+      "txid": "325b63b5a0d9cd002e6b44e6f43cf2425b7f2a2e4f9487365e999608bc60ea6c",
+      "refundReady": true,
+      "network": {
+        "txid": "325b63b5a0d9cd002e6b44e6f43cf2425b7f2a2e4f9487365e999608bc60ea6c",
+        "txStatus": "SEEN_MULTIPLE_NODES",
+        "checkedAt": "2026-10-31T09:39:04.400Z"
+      }
+    }
+  ],
+  "duplicate": {
+    "httpStatus": 400,
+    "error": "Existing BSV intent must reconcile; no second mandate"
+  },
+  "newFundingActions": 0
+}

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-31T09:38:42.295Z",
+  "intentId": "56093e21-b8d8-4aac-8641-21d806dcfbea",
+  "status": "Waiting for sources",
+  "fundings": [
+    {
+      "role": "buyer",
+      "txid": "8bcbad918a7521cd3b5e0aa4a970f6610f41299f37b3322c51b1409f88af40fe",
+      "satoshis": 5000,
+      "refund": "9912cf591044f8ec65db665c8de0870ea6159e558059b7df18837a500fdf0a4a"
+    },
+    {
+      "role": "counterparty",
+      "txid": "325b63b5a0d9cd002e6b44e6f43cf2425b7f2a2e4f9487365e999608bc60ea6c",
+      "satoshis": 5000,
+      "refund": "7ae80e5e11bfa12e11703daac80652bfdb8a85565b58b37bdf4cab3d777b99ae"
+    }
+  ],
+  "approval": "0x4bac6d4f18af12aac185835641bce936f7066451"
+}

@@ -22,9 +22,14 @@
     "test:namespace": "node scripts/namespace-test.mjs",
     "test:next-gates": "node scripts/next-gates-test.mjs",
     "verify:next-policy": "node --env-file-if-exists=.env scripts/verify-next-policy.ts",
-    "verify:next-isolation": "node --env-file-if-exists=.env scripts/verify-next-isolation.ts"
+    "verify:next-isolation": "node --env-file-if-exists=.env scripts/verify-next-isolation.ts",
+    "test:bsv": "node --test src/bsv-script.test.ts",
+    "verify:bsv": "node --env-file-if-exists=.env scripts/bsv-tamper.ts",
+    "refund:bsv": "node scripts/bsv-refund.ts"
   },
   "dependencies": {
+    "@bsv/sdk": "3.2.1",
+    "@bsv/wallet-toolbox": "2.14.9",
     "express": "5.1.0",
     "react": "19.2.0",
     "react-dom": "19.2.0",

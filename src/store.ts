@@ -4,23 +4,21 @@ import { AsyncLocalStorage } from "node:async_hooks";
 export const root = path.resolve(import.meta.dirname, "..");
 // The executor/PID lock remains global: both namespaces share funded test roles and nonces.
 export const runtime = path.join(root, ".runtime");
-export type StoreNamespace = "v1" | "next";
+export type StoreNamespace = "v1" | "next" | "bsv";
 const context = new AsyncLocalStorage<StoreNamespace>();
 export function storeNamespace(): StoreNamespace {
   return context.getStore() || "v1";
 }
 export function withStore<T>(namespace: StoreNamespace, fn: () => T): T {
-  if (namespace !== "v1" && namespace !== "next")
+  if (namespace !== "v1" && namespace !== "next" && namespace !== "bsv")
     throw Error("Unknown Second Order store namespace");
   return context.run(namespace, fn);
 }
 export function runtimePath(): string {
-  return storeNamespace() === "next" ? path.join(runtime, "next") : runtime;
+  return storeNamespace() === "v1" ? runtime : path.join(runtime, storeNamespace());
 }
 export function evidenceDirectory(): string {
-  return storeNamespace() === "next"
-    ? path.join(root, "evidence", "v2")
-    : path.join(root, "evidence");
+  return storeNamespace() === "v1" ? path.join(root, "evidence") : path.join(root, "evidence", storeNamespace() === "next" ? "v2" : "bsv");
 }
 export type AppState = {
   markets: any[];

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
+import BsvApp from './bsv';
 
 type Market = {
   id: string;
@@ -1758,6 +1759,6 @@ function App() {
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    {window.location.pathname.replace(/\/$/,'') === '/bsv' ? <BsvApp /> : <App />}
   </React.StrictMode>,
 );

@@ -1,0 +1,8 @@
+{
+  "manifestHash": "725bd48467b74fc5d6b41d4db1332d084523e26459dce334dc8de3a4c8f843cd",
+  "contract": "0x4bac6d4f18af12aac185835641bce936f7066451",
+  "deployment": "0x266ffe35b839d2a2c766958e8884927899f3eb8ef5cd8f6d3f108a321296131a",
+  "initialization": "0xdf2216246e19c6e32d10c28391da89db9dc74d554e2893d30bb50d9dec5e6c02",
+  "originalSignatureConsumer": true,
+  "trust": "BSV attestor reads EVM state; BSV Script does not verify EVM consensus"
+}

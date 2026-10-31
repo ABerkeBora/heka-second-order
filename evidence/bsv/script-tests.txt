@@ -1,0 +1,21 @@
+✔ mandatory attestor and buyer signatures unlock actual compiled Script interpreter (33.957667ms)
+✔ counterparty can co-sign so loser participation is not needed (19.128417ms)
+✔ attestor plus a nonparticipant cannot unlock collateral (20.0545ms)
+✔ participant alone cannot impersonate attestor (14.020667ms)
+✔ SIGHASH_ALL blocks edited payout amount (12.458041ms)
+✔ SIGHASH_ALL blocks redirected beneficiary (11.963167ms)
+✔ SIGHASH_ALL blocks an added drain output (14.897458ms)
+✔ SIGHASH_ALL blocks different outpoint and replay to another pool (8.808125ms)
+✔ fixed-output attestor guard rejects fee or output changes (9.011625ms)
+✔ refund lockTime and sequence are part of signatures, not CLTV (14.32275ms)
+✔ manifest commitment prevents substitution of pool terms (7.596459ms)
+✔ only testnet and capped integer satoshis are accepted (0.293583ms)
+✔ BRC100 derived-key signature validates the full custom input without identity-key signing (18.668917ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 550.370584

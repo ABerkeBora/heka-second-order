@@ -1,0 +1,33 @@
+{
+  "checkedAt": "2026-10-31T10:02:26.268Z",
+  "method": "Actual CUA Chrome viewport screenshots and read-only DOM measurements",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "overflow": false,
+      "minFontPx": 11,
+      "fontsLoaded": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "overflow": false,
+      "minFontPx": 11,
+      "mainPanelWidths": [
+        351,
+        351
+      ]
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "overflow": false,
+      "minFontPx": 11,
+      "minimumControlHeight": 44
+    }
+  ],
+  "custodyDisclosureVisible": true,
+  "screenshots": "CUA tool outputs; no local screenshot export claimed",
+  "scope": "Working /bsv display, responsive/empty/pending/paid evidence view; initial economic authorization was invoked through the same HTTP API and approved in Desktop, not claimed as a browser-click recording"
+}

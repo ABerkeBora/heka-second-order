@@ -1,0 +1,8 @@
+{
+  "network": "testnet",
+  "identity": "0298aa93a2c7ab47c2ae4f98018b16da1a0cc25403f4d226330894bdb3a87c9954",
+  "authenticated": true,
+  "balanceSatoshis": null,
+  "balanceNote": "Standard wallet balance is private; createAction performs wallet coin selection. No default-basket access requested.",
+  "checkedAt": "2026-10-31T09:28:07.804Z"
+}

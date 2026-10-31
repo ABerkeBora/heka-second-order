@@ -1,0 +1,254 @@
+{
+  "id": "a3390a22-597e-457b-8710-9a451df63721",
+  "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+  "marketIds": [
+    "6414738",
+    "6414741"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "OR",
+  "normalizedIntent": {
+    "version": 1,
+    "event": "crypto-up-down",
+    "legs": [
+      {
+        "asset": "ETH",
+        "direction": "Up"
+      },
+      {
+        "asset": "SOL",
+        "direction": "Up"
+      }
+    ],
+    "operator": "OR",
+    "windowMinutes": 5,
+    "window": "same-next"
+  },
+  "model": "qwen3:4b",
+  "modelRecord": {
+    "id": "c890f11a-7d40-44fa-a0b9-ff2c9b0d8f7d",
+    "decision": "accept",
+    "normalized": {
+      "version": 1,
+      "event": "crypto-up-down",
+      "legs": [
+        {
+          "asset": "ETH",
+          "direction": "Up"
+        },
+        {
+          "asset": "SOL",
+          "direction": "Up"
+        }
+      ],
+      "operator": "OR",
+      "windowMinutes": 5,
+      "window": "same-next"
+    },
+    "marketIds": [
+      "6414738",
+      "6414741"
+    ],
+    "selectedOutcomeIndexes": [
+      0,
+      0
+    ],
+    "reason": "Both ETH Up and SOL Up markets are available in the same 5-minute window (2026-10-31T09:35:00.000Z-2026-10-31T09:40:00.000Z) as per independentlyMatchedPairs. No other candidates match the exact asset/direction/window requirement.",
+    "model": "qwen3:4b",
+    "input": {
+      "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+      "independentlyMatchedPairs": [
+        [
+          {
+            "legIndex": 0,
+            "proposalIndex": 0,
+            "marketId": "6414738",
+            "conditionId": "0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b",
+            "asset": "ETH",
+            "direction": "Up",
+            "outcomeIndex": 0,
+            "startTime": 1793439300000,
+            "endTime": 1793439600000,
+            "startDate": "2026-10-31T09:35:00.000Z",
+            "endDate": "2026-10-31T09:40:00.000Z",
+            "durationMinutes": 5
+          },
+          {
+            "legIndex": 1,
+            "proposalIndex": 1,
+            "marketId": "6414741",
+            "conditionId": "0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf",
+            "asset": "SOL",
+            "direction": "Up",
+            "outcomeIndex": 0,
+            "startTime": 1793439300000,
+            "endTime": 1793439600000,
+            "startDate": "2026-10-31T09:35:00.000Z",
+            "endDate": "2026-10-31T09:40:00.000Z",
+            "durationMinutes": 5
+          }
+        ]
+      ],
+      "selectionMeaning": "Up/Down are outcomes to SELECT, not facts that must already have happened. All candidates are open future windows.",
+      "candidates": [
+        {
+          "id": "6414737",
+          "question": "Hyperliquid Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "hype-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        },
+        {
+          "id": "6414738",
+          "question": "Ethereum Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "eth-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        },
+        {
+          "id": "6414739",
+          "question": "BNB Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "bnb-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        },
+        {
+          "id": "6414740",
+          "question": "ZCash Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "zec-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        },
+        {
+          "id": "6414741",
+          "question": "Solana Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "sol-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        },
+        {
+          "id": "6414742",
+          "question": "Dogecoin Up or Down - October 31, 5:35AM-5:40AM ET",
+          "slug": "doge-updown-5m-1793439300",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T09:40:00Z"
+        }
+      ]
+    },
+    "startedAt": "2026-10-31T09:29:47.554Z",
+    "createdAt": "2026-10-31T09:30:17.985Z",
+    "latencyMs": 30431
+  },
+  "createdAt": "2026-10-31T09:30:17.987Z",
+  "matches": [
+    {
+      "legIndex": 0,
+      "proposalIndex": 0,
+      "marketId": "6414738",
+      "conditionId": "0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b",
+      "asset": "ETH",
+      "direction": "Up",
+      "outcomeIndex": 0,
+      "startTime": 1793439300000,
+      "endTime": 1793439600000,
+      "startDate": "2026-10-31T09:35:00.000Z",
+      "endDate": "2026-10-31T09:40:00.000Z",
+      "durationMinutes": 5
+    },
+    {
+      "legIndex": 1,
+      "proposalIndex": 1,
+      "marketId": "6414741",
+      "conditionId": "0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf",
+      "asset": "SOL",
+      "direction": "Up",
+      "outcomeIndex": 0,
+      "startTime": 1793439300000,
+      "endTime": 1793439600000,
+      "startDate": "2026-10-31T09:35:00.000Z",
+      "endDate": "2026-10-31T09:40:00.000Z",
+      "durationMinutes": 5
+    }
+  ],
+  "sources": [
+    {
+      "id": "6414738",
+      "question": "Ethereum Up or Down - October 31, 5:35AM-5:40AM ET",
+      "slug": "eth-updown-5m-1793439300",
+      "conditionId": "0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.495",
+        "0.505"
+      ],
+      "endDate": "2026-10-31T09:40:00Z",
+      "updatedAt": "2026-10-31T09:28:15.511895Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+      "settlementRequestHash": "0x92fe96c9a79a5d664ba687f15f43b32d46a764a5aa511b41574dc7a2abe6b1ef",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+        "timestamp": "1793438987",
+        "data": "{\"closed\":false,\"conditionId\":\"0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414738\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:28:15.511895Z\"}",
+        "signature": "0x4f1be22ee15c5e04ec911d0d6494f29ae7221180f3077b9156d205cc6030da82595d63a88a5edc65eee4538aa67b9766656338590a2088c00e8b3ebfd1f412511b"
+      }
+    },
+    {
+      "id": "6414741",
+      "question": "Solana Up or Down - October 31, 5:35AM-5:40AM ET",
+      "slug": "sol-updown-5m-1793439300",
+      "conditionId": "0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.505",
+        "0.495"
+      ],
+      "endDate": "2026-10-31T09:40:00Z",
+      "updatedAt": "2026-10-31T09:24:15.423426Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0xa3c607d2bde5015d7ecce477e457ce79dd37a0ccea9409914ac58ca9a78a6a31",
+      "settlementRequestHash": "0x44fd824c33b20e6cd0e38bc7887921112548a8df36a29e7eceb363e1e280ab21",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0xa3c607d2bde5015d7ecce477e457ce79dd37a0ccea9409914ac58ca9a78a6a31",
+        "timestamp": "1793438987",
+        "data": "{\"closed\":false,\"conditionId\":\"0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414741\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:24:15.423426Z\"}",
+        "signature": "0xe0190df439e2de37e0d18e51bb5b36d4e02f95a350e122a8a2641191458d96da07001c9e4fb8dd7e7594442202d01f8e84bbc9ce551354be3a94b94d192494051b"
+      }
+    }
+  ],
+  "deadline": 1793440800,
+  "tradeClosesAt": 1793439555
+}

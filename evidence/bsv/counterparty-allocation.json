@@ -1,0 +1,10 @@
+{
+  "network": "testnet",
+  "txid": "cc5d30da2d0ee7bffdffd23f3e912d65367e1e986cc582c14499e6fe1108ca1a",
+  "recipientIdentity": "031bc7bf9d7c08f11411f035bdbf341601619d885e872466bb3d289469ca748b96",
+  "satoshis": 10000,
+  "feeSatoshis": 57,
+  "status": "received",
+  "balanceSatoshis": 10000,
+  "purpose": "Test setup only; not derivative collateral or agent payment qualification"
+}

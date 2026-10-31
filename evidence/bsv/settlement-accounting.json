@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-10-31T10:02:26.266Z",
+  "status": "PASS",
+  "intent": "56093e21-b8d8-4aac-8641-21d806dcfbea",
+  "result": "NO",
+  "buyerPayoutSatoshis": 0,
+  "counterpartyPayoutSatoshis": 9000,
+  "collateralSatoshis": [
+    {
+      "role": "buyer",
+      "satoshis": 5000,
+      "fundingFeeSatoshis": 86
+    },
+    {
+      "role": "counterparty",
+      "satoshis": 5000,
+      "fundingFeeSatoshis": 35
+    }
+  ],
+  "payoutFeeSatoshis": 1000,
+  "payoutTxid": "ca564e8e0f9d20081a589a09755157768e657d5acb1ff20ab0d668807938ed70",
+  "payoutScriptMatchesFixedRecipient": true,
+  "allLiveInputScriptsVerified": true,
+  "receiverWalletRegistered": true,
+  "receivingBasket": "secondorderbsvpayout",
+  "receipts": [
+    {
+      "txid": "8bcbad918a7521cd3b5e0aa4a970f6610f41299f37b3322c51b1409f88af40fe",
+      "txStatus": "MINED",
+      "blockHeight": 1766129
+    },
+    {
+      "txid": "325b63b5a0d9cd002e6b44e6f43cf2425b7f2a2e4f9487365e999608bc60ea6c",
+      "txStatus": "MINED",
+      "blockHeight": 1766129
+    },
+    {
+      "txid": "ca564e8e0f9d20081a589a09755157768e657d5acb1ff20ab0d668807938ed70",
+      "txStatus": "MINED",
+      "blockHeight": 1766129
+    }
+  ],
+  "apiFee": 0,
+  "setupAllocationSeparate": true,
+  "nonCustodialQualification": "BLOCKED: backend owns attestor and seeded counterparty keys; this receipt does not prove independent control",
+  "originalProofTransactions": [
+    "0xed1e2cb41fcffbb778892a9b58ef71194fb6d76f80000c5732014aac141dd4a2",
+    "0xc687899e21bec0845b3fe7aa61a27744f6421a2ae0e827fad22ecc4016e6b344"
+  ]
+}

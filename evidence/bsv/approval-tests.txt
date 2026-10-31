@@ -1,0 +1,24 @@
+Warning: This is a nightly build of Foundry. It is recommended to use the latest stable version. To mute this warning set `FOUNDRY_DISABLE_NIGHTLY_WARNING` in your environment. 
+
+No files changed, compilation skipped
+
+Ran 16 tests for test/BSVBasketApproval.t.sol:BSVBasketApprovalTest
+[PASS] testAndFalse() (gas: 777409)
+[PASS] testClosedFalseIsNotResolved() (gas: 275367)
+[PASS] testDoubleInitializationBlocked() (gas: 30863)
+[PASS] testDuplicateSourceCannotExecuteTwice() (gas: 417542)
+[PASS] testEditedValueRejectedBeforeStateChange() (gas: 44348)
+[PASS] testFreshEnvelopeDoesNotRefreshStaleSource() (gas: 239967)
+[PASS] testInvalidComponentRejected() (gas: 11112)
+[PASS] testNearOneIsNotFinal() (gas: 372309)
+[PASS] testOrTrue() (gas: 4373195)
+[PASS] testProposedIsNotResolved() (gas: 309788)
+[PASS] testRefundOnlyAfterImmutableDeadline() (gas: 43247)
+[PASS] testSettledCannotRefund() (gas: 778244)
+[PASS] testUneditedStaleProofRejected() (gas: 38574)
+[PASS] testValidOriginalProofCreatesEssentialApprovalState() (gas: 780318)
+[PASS] testWrongRequestRejected() (gas: 37564)
+[PASS] testWrongSignerRejected() (gas: 37300)
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 19.68ms (34.05ms CPU time)
+
+Ran 1 test suite in 27.38ms (19.68ms CPU time): 16 tests passed, 0 failed, 0 skipped (16 total tests)

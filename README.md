@@ -1,5 +1,7 @@
 # Second Order
 
+The isolated **BSV testnet experiment** is available at [localhost:3101/bsv](http://localhost:3101/bsv). Real collateral and conditional BSV payout are recorded in [BSV_HANDOFF.md](BSV_HANDOFF.md); current rules/evidence are in [TRACK_REQUIREMENTS_BSV.md](TRACK_REQUIREMENTS_BSV.md). `/` and `/next` retain the original EVM workflows. The BSV fallback uses an EVM original-envelope approval consumer plus an attestor. **Its test backend holds both attestor and seeded counterparty keys, so BSV non-custodial qualification is BLOCKED.** It is not a native/trustless API3-on-BSV implementation. No mainnet spending is enabled.
+
 Give an agent a small test budget for a basket of two Polymarket outcomes. It proposes an **AND** or **OR** rule, funds the approved side, follows authenticated final records and initiates the payout or fixed-deadline refund.
 
 Second Order runs locally on **http://localhost:3101**. It uses **Base Sepolia**, public-mint **Second Order Units (SOU)** collateral with six decimals and no economic value, and a real local Ollama model. It does not place orders on Polymarket. The selected Gamma operations are free; they are not represented as paid x402 calls.

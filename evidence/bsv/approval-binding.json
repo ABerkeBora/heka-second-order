@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-31T09:42:59.617Z",
+  "contract": "0x4bac6d4f18af12aac185835641bce936f7066451",
+  "checks": [
+    {
+      "marketId": true,
+      "conditionId": true,
+      "outcomes": true,
+      "createHash": true,
+      "settlementHash": true,
+      "selected": true,
+      "endTime": true
+    },
+    {
+      "marketId": true,
+      "conditionId": true,
+      "outcomes": true,
+      "createHash": true,
+      "settlementHash": true,
+      "selected": true,
+      "endTime": true
+    }
+  ],
+  "status": "PASS"
+}

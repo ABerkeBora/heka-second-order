@@ -1,0 +1,132 @@
+{
+  "id": "c890f11a-7d40-44fa-a0b9-ff2c9b0d8f7d",
+  "decision": "accept",
+  "normalized": {
+    "version": 1,
+    "event": "crypto-up-down",
+    "legs": [
+      {
+        "asset": "ETH",
+        "direction": "Up"
+      },
+      {
+        "asset": "SOL",
+        "direction": "Up"
+      }
+    ],
+    "operator": "OR",
+    "windowMinutes": 5,
+    "window": "same-next"
+  },
+  "marketIds": [
+    "6414738",
+    "6414741"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "reason": "Both ETH Up and SOL Up markets are available in the same 5-minute window (2026-10-31T09:35:00.000Z-2026-10-31T09:40:00.000Z) as per independentlyMatchedPairs. No other candidates match the exact asset/direction/window requirement.",
+  "model": "qwen3:4b",
+  "input": {
+    "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+    "independentlyMatchedPairs": [
+      [
+        {
+          "legIndex": 0,
+          "proposalIndex": 0,
+          "marketId": "6414738",
+          "conditionId": "0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b",
+          "asset": "ETH",
+          "direction": "Up",
+          "outcomeIndex": 0,
+          "startTime": 1793439300000,
+          "endTime": 1793439600000,
+          "startDate": "2026-10-31T09:35:00.000Z",
+          "endDate": "2026-10-31T09:40:00.000Z",
+          "durationMinutes": 5
+        },
+        {
+          "legIndex": 1,
+          "proposalIndex": 1,
+          "marketId": "6414741",
+          "conditionId": "0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf",
+          "asset": "SOL",
+          "direction": "Up",
+          "outcomeIndex": 0,
+          "startTime": 1793439300000,
+          "endTime": 1793439600000,
+          "startDate": "2026-10-31T09:35:00.000Z",
+          "endDate": "2026-10-31T09:40:00.000Z",
+          "durationMinutes": 5
+        }
+      ]
+    ],
+    "selectionMeaning": "Up/Down are outcomes to SELECT, not facts that must already have happened. All candidates are open future windows.",
+    "candidates": [
+      {
+        "id": "6414737",
+        "question": "Hyperliquid Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "hype-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      },
+      {
+        "id": "6414738",
+        "question": "Ethereum Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "eth-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      },
+      {
+        "id": "6414739",
+        "question": "BNB Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "bnb-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      },
+      {
+        "id": "6414740",
+        "question": "ZCash Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "zec-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      },
+      {
+        "id": "6414741",
+        "question": "Solana Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "sol-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      },
+      {
+        "id": "6414742",
+        "question": "Dogecoin Up or Down - October 31, 5:35AM-5:40AM ET",
+        "slug": "doge-updown-5m-1793439300",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T09:40:00Z"
+      }
+    ]
+  },
+  "startedAt": "2026-10-31T09:29:47.554Z",
+  "createdAt": "2026-10-31T09:30:17.985Z",
+  "latencyMs": 30431
+}

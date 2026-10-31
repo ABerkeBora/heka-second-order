@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-31T09:38:05.274Z",
+  "status": "PASS",
+  "network": "Base Sepolia",
+  "contract": "0x4bac6d4f18af12aac185835641bce936f7066451",
+  "method": "Deployed verifyProof eth_call; no BSV/ETH broadcast",
+  "validCase": {
+    "status": "PASS",
+    "response": {
+      "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "requestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+      "timestamp": "1793439483",
+      "data": "{\"closed\":false,\"conditionId\":\"0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414738\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:32:16.565939Z\"}",
+      "signature": "0xcee8b33aa957713c036d592cd9d41d0ecaf38e2ef1cfeacb321fc776c6b16f5e0ccfb90dfd9f92e995bad1b001993cf11331488a66030aebf2e442924e5b7a461b"
+    }
+  },
+  "cases": [
+    {
+      "name": "edited",
+      "expectedError": "NotSignedByAirnode",
+      "status": "PASS",
+      "envelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+        "timestamp": "1793439483",
+        "data": "{\"closed\":true,\"conditionId\":\"0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414738\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:32:16.565939Z\"}",
+        "signature": "0xcee8b33aa957713c036d592cd9d41d0ecaf38e2ef1cfeacb321fc776c6b16f5e0ccfb90dfd9f92e995bad1b001993cf11331488a66030aebf2e442924e5b7a461b"
+      }
+    },
+    {
+      "name": "stale",
+      "expectedError": "ResponseTooOld",
+      "status": "PASS",
+      "envelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+        "timestamp": "1793438987",
+        "data": "{\"closed\":false,\"conditionId\":\"0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414738\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:28:15.511895Z\"}",
+        "signature": "0x4f1be22ee15c5e04ec911d0d6494f29ae7221180f3077b9156d205cc6030da82595d63a88a5edc65eee4538aa67b9766656338590a2088c00e8b3ebfd1f412511b"
+      }
+    },
+    {
+      "name": "wrong-request",
+      "expectedError": "NotSignedByAirnode",
+      "status": "PASS",
+      "envelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0xa3c607d2bde5015d7ecce477e457ce79dd37a0ccea9409914ac58ca9a78a6a31",
+        "timestamp": "1793439483",
+        "data": "{\"closed\":false,\"conditionId\":\"0xbd9e3b9d2da13d059417b7deff1470c662d862ba3fbe8bbb426e8cd942762caf\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414741\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:34:15.897773Z\"}",
+        "signature": "0xf5f90acc25f09ef8caf48102be742032b09f610a8b1623c077dac201840c1b825228499370b8d9a7f4e9cc9da0c1ac2b56c0653636979612bbbe061992e4b06c1c"
+      }
+    },
+    {
+      "name": "wrong-signer",
+      "expectedError": "NotSignedByAirnode",
+      "status": "PASS",
+      "envelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x3def6b31f5aaa6e5a33f2dc3fe9fdbb035de86eb8bd0d02d7cba4ef48bcd97af",
+        "timestamp": "1793439483",
+        "data": "{\"closed\":false,\"conditionId\":\"0x29d8233df1aa64b50294a6e6b05ee0722efdcc60de9e032e666cae3c5959c18b\",\"endDate\":\"2026-10-31T09:40:00Z\",\"marketId\":\"6414738\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T09:32:16.565939Z\"}",
+        "signature": "0xb13492e97040c1f7174bf1a3fb4ffd9ee094399278970fc5d82be05984ffe61346055833ead59825ca637541d4924443b0438ab1727a062149c0722f66149aa31b"
+      }
+    }
+  ],
+  "before": {
+    "initialized": true,
+    "finalA": false,
+    "finalB": false,
+    "settled": false
+  },
+  "after": {
+    "initialized": true,
+    "finalA": false,
+    "finalB": false,
+    "settled": false
+  },
+  "approvalStateUnchanged": true,
+  "broadcastTransactions": false,
+  "trust": "Original API3 EVM verification. Not native BSV verification and not independent signer custody."
+}

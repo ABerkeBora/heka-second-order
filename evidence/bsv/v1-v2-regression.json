@@ -1,0 +1,29 @@
+{
+  "checkedAt": "2026-10-31T09:39:04.848Z",
+  "status": "PASS",
+  "runtimeHashesUnchanged": true,
+  "actual": {
+    ".runtime/state.json": "a1ac3ee2919b918c9628ce007377613f6c1515f68d3d1a7a7f630b94668a1812",
+    ".runtime/transactions.json": "47153cf27f1f14e4992daedf78bbe8e84d9473ab1380825d01de5827e62b7a33",
+    ".runtime/next/state.json": "5074c99e9aedcee7786615dc6e677d64f4c4cbce1d2eb316919f59ff179b285e",
+    ".runtime/next/transactions.json": "60ed71555fe4d819832fce3c23acff85c6366046b755ced56ac553f01dfac6f8"
+  },
+  "summaries": [
+    {
+      "path": "/api/state",
+      "transactions": 31,
+      "statuses": [
+        "claimed",
+        "claimed"
+      ]
+    },
+    {
+      "path": "/api/next/state",
+      "transactions": 15,
+      "statuses": [
+        "claimed"
+      ]
+    }
+  ],
+  "scope": "Protected V1/V2 state/transaction journals; BSV sidecar test-gas is separate and not claimed unchanged"
+}
