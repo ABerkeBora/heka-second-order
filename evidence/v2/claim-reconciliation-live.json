@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-31T04:20:40.592Z",
+  "mode": "Actual post-claim receipt reconciliation, no new transaction",
+  "intentId": "30e23be6-245b-42ee-ba34-3dd314aafe57",
+  "transactionCount": 15,
+  "assertions": {
+    "same15Hashes": true,
+    "noSecondPayout": true,
+    "reserveZero": true,
+    "deliveryAmountsReconstructedFromEvents": true
+  },
+  "deliveries": {
+    "buyer": {
+      "amountUnits": "2000000",
+      "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "refund": false,
+      "transactionHash": "0x092db333e4deede2fa162482f50c4efb4d40e3eb2bcb05dd19d45a0f8609dbdf"
+    },
+    "counterparty": {
+      "amountUnits": "0",
+      "beneficiary": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "payer": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "refund": false,
+      "transactionHash": "0xd48011163587b43935e6d92c70c85bcfd4f2eb5b8d62a04a21509346ea76513a"
+    }
+  }
+}

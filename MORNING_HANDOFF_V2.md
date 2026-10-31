@@ -1,6 +1,6 @@
 # Second Order V2 — sabah teslimi
 
-**Durum: V2 kabul kriterleri ve mühendislik teslimi doğrulandı; yeni havuzun oracle sonucu ve settlement/claim PENDING.** V2, kullanıcının istediği varlık/olay/yön/zaman/AND-OR hedefini doğrular; bulunamayan hedef yerine başka varlığa pozisyon açmaz. Pilot, müşteri veya gelir iddiası yok. Bu dosya fonlama snapshot'ını anlatır; dört tamper, responsive QA, source yayını/temiz clone ve finish rule kontrolleri geçti; finality/tahsilat sonucu sonradan gerçek receipt ile güncellenmeli.
+**Durum: V2 gerçek uçtan uca tamamlandı — hedef doğrulama → ilk bounded yetki → agent funding → iki oracle kanıtı → settlement/claim.** Sonuç **YES**, buyer **2,00 SOU**, counterparty **0 SOU**, reserve **0**; **15 confirmed V2 transaction**. Gerçek V2 Goal **31 Ekim 05:17:51 Europe/Berlin / 04:17:51 UTC** tarihinde complete olarak kapatıldı (1.474 saniye, yaklaşık 25 dk). Dış pilot/müşteri/gelir iddiası yok; video ve gerçek yarışma başvurusu hâlâ PENDING.
 
 ## Açma ve korunmuş V1
 
@@ -9,7 +9,7 @@
 
 İkisi aynı sunucuda, aynı **3101** portunda. Çalışan süreç varsa ikinci sunucu açmayın. Durmuşsa proje dizininde `npm run build` ve `npm start`; temiz kurulum `npm ci`, `forge build`, `.env.example` üzerinden özel `.env`, ardından build/start. Ayrıntılar [README](README.md) içinde. Paylaşılan Ollama `qwen3:4b` ve yalnız izole Base Sepolia test rolleri kullanılır; anahtarlar UI/model/repo'ya girmez.
 
-V1, [`v1-baseline`](https://github.com/ABerkeBora/heka-second-order/tree/v1-baseline) / `8bfd72c…` ile sabit; [BASELINE_V1](BASELINE_V1.md) korunuyor. V2 branch'i **codex/next**; API `/api/next`, private runtime `.runtime/next`, evidence `evidence/v2/`. V1'in tamamlanmış 31 receipt'i ve eski state'i korunuyor. Aynı test rollerinin nonce'ları için tek global sıra/PID lock var; ayrı uygulama süreçleri başlatılmamalı. V2 farklı market ve teminat tokenı kullanıyor. Çalışan source [`b84aa61…`](https://github.com/ABerkeBora/heka-second-order/commit/b84aa61a0dc2b73975c09f92d9f0280a91a13a8d), public `codex/next` branch'ine push edildi. Bu exact commit'in temiz clone/production kontrolleri PASS; canlı settlement/claim sonucu henüz tamamlandı diye sunulmuyor.
+V1, [`v1-baseline`](https://github.com/ABerkeBora/heka-second-order/tree/v1-baseline) / `8bfd72c…` ile sabit; [BASELINE_V1](BASELINE_V1.md) korunuyor. V2 branch'i **codex/next**; API `/api/next`, private runtime `.runtime/next`, evidence `evidence/v2/`. V1'in tamamlanmış 31 receipt'i ve eski state'i korunuyor. Aynı test rollerinin nonce'ları için tek global sıra/PID lock var; ayrı uygulama süreçleri başlatılmamalı. V2 farklı market ve teminat tokenı kullanıyor. Çalışan source [`b84aa61…`](https://github.com/ABerkeBora/heka-second-order/commit/b84aa61a0dc2b73975c09f92d9f0280a91a13a8d), public `codex/next` branch'ine push edildi. Bu exact commit'in temiz clone/production kontrolleri PASS; canlı settlement ve iki claim de artık confirmed. Test edilmiş source `b84aa61…`, rapor commit'i `290de858…`; varsayılan public branch `codex/next`.
 
 ## Kullanıcı değeri ve kapsam
 
@@ -19,15 +19,16 @@ Ham hedef deterministic parse edilir; katalogda tam çift bulunur; gerçek model
 
 Hedef metni değişirse eski review/proposal ile yetki verilemez. Yetki verilmeden önce asset, recipient, beneficiary, tek/toplam integer stake, funding expiry, daha sonraki automation expiry, işlem sayısı, gas ve API fee cap'leri görünür. İlk yetkiden sonra agent gerçek funding'i başlatır; model keyfî destination/asset/calldata seçmez.
 
-## Gerçek V2 fonlaması
+## Gerçek V2 fonlama, settlement ve tahsilat
 
 Ağ **Base Sepolia / 84532**. [Market](https://sepolia.basescan.org/address/0x7d34c8ac853eaceba1306f626420bc7fe36b3442); [V2 SOU tokenı](https://sepolia.basescan.org/address/0xac32bd83e88540c4509845ad7add0c3969d5df51). SOU altı decimal ve değersiz test teminatıdır; ücretsiz Gamma verisine x402 ücreti uydurulmadı.
 
 - Intent `30e23be6-245b-42ee-ba34-3dd314aafe57`; proposal `9f16f2f2-3f6d-4bd1-a13f-022199fad70c`.
 - Gerçek **qwen3:4b / 17,259 saniye**: ham hedefle aynı ETH Up OR SOL Up, beş dakika. Kaynaklar Ethereum **6406433** ve Solana **6406432**; pencere **31 Ekim 04:05–04:10 UTC / 05:05–05:10 Europe/Berlin**.
 - İlk tarayıcı yetkisi sonrası buyer agent [YES 1,00 SOU fonladı](https://sepolia.basescan.org/tx/0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc); ayrı seed edilmiş test karşı tarafı [NO 1,00 SOU fonladı](https://sepolia.basescan.org/tx/0xb29698970677045a0676f2a18e817ef28a0e29eeb802aeab22d93dfd47fa075e).
-- Fonlama snapshot'ında **11 confirmed V2 transaction, 2,00 SOU reserve**. Mandate tek/toplam `1000000` birim, tek funding action, sekiz agent transaction; gas/API cap ve iki expiry ilk yetkide kayıtlı. [funding-live.json](evidence/v2/funding-live.json), [model kaydı](evidence/v2/llm-intent-0698af68-c000-4c8f-8535-8c6ad65e6d2c.json), [receipt listesi](evidence/v2/transactions.json).
-- **Finality, settlement ve claim PENDING.** Bu reserve tahsilat veya kâr değildir. V1'in eski başarılı payout'u yeni V2 payout kanıtı diye kullanılmıyor.
+- **Tarihsel fonlama snapshot'ında** 11 confirmed V2 transaction ve 2,00 SOU reserve vardı. **Nihai durumda 15 confirmed V2 transaction ve reserve 0.** Mandate tek/toplam `1000000` birim, tek funding action, sekiz agent transaction; gas/API cap ve iki expiry ilk yetkide kayıtlı. [funding-live.json](evidence/v2/funding-live.json), [model kaydı](evidence/v2/llm-intent-0698af68-c000-4c8f-8535-8c6ad65e6d2c.json), [receipt listesi](evidence/v2/transactions.json).
+- Ethereum ve Solana'nın seçili Up outcome'ları kazandı. Kaynaklar **04:12:27 UTC** güncellendi; agent **04:17:11/14 UTC** [Ethereum](https://sepolia.basescan.org/tx/0x9392518fabcf764b3d502c197b27386f8695fee41b5f2629668f93e185fe784c) ve [Solana](https://sepolia.basescan.org/tx/0x245e4a22b735c519789e9491593c596362c8977b0ccc6eb5a5cc4329f9a69a44) final proof'larını otomatik gönderdi; OR **YES** ile settled oldu.
+- Agent [buyer için 2,00 SOU](https://sepolia.basescan.org/tx/0x092db333e4deede2fa162482f50c4efb4d40e3eb2bcb05dd19d45a0f8609dbdf), [counterparty için 0 SOU](https://sepolia.basescan.org/tx/0xd48011163587b43935e6d92c70c85bcfd4f2eb5b8d62a04a21509346ea76513a) claim'ini başlattı; ikisi confirmed, reserve **0**. V2 SOU bakiyeleri **6/4**, eski V1 **5/5** ve 31 receipt korunuyor. SOU değersiz test birimidir; bu sonuç müşteri kârı/gelir kanıtı değildir. [Tamamlanmış intent](evidence/v2/intent-30e23be6-245b-42ee-ba34-3dd314aafe57.json).
 
 ## Doğrulananlar ve kalan teknik kapılar
 
@@ -40,8 +41,8 @@ Ağ **Base Sepolia / 84532**. [Market](https://sepolia.basescan.org/address/0x7d
 | Namespace ve V1 uyumluluğu | **PASS**, context, farklı receipt/journal, tek sıra/lock; V1 safety/recovery/yerel Anvil refund regresyonları: [namespace-test](evidence/v2/namespace-test.json), [compatibility](evidence/v2/namespace-compatibility.json) |
 | Gerçek fonlanmış süreç restart'ı | **PASS**, aynı 11 hash, yeni stake yok, reserve 2 SOU: [restart-funded-live.json](evidence/v2/restart-funded-live.json) |
 | V2 dört deployed tamper + duplicate/budget/state | **7/7 PASS**: edited, gerçek stale, wrong request, wrong key; ayrıca duplicate intent, bütçe ve değişmeyen korunan state. [V2 rejection kaydı](evidence/v2/rejections-30e23be6-245b-42ee-ba34-3dd314aafe57.json). Salt okunur deployed RPC; broadcast/revert gas iddiası yok. Hatalı envelope UI içinde işlem/ücret olmadan reddedildi |
-| Final kaynaklar → settlement → collection/refund | **PENDING**, sabit request/deadline içinde agent takip ediyor |
-| Canlı V1/V2 izolasyonu | **44/44 PASS**, block **52487936**: V1 aynı 31 hash, buyer/counterparty eski SOU bakiyesi 5/5, eski reserve 0. [isolation-live.json](evidence/v2/isolation-live.json) |
+| Final kaynaklar → settlement → collection | **PASS**, iki Up kazandı; otomatik iki proof + buyer 2 SOU / counterparty 0 claim confirmed, reserve 0. [Completed intent](evidence/v2/intent-30e23be6-245b-42ee-ba34-3dd314aafe57.json). Fonlama anındaki 11 tx/2 SOU kaydı tarihsel snapshot olarak korunur |
+| Canlı V1/V2 izolasyonu | **44/44 PASS**, block **52492267**: V1 aynı 31 hash, buyer/counterparty eski SOU bakiyesi 5/5, eski reserve 0; V2 15 tx, phase 2, reserve 0. [isolation-live.json](evidence/v2/isolation-live.json) |
 | Responsive üretim QA | **PASS**, 1440/768/390 px, font ≥11 px, gradient/yatay taşma yok, tablet/phone küçük control yok. Tablet paneller 367,99/340 px, phone 354/354 px. [browser-qa.json](evidence/v2/browser-qa.json), `evidence/v2/screenshots/`; V1 gerçek 2 SOU claim ekranı da yeniden görüldü |
 | Public source ve temiz clone | **PASS**, exact `b84aa61…`; npm ci/typecheck/production build/forge build/start, 41 code-manifest eşleşmesi, `/`, `/next` ve iki API'de HTTP200, iki boş namespace. Gizli checkout altında bulunan `/next` 404 sorunu düzeltildi ve gerçekten yeniden test edildi. [clean-clone.json](evidence/v2/clean-clone.json) |
 | Finish rule check | **PASS**, gerçek API3 tabı aria-selected, submission/judging ve genel kurallar **05:06 Europe/Berlin / 04:06 UTC** yeniden okundu, değişiklik yok: [rules-check.json](evidence/v2/rules-check.json). Video/başvuru PENDING kalır |
@@ -51,7 +52,7 @@ Ağ **Base Sepolia / 84532**. [Market](https://sepolia.basescan.org/address/0x7d
 | | V1 | V2 |
 | --- | --- | --- |
 | Kullanıcı hedefi | Gösterilen alternatif sepet ilk yetkiden önce incelenebilir | Tam iki varlık/yön/olay/pencere/AND-OR eşleşir; alternatif pozisyon açılmaz |
-| Kanıt | Tamamlanmış 2/0 SOU OR payout, sabit baseline | Gerçek exact-target fonlama, no-action ve gate/isolation/rejection kanıtları PASS; son payout henüz PENDING |
+| Kanıt | Tamamlanmış 2/0 SOU OR payout, sabit baseline | Gerçek exact-target tam döngü: fonlama, oracle settlement, 2/0 SOU claim; ayrıca no-action/gate/isolation/rejection PASS |
 | Sunum seçimi | Korunan çalışan geri dönüş noktası | **V2 önerilir**: hedef dışı fonlamayı engeller ve gerçek fonlama kanıtına sahiptir. Yeni havuz sonucu beklerken tamamlanmış V1 payout kanıtı ayrı gösterilebilir |
 
 **Demo riski: orta.** Canlı kaynak finality/cache/API erişimi ve yerel modelin kabul/ret davranışı zamanlamayı etkiler; model yanlış ret verebilir ve uygulama no-action kalır. Bu mühendislik riski, müşteri doğrulamasıyla karıştırılmamalı: pilot, ödeme yapan müşteri, gerçek gelir veya talep kanıtı yok. V1'i riskli bir yeniden koşu için bozmayın.
@@ -68,8 +69,8 @@ Server yalnız izole test anahtarları tutar. Stake, recipient/beneficiary ve fu
 
 ## Son kısa inceleme kaydı
 
-[REVIEW_SUMMARY.json](REVIEW_SUMMARY.json), yukarıdaki aynı V1/V2 karşılaştırmasını kısa makine-okunur biçimde taşır. V1 tamamlanmış settlement/claim baseline'ıdır. V2'nin açık kabul ölçütleri gerçek hedef eşleştirme, iki no-action reddi, izole kayıtlar ve gerçek agent funding receipt'iyle PASS; yeni havuzun kaynak kesinleşmesi/tahsilatı bu kayıtta PENDING kalır. **Tercih V2, demo riski orta**: müşteri hedefi dışında pozisyon açılmasını engeller; mühendislik kanıtı vardır, dış pilot yapılmadı.
+[REVIEW_SUMMARY.json](REVIEW_SUMMARY.json), yukarıdaki aynı V1/V2 karşılaştırmasını kısa makine-okunur biçimde taşır. V1 tamamlanmış settlement/claim baseline'ıdır. V2'nin açık kabul ölçütleri gerçek hedef eşleştirme, iki no-action reddi, izole kayıtlar ve gerçek agent funding receipt'iyle PASS; yeni havuzun oracle settlement/tahsilatı da YES / 2-0 SOU / reserve 0 ile tamamlandı. **Tercih V2, demo riski orta**: müşteri hedefi dışında pozisyon açılmasını engeller; mühendislik kanıtı vardır, dış pilot yapılmadı.
 
 Kaynak hâlâ unsigned400/missing umaResolutionStatus veriyorsa beklemek doğrudur; bu imzalı bir sonuç veya yokluk kanıtı değildir. Mevcut sunucu30s worker'ı yalnız mevcut mandate içinde takip eder. Sabit deadline31Ekim05:40Europe/Berlin; çözüm yoksa void/refund, automation expiry05:50'ye kadar yetkilidir. Otomatik top-up yok. Sabah ilk küçük eylem: `/next` Activity'yi açıp son receipt'i incelemek (1dk). Sunucu bu recovery penceresi boyunca kapalı kalmışsa README'deki permissionless refund/claim komutları kullanılır; geçmiş veri silinmez.
 
-Son gerçek havuz snapshot'ı: [pool-status-at-handoff.json](evidence/v2/pool-status-at-handoff.json), 04:17UTC, 11 confirmed işlem, reserve2SOU, payout yok. Bu dış sonuç bekleyişi V2'nin açık fonlama kabul ölçütünden ayrı tutulur; tamamlanmış tahsilat gibi sunulmaz.
+[pool-status-at-handoff.json](evidence/v2/pool-status-at-handoff.json) güncel `settled-live` kaydını ve önceki `historicalWaitingSnapshot`'ı ayrı tutar. **Eski** bekleme noktasında 11 işlem, 2 SOU reserve ve payout yoktu. **Güncel** durum claimed, 15 confirmed işlem, YES, buyer 2 / counterparty 0, reserve 0: [completed intent](evidence/v2/intent-30e23be6-245b-42ee-ba34-3dd314aafe57.json).

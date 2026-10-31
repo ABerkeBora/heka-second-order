@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-31T04:16:33.403Z",
+  "checkedAt": "2026-10-31T04:19:43.144Z",
   "status": "PASS",
   "viewports": [
     {
@@ -98,10 +98,48 @@
     "Malformed envelope inline rejection without transaction",
     "All seven deployed proof/duplicate/budget/protected-state checks PASS",
     "Clean GitHub clone root and /next directly rendered with empty independent states",
-    "V1 completed2SOU collection retained; V2 funded pending-source state shown without invented payout"
+    "V1 completed2SOU collection retained; V2 funded pending-source state shown without invented payout",
+    "Automatic final V2 settlement/claims observed: YES, buyer2SOU/counterparty0, reserve0; final three-width screens match actual receipts"
   ],
   "substitution": "Supported CUA screenshot and rendered-DOM checks used instead of skill CDP inspector",
   "activityViewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nClaimed\n30e23be6-245b-42ee-ba34-3dd314aafe57\nBasket result\nYES\n\nYour YES position won.\n\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n0.00 SOU\nCollected\n2.00 SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\n",
+      "fontsLoaded": "loaded",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "smallControls": [
+        "",
+        "Inspect evidence ",
+        "Reconcile and check sources",
+        "Evidence "
+      ]
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nClaimed\n30e23be6-245b-42ee-ba34-3dd314aafe57\nBasket result\nYES\n\nYour YES position won.\n\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n0.00 SOU\nCollected\n2.00 SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\n",
+      "fontsLoaded": "loaded",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "smallControls": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nClaimed\n30e23be6-245b-42ee-ba34-3dd314aafe57\nBasket result\nYES\n\nYour YES position won.\n\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n0.00 SOU\nCollected\n2.00 SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\n",
+      "fontsLoaded": "loaded",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "smallControls": []
+    }
+  ],
+  "fundedWaitingViewports": [
     {
       "name": "desktop",
       "width": 1440,

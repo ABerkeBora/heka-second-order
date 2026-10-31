@@ -15,7 +15,7 @@ Official sources:
 |---|---|---|
 | AirnodeHub essential to core | Exact signed open records initialized new V2market0x7d34c8ac853eaceba1306f626420bc7fe36b3442 and enabled both real1SOU stakes. evidence/v2/funding-live.json | PASS |
 | Deployed contract verifies signer, intended request and timing | Unchanged pinned verifier; evidence/v2/contract-verification.json56PASS and rejections-30e23be6-245b-42ee-ba34-3dd314aafe57.json all7PASS, including four exact oracle custom errors | PASS |
-| Signed value drives meaningful state, duplicates protected | Real buyer1SOU fund0x20b50e2c…63abc; counterpart1SOU and reserve2 at recorded time. Actual duplicate/cap calls reject; exact pool finality still pending rather than a fabricated payout | PASS |
+| Signed value drives meaningful state, duplicates protected | Real buyer1SOU fund0x20b50e2c…63abc; counterpart1SOU and reserve2 at recorded time. Actual duplicate/cap calls reject; Actual final ETH/SOL Up/OR YES result, buyer2SOU/counterparty0 claims, reserve0; evidence/v2/intent-30e23be6-245b-42ee-ba34-3dd314aafe57.json | PASS |
 
 ## Mandatory submission
 
@@ -43,4 +43,4 @@ Deadline verified31 October2026 15:00 Europe/Berlin. Automatic TUM consideration
 
 Judging preference: originality/useful agent repeats; priced x402 only when operation actually priced. Gamma calls remain free. No profit, upstream-truth, arbitrary-listing, BSV, bridge or general NLP guarantee. Signature proves exact signer/request, not source truth. Model never sees keys or chooses arbitrary calldata. Gas/automation caps application-enforced; on-chain stake limits remain enforced. Finish gate must reopen rules and link actual evidence, carrying unresolved mandatory items into MORNING_HANDOFF_V2.md.
 
-Finish gate: 2026-10-31T04:06:28.031261+00:00 UTC, Europe/Berlin+01:00. API3+general tabs reread through real browser; no changes observed, evidence/v2/rules-check.json. Technical qualification PASS is distinct from required video and user Devfolio entry PENDING. New V2 final settlement/claim has not been claimed while its source window is still open.
+Finish gate: 2026-10-31T04:06:28.031261+00:00 UTC, Europe/Berlin+01:00. API3+general tabs reread through real browser; no changes observed, evidence/v2/rules-check.json. Technical qualification PASS is distinct from required video and user Devfolio entry PENDING. Final V2 settlement/claim subsequently completed automatically04:17UTC:15confirmedtx, both sourcesUp, ORYES, buyer2SOU/counterparty0, reserve0. Video and user entry are the only mandatory submission items still PENDING.

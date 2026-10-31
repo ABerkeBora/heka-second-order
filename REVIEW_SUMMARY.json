@@ -1,6 +1,6 @@
 {
   "project": "Second Order",
-  "checkedAtUtc": "2026-10-31T04:17:01.508595+00:00",
+  "checkedAtUtc": "2026-10-31T04:21:22.845429+00:00",
   "v1": {
     "url": "http://localhost:3101/",
     "status": "Hazır; tamamlanmış settlement ve 2/0 SOU claim kanıtı.",
@@ -8,7 +8,7 @@
   },
   "v2": {
     "url": "http://localhost:3101/next",
-    "status": "Hedef, no-action ve gerçek fonlama doğrulandı; yeni oracle sonucu bekleniyor.",
+    "status": "Hazır; tam hedef eşleşmesi, gerçek fonlama ve otomatik 2/0 SOU tahsilatı doğrulandı.",
     "commit": "b84aa61a0dc2b73975c09f92d9f0280a91a13a8d"
   },
   "changes": [
@@ -21,15 +21,15 @@
     "evidence/v2/funding-live.json",
     "evidence/v2/contract-verification.json:56 PASS; rejections:7 PASS",
     "46 birim,20 backend,44 canlı izolasyon; temiz clone ve üç ekran QA PASS",
-    "https://sepolia.basescan.org/tx/0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc"
+    "https://sepolia.basescan.org/tx/0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc",
+    "evidence/v2/intent-30e23be6-245b-42ee-ba34-3dd314aafe57.json:15 işlem, reserve0"
   ],
   "pending": [
-    "Yeni V2 kaynağının kesinleşmesi ve otomatik tahsilat/iade.",
     "En fazla150 saniye video ve kullanıcının Devfolio gönderimi."
   ],
   "recommendation": {
     "version": "V2",
-    "reason": "V2 hedef dışı pozisyon açılmasını engelliyor ve gerçek fonlama kanıtına sahip. Sonuç beklerken V1’in tamamlanmış payout kanıtı sunumda ayrı gösterilebilir; bu mühendislik doğrulamasıdır, dış pilot yapılmadı.",
+    "reason": "V2 hedef dışı pozisyon açılmasını engelliyor; gerçek model, fonlama ve otomatik tahsilat akışı tamamlandı. Bu mühendislik doğrulamasıdır; dış pilot yapılmadı.",
     "demoRisk": "medium"
   }
 }

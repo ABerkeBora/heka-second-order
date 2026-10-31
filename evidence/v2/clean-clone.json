@@ -27,5 +27,12 @@
     "/api/next/state": 200
   },
   "resolvedFailure": "Fixed sendFile to filename within explicit dist root; direct root/next now actualHTTP200 under hiddencheckout. No credentials/state copied.",
-  "latestSourceRecheck": "After one engine evidence-binding guard change: typecheck, production startup, all4actualHTTP200, both API namespaces empty and41exactsourcehashes. Dependencies/client/contract source unchanged from preceding npmci/build/forge checks."
+  "latestSourceRecheck": "Exact b84aa61\u2026 checkout: npmci/typecheck/productionbuild/contractbuild all passed; production startup, all4actualHTTP200, both API namespaces empty and41sourcehashes also verified at this sameSHA.",
+  "finalAllCommandsAtTestedShaUtc": "2026-10-31T04:21:22.835306+00:00",
+  "finalAllCommandsAtTestedSha": [
+    "npm ci",
+    "npm run typecheck",
+    "npm run build",
+    "forge build --skip test"
+  ]
 }

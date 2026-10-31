@@ -1,0 +1,47 @@
+{
+  "checkedAtUtc": "2026-10-31T04:18:42.754352+00:00",
+  "status": "PASS",
+  "intentId": "30e23be6-245b-42ee-ba34-3dd314aafe57",
+  "network": "Base Sepolia84532",
+  "market": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+  "result": "YES",
+  "reserveUnits": "0",
+  "deliveries": {
+    "buyer": {
+      "amountUnits": "2000000",
+      "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "refund": false,
+      "transactionHash": "0x092db333e4deede2fa162482f50c4efb4d40e3eb2bcb05dd19d45a0f8609dbdf"
+    },
+    "counterparty": {
+      "amountUnits": "0",
+      "beneficiary": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "payer": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "refund": false,
+      "transactionHash": "0xd48011163587b43935e6d92c70c85bcfd4f2eb5b8d62a04a21509346ea76513a"
+    }
+  },
+  "confirmedTransactions": 15,
+  "sources": [
+    {
+      "id": "6406433",
+      "status": "Final \u2014 selected outcome won",
+      "lastCheck": "2026-10-31T04:16:39.519Z",
+      "updatedAt": "2026-10-31T04:12:27.662787Z"
+    },
+    {
+      "id": "6406432",
+      "status": "Final \u2014 selected outcome won",
+      "lastCheck": "2026-10-31T04:16:39.548Z",
+      "updatedAt": "2026-10-31T04:12:27.660567Z"
+    }
+  ],
+  "assertions": {
+    "realSignedSourcesDroveSettlement": true,
+    "automaticBuyerClaim2SOU": true,
+    "counterpartyZeroClaimRecorded": true,
+    "reserveZero": true,
+    "oneInitialMandateCoveredFundingSettlementClaims": true
+  }
+}

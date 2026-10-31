@@ -249,7 +249,7 @@
     "l1FeeWei": "816",
     "gasCostWei": "413112000816",
     "contractAddress": null,
-    "confirmedAt": "2026-10-31T04:17:16.960Z"
+    "confirmedAt": "2026-10-31T04:20:39.666Z"
   },
   {
     "id": "30e23be6-245b-42ee-ba34-3dd314aafe57:claim:counterparty",
@@ -267,6 +267,6 @@
     "l1FeeWei": "816",
     "gasCostWei": "346486118870",
     "contractAddress": null,
-    "confirmedAt": "2026-10-31T04:17:19.555Z"
+    "confirmedAt": "2026-10-31T04:20:40.106Z"
   }
 ]

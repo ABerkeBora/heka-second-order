@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checkedAt": "2026-10-31T04:00:15.966Z",
+  "checkedAt": "2026-10-31T04:18:43.561Z",
   "mode": "Read-only public RPC contract/policy verification; no key access or transaction submission",
   "namespace": "next",
   "chainId": 84532,
@@ -351,19 +351,19 @@
     }
   ],
   "observedState": {
-    "phase": 1,
-    "tradingHalted": false,
-    "result": false,
+    "phase": 2,
+    "tradingHalted": true,
+    "result": true,
     "sourceFinal": [
-      false,
-      false
+      true,
+      true
     ],
     "sourceSelectedWon": [
-      false,
-      false
+      true,
+      true
     ],
-    "yesStake": "0",
-    "noStake": "0",
+    "yesStake": "1000000",
+    "noStake": "1000000",
     "reserve": "0",
     "winnerRemainingStake": "0"
   },
