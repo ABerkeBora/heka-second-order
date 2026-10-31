@@ -1,0 +1,63 @@
+import "keccak.scrypt";
+
+library KeccakTwoBlocks {
+  static function permute(int[25] a) : int[25] {
+    loop (24) : round {
+        int[5] c = repeat(0, 5);
+        int[5] d = repeat(0, 5);
+        loop (5) : x {
+          c[x] = ((((a[x] ^ a[x + 5]) ^ a[x + 10]) ^ a[x + 15]) ^ a[x + 20]);
+        }
+        loop (5) : x {
+          d[x] = (c[(x + 4) % 5] ^ KeccakOneBlock.rot(c[(x + 1) % 5], 1));
+        }
+        loop (5) : y {
+          loop (5) : x {
+            a[x + 5 * y] = (a[x + 5 * y] ^ d[x]);
+          }
+        }
+        int[25] b = repeat(0, 25);
+        loop (5) : y {
+          loop (5) : x {
+            b[y + 5 * ((2 * x + 3 * y) % 5)] = KeccakOneBlock.rot(a[x + 5 * y], KeccakOneBlock.ROT[x + 5 * y]);
+          }
+        }
+        loop (5) : y {
+          loop (5) : x {
+            a[x + 5 * y] = (b[x + 5 * y] ^ ((18446744073709551615 ^ b[(x + 1) % 5 + 5 * y]) & b[(x + 2) % 5 + 5 * y]));
+          }
+        }
+        a[0] = (a[0] ^ KeccakOneBlock.RC[round]);
+      }
+    return a;
+  }
+  static function digest(bytes input) : bytes {
+    int size = len(input);
+    require(size <= 271);
+    int paddedSize = size < 136 ? 136 : 272;
+    bytes padded = b'';
+    if(size == paddedSize - 1) {
+        padded = input + b'81';
+      } else {
+        padded = input + b'01' + Utils.toLEUnsigned(0, paddedSize - size - 2) + b'80';
+      }
+    int[25] a = repeat(0, 25);
+    loop (2) : block {
+        if((block) * 136 < paddedSize) {
+          loop (17) : i {
+            int pos = (block) * 136 + (i) * 8;
+            a[i] = (a[i] ^ Utils.fromLEUnsigned(padded[pos : pos + 8]));
+          }
+          a = KeccakTwoBlocks.permute(a);
+        }
+      }
+    return Utils.toLEUnsigned(a[0], 8) + Utils.toLEUnsigned(a[1], 8) + Utils.toLEUnsigned(a[2], 8) + Utils.toLEUnsigned(a[3], 8);
+  }
+}
+
+contract KeccakTwoTest {
+  bytes expected;
+  public function unlock(bytes input) {
+    require(KeccakTwoBlocks.digest(input) == this.expected);
+  }
+}

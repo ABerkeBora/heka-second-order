@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-31T10:13:00Z",
+  "status": "BLOCKED",
+  "scope": "Shared genuine one-original-proof native probe rejected by public BSV testnet nodes; Second Order's larger two-proof guard has no successful public-network claim",
+  "observedRejections": ["Operation limit exceeded", "too-long-validation-time"],
+  "secondOrderNativePoolFunded": false,
+  "newBuyerWalletAction": false,
+  "consequence": "Fail closed before native wallet preparation and funding. Local compiled Script PASS is not network payout evidence.",
+  "sharedFundingTransport": "5 MB canonical transaction transport succeeded via an official testnet P2P peer; this does not prove its guarded output can be spent under public node policy."
+}

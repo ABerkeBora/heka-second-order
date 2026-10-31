@@ -192,3 +192,5 @@ Published general rules currently allow one submission per team, with up to thre
 ## License
 
 MIT for the project. Vendored API3, OpenZeppelin, Solady, forge-std and IBM Plex font licenses are preserved with their files and provenance. See [vendored dependencies](docs/VENDORED_DEPENDENCIES.md) and `web/assets/FONT-LICENSE.txt`.
+
+The separate [native policy experiment](http://localhost:3101/bsv/native) verifies both original API3 signatures and fixed payouts in compiled Bitcoin Script. It is **unfunded and blocked on public-node execution limits**. Local VM tests are reproducible from the vendored `native/` bundle; they are not native network-payment evidence. See [BSV_HANDOFF.md](BSV_HANDOFF.md) and [TRACK_REQUIREMENTS_BSV.md](TRACK_REQUIREMENTS_BSV.md) for precise status and different observation-window timing. `/`, `/next` and the actual paid `/bsv` history are preserved.

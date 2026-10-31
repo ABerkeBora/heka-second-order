@@ -552,3 +552,43 @@
     font-size: 12px;
   }
 }
+
+.bsv-top nav {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.bsv-step {
+  display: flex;
+  gap: 18px;
+  padding: 16px 0;
+  border-top: 1px solid #333;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.bsv-step strong {
+  flex-shrink: 0;
+  font-weight: 500;
+}
+.bsv-step span {
+  color: #aaa;
+}
+.bsv-native .bsv-panel-title {
+  flex-wrap: wrap;
+}
+@media (max-width: 1100px) {
+  .bsv-top {
+    height: auto;
+    min-height: 74px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .bsv-native .bsv-work > .bsv-panel:nth-child(2) {
+    grid-row: auto;
+  }
+  .bsv-step {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

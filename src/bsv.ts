@@ -26,7 +26,12 @@ import {
 } from "./source.ts";
 import { deriveRequestHash } from "./vendor/airnode-v2.ts";
 import { proposeIntent } from "./llm.ts";
-import { parseIntent, matchIntent, equalIntent } from "./intent.ts";
+import {
+  parseIntent,
+  matchIntent,
+  equalIntent,
+  ASSET_ALIASES,
+} from "./intent.ts";
 import {
   artifact,
   client,
@@ -62,7 +67,7 @@ const { Arcade } = createRequire(import.meta.url)(
 async function broadcast(tx: Transaction) {
   return new Arcade(arcURL).postRawTx(tx.toHexEF(), [tx.id("hex")]);
 }
-const buyerWallet = new WalletClient("auto", "localhost");
+export const buyerWallet = new WalletClient("auto", "localhost");
 const now = () => Math.floor(Date.now() / 1000);
 const json = (x: any) =>
   JSON.stringify(x, (_, v) => (typeof v === "bigint" ? v.toString() : v), 2);
@@ -95,7 +100,7 @@ function attestor() {
   return PrivateKey.fromHex(secrets().attestor);
 }
 let counterpartySetup: any;
-async function counterparty(): Promise<WalletInterface> {
+export async function counterparty(): Promise<WalletInterface> {
   if (!counterpartySetup) {
     const { Setup } = await import("@bsv/wallet-toolbox");
     const s = secrets(),
@@ -285,10 +290,23 @@ export async function composeBSV(objective: string) {
     !["Paid", "Refunded"].includes(local("intent.json").status)
   )
     throw Error("Finish or refund the current BSV intent first");
+  const p = await buildBSVProposal(objective);
+  local("proposal.json", p);
+  evidence("proposal.json", p);
+  return p;
+}
+export async function buildBSVProposal(
+  objective: string,
+  prioritizeRequestedAssets = false,
+) {
   const parsed = parseIntent(objective);
   if (parsed.status !== "supported")
     throw Error(parsed.reasons.map((x) => x.message).join(" "));
-  const listing = await discover();
+  const listing = await discover(
+    prioritizeRequestedAssets
+      ? parsed.intent.legs.flatMap((l) => [...ASSET_ALIASES[l.asset]])
+      : undefined,
+  );
   const markets = listing.markets;
   const pairs: any[] = [];
   for (let a = 0; a < markets.length; a++)
@@ -336,8 +354,6 @@ export async function composeBSV(objective: string) {
     Math.max(...p.sources.map((m: any) => Date.parse(m.endDate) / 1000)) + 1200;
   p.tradeClosesAt =
     Math.min(...p.sources.map((m: any) => Date.parse(m.endDate) / 1000)) - 45;
-  local("proposal.json", p);
-  evidence("proposal.json", p);
   return p;
 }
 async function prepareSidecar(j: any) {
@@ -880,10 +896,11 @@ export async function runBSV() {
   if (!j) return view();
   if (["Paid", "Refunded"].includes(j.status)) {
     if (j.status === "Paid") await receivePayout(j);
-    delete j.error;
-    delete j.waitingReason;
-    j.reconciledAt = new Date().toISOString();
-    persist(j);
+    if (j.error || j.waitingReason) {
+      delete j.error;
+      delete j.waitingReason;
+      persist(j);
+    }
     return view();
   }
   try {

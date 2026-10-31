@@ -91,7 +91,7 @@ export async function createProof(id: string) {
   outcomesOf(data.outcomes);
   return { response, data };
 }
-export async function discover() {
+export async function discover(preferredAssets?: string[]) {
   const now = Date.now();
   const request = {
     operation: "listMarkets",
@@ -108,7 +108,16 @@ export async function discover() {
   const rows = JSON.parse(listing.data);
   if (!Array.isArray(rows))
     throw Error("Discovery did not return a market array");
+  const preferred = (m: any) =>
+    preferredAssets?.some((a) =>
+      String(m.question)
+        .toLowerCase()
+        .startsWith(a + " up or down"),
+    )
+      ? 0
+      : 1;
   const candidates = rows
+    .toSorted((a: any, b: any) => preferred(a) - preferred(b))
     .filter(
       (m: any) =>
         m.id &&

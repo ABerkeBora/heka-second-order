@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-31T10:14:21.084Z",
+  "scope": "experimental native seven-field two-original-Airnode AND/OR guard; not deployed by helper",
+  "status": "PASS",
+  "sdkVersion": "3.2.1",
+  "sdkLegacyPreimageEqual": true,
+  "sighash": 65,
+  "preimageBytes": 1885,
+  "unlockingScriptBytes": 2533,
+  "protectedPayoutSatoshis": 2000,
+  "sponsorInput": 1000,
+  "sponsorChange": 900,
+  "fixtureFeeSatoshis": 100,
+  "elapsedMs": 35815,
+  "originalSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+  "lockingScriptBytes": 12075794,
+  "postSeparatorScriptBytes": 1726,
+  "lockingScriptSha256": "77f82c7dfbfb996e42c578194687c7b414d88b2e8aa1c97473f90f8bde67d5f6",
+  "requestHashes": [
+    "0x24fb001774e04cca13110c9f7ff542e3d831b4d1f822f1b9bc2c5c33f5e3dc26",
+    "0xffafbe53529d60c845854b522826534c03244ea578d0720397a9abbb3a3420ee"
+  ],
+  "minimumFundingFeeEstimateAtOneSatPerKB": 12077,
+  "timing": "fixed source/signature observation window and lag, not current block age; mature settlement and refund race for the UTXO"
+}

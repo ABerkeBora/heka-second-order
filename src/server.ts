@@ -20,6 +20,7 @@ import {
   tamperChecks,
 } from "./engine.ts";
 import { composeNext, authorizeNext } from "./next.ts";
+import { bsvNativeRouter, nativeRun } from "./bsv-native.ts";
 import { bsvRouter, runBSV } from "./bsv.ts";
 const { acquireExecutor } = await import("./chain.ts");
 acquireExecutor();
@@ -41,7 +42,8 @@ app.use("/api", (req, res, next) => {
   next();
 });
 app.use(express.json({ limit: "32kb" }));
-app.use('/api/bsv', bsvRouter);
+app.use("/api/bsv/native", bsvNativeRouter);
+app.use("/api/bsv", bsvRouter);
 function register(base: string, namespace: StoreNamespace) {
   const route =
     (handler: (req: any) => Promise<any>) => async (req: any, res: any) =>
@@ -160,7 +162,20 @@ setInterval(() => {
           }
         }),
       );
-    await withStore('bsv', () => exclusive(async () => { try { await runBSV(); } catch {} }));
+    await withStore("bsv", () =>
+      exclusive(async () => {
+        try {
+          await runBSV();
+        } catch {}
+      }),
+    );
+    await withStore("bsv-native", () =>
+      exclusive(async () => {
+        try {
+          await nativeRun();
+        } catch {}
+      }),
+    );
   })().finally(() => {
     busy = false;
   });

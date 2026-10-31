@@ -1,3 +1,4 @@
+import NativeBsvApp from "./bsv-native.tsx";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./style.css";
@@ -1759,6 +1760,6 @@ function App() {
 
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    {window.location.pathname.replace(/\/$/,'') === '/bsv' ? <BsvApp /> : <App />}
+    {window.location.pathname.replace(/\/$/,'') === '/bsv/native' ? <NativeBsvApp /> : window.location.pathname.replace(/\/$/,'') === '/bsv' ? <BsvApp /> : <App />}
   </React.StrictMode>,
 );

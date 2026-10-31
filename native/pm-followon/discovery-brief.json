@@ -1,0 +1,147 @@
+{
+  "at": "2026-10-31T09:49:36.578Z",
+  "request": {
+    "operation": "listMarkets",
+    "parameters": {
+      "limit": 20,
+      "closed": true,
+      "order": "endDate",
+      "ascending": false,
+      "end_date_min": "2026-10-31T07:49:36.386Z",
+      "end_date_max": "2026-10-31T09:49:36.386Z"
+    }
+  },
+  "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+  "requestHash": "0x263ec52a52c6b596e883b613e681132413931a1ad615e01d8d17d171008bbe48",
+  "timestamp": "1793440176",
+  "candidates": [
+    {
+      "id": "6414756",
+      "question": "Hyperliquid Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.502728Z",
+      "status": "resolved",
+      "conditionId": "0xcf403accd15c77e261492a4d6bcc9d2a540a04b8e4d0485527408822ffd87b35"
+    },
+    {
+      "id": "6414755",
+      "question": "Ethereum Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.497015Z",
+      "status": "resolved",
+      "conditionId": "0xa33f6fac3e110ffa69ba1660d6f175ca9223857e1f9fbc7fb554420d26c30e05"
+    },
+    {
+      "id": "6414754",
+      "question": "Solana Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.501103Z",
+      "status": "resolved",
+      "conditionId": "0x302c8083037a7fa5201fef2915795771f8ef71f88b1717c05d15d9f5998bd4da"
+    },
+    {
+      "id": "6414753",
+      "question": "Dogecoin Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.496405Z",
+      "status": "resolved",
+      "conditionId": "0x5a82cde2d1c2a19bb877495df75be28a19b396255f57152296fad6c99c71bbe9"
+    },
+    {
+      "id": "6414752",
+      "question": "Bitcoin Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.257932Z",
+      "status": "resolved",
+      "conditionId": "0xd6037b0fc6ac2fb0447126ec6cb6ca834b9468bdd7a2352416ac0e808b21c8ea"
+    },
+    {
+      "id": "6414751",
+      "question": "XRP Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.258008Z",
+      "status": "resolved",
+      "conditionId": "0xbea707888dff82a46b9578ba67d3d5a94241227273b414a562b4d1f5d03a9962"
+    },
+    {
+      "id": "6414750",
+      "question": "BNB Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.735923Z",
+      "status": "resolved",
+      "conditionId": "0x0d057d2caba55bd28c01f5f008189387e309fe85f5d52b6f61b9bb74eb1867c7"
+    },
+    {
+      "id": "6414749",
+      "question": "ZCash Up or Down - October 31, 5:40AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.498445Z",
+      "status": "resolved",
+      "conditionId": "0x5ea71f151dbed7d294932d4bd88e602a69ec52a6c1ef0cc322e1f6843208ac1e"
+    },
+    {
+      "id": "6414285",
+      "question": "Hyperliquid Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.734843Z",
+      "status": "resolved",
+      "conditionId": "0x74ad1f7025cf0163db0807dbbbfb003c2242ccbfefdbaad4fdeb12c925130bf4"
+    },
+    {
+      "id": "6414284",
+      "question": "Bitcoin Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.733131Z",
+      "status": "resolved",
+      "conditionId": "0xea962fb12e8f8d98671d34852d99328a3d731c0464c40417dd3f07b477fdc77c"
+    },
+    {
+      "id": "6414283",
+      "question": "Solana Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.512263Z",
+      "status": "resolved",
+      "conditionId": "0xf8cd346376fa58cd1d62d175e6e2cf1e5edf514a08ce1fc609bc952afe338076"
+    },
+    {
+      "id": "6414281",
+      "question": "BNB Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.500609Z",
+      "status": "resolved",
+      "conditionId": "0xd0dacdf84f096abc4ca9709574d7be4c0d77e37ffe5515c60a67ef6e1d4b2774"
+    },
+    {
+      "id": "6414279",
+      "question": "Dogecoin Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:29.503256Z",
+      "status": "resolved",
+      "conditionId": "0x0012a2e1f7285910c017bdbe029f8bbb30d7c3cfeaaeb663f2baff5112a964a7"
+    },
+    {
+      "id": "6414276",
+      "question": "ZCash Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.498157Z",
+      "status": "resolved",
+      "conditionId": "0xb103a3262ec0e65956e3d29e893a69e4d5306a65f47b637ecb3c370eb2d5a99f"
+    },
+    {
+      "id": "6414273",
+      "question": "XRP Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.73565Z",
+      "status": "resolved",
+      "conditionId": "0x8ee6d590a3ec2796faa9b1c8667a18fd7e2f8c93b7494acbee2bf00b445d4bc6"
+    },
+    {
+      "id": "6414271",
+      "question": "Ethereum Up or Down - October 31, 5:30AM-5:45AM ET",
+      "endDate": "2026-10-31T09:45:00Z",
+      "updatedAt": "2026-10-31T09:47:28.732833Z",
+      "status": "resolved",
+      "conditionId": "0x134af64c2c0dcc79b89dd4433485db44656216b51e2f3b87897f6fdc47cddb0b"
+    }
+  ]
+}

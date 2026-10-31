@@ -1,0 +1,346 @@
+{
+  "id": "99bf5a3b-a3b8-4106-adb1-7f7fb346969f",
+  "status": "Preview; node execution blocked",
+  "proposal": {
+    "id": "2fb57263-793b-49d1-a583-70701b92ca3c",
+    "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+    "marketIds": [
+      "6415479",
+      "6415473"
+    ],
+    "selectedOutcomeIndexes": [
+      0,
+      0
+    ],
+    "operator": "OR",
+    "normalizedIntent": {
+      "version": 1,
+      "event": "crypto-up-down",
+      "legs": [
+        {
+          "asset": "ETH",
+          "direction": "Up"
+        },
+        {
+          "asset": "SOL",
+          "direction": "Up"
+        }
+      ],
+      "operator": "OR",
+      "windowMinutes": 5,
+      "window": "same-next"
+    },
+    "model": "qwen3:4b",
+    "modelRecord": {
+      "id": "1340d8b3-5bd6-4b7a-8ce1-7f391757dc80",
+      "decision": "accept",
+      "normalized": {
+        "version": 1,
+        "event": "crypto-up-down",
+        "legs": [
+          {
+            "asset": "ETH",
+            "direction": "Up"
+          },
+          {
+            "asset": "SOL",
+            "direction": "Up"
+          }
+        ],
+        "operator": "OR",
+        "windowMinutes": 5,
+        "window": "same-next"
+      },
+      "marketIds": [
+        "6415479",
+        "6415473"
+      ],
+      "selectedOutcomeIndexes": [
+        0,
+        0
+      ],
+      "reason": "Both ETH Up and SOL Up markets are available in the same 5-minute window (2026-10-31T10:20:00.000Z-2026-10-31T10:25:00.000Z) as per independentlyMatchedPairs. No other assets or windows match the objective.",
+      "model": "qwen3:4b",
+      "input": {
+        "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+        "independentlyMatchedPairs": [
+          [
+            {
+              "legIndex": 0,
+              "proposalIndex": 1,
+              "marketId": "6415479",
+              "conditionId": "0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52",
+              "asset": "ETH",
+              "direction": "Up",
+              "outcomeIndex": 0,
+              "startTime": 1793442000000,
+              "endTime": 1793442300000,
+              "startDate": "2026-10-31T10:20:00.000Z",
+              "endDate": "2026-10-31T10:25:00.000Z",
+              "durationMinutes": 5
+            },
+            {
+              "legIndex": 1,
+              "proposalIndex": 0,
+              "marketId": "6415473",
+              "conditionId": "0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81",
+              "asset": "SOL",
+              "direction": "Up",
+              "outcomeIndex": 0,
+              "startTime": 1793442000000,
+              "endTime": 1793442300000,
+              "startDate": "2026-10-31T10:20:00.000Z",
+              "endDate": "2026-10-31T10:25:00.000Z",
+              "durationMinutes": 5
+            }
+          ]
+        ],
+        "selectionMeaning": "Up/Down are outcomes to SELECT, not facts that must already have happened. All candidates are open future windows.",
+        "candidates": [
+          {
+            "id": "6415473",
+            "question": "Solana Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "sol-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          },
+          {
+            "id": "6415479",
+            "question": "Ethereum Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "eth-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          },
+          {
+            "id": "6415472",
+            "question": "Dogecoin Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "doge-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          },
+          {
+            "id": "6415474",
+            "question": "Bitcoin Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "btc-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          },
+          {
+            "id": "6415475",
+            "question": "XRP Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "xrp-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          },
+          {
+            "id": "6415476",
+            "question": "Hyperliquid Up or Down - October 31, 6:20AM-6:25AM ET",
+            "slug": "hype-updown-5m-1793442000",
+            "outcomes": [
+              "Up",
+              "Down"
+            ],
+            "endDate": "2026-10-31T10:25:00Z"
+          }
+        ]
+      },
+      "startedAt": "2026-10-31T10:13:21.594Z",
+      "createdAt": "2026-10-31T10:13:39.160Z",
+      "latencyMs": 17566
+    },
+    "createdAt": "2026-10-31T10:13:39.160Z",
+    "matches": [
+      {
+        "legIndex": 0,
+        "proposalIndex": 0,
+        "marketId": "6415479",
+        "conditionId": "0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52",
+        "asset": "ETH",
+        "direction": "Up",
+        "outcomeIndex": 0,
+        "startTime": 1793442000000,
+        "endTime": 1793442300000,
+        "startDate": "2026-10-31T10:20:00.000Z",
+        "endDate": "2026-10-31T10:25:00.000Z",
+        "durationMinutes": 5
+      },
+      {
+        "legIndex": 1,
+        "proposalIndex": 1,
+        "marketId": "6415473",
+        "conditionId": "0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81",
+        "asset": "SOL",
+        "direction": "Up",
+        "outcomeIndex": 0,
+        "startTime": 1793442000000,
+        "endTime": 1793442300000,
+        "startDate": "2026-10-31T10:20:00.000Z",
+        "endDate": "2026-10-31T10:25:00.000Z",
+        "durationMinutes": 5
+      }
+    ],
+    "sources": [
+      {
+        "id": "6415479",
+        "question": "Ethereum Up or Down - October 31, 6:20AM-6:25AM ET",
+        "slug": "eth-updown-5m-1793442000",
+        "conditionId": "0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "outcomePrices": [
+          "0.495",
+          "0.505"
+        ],
+        "endDate": "2026-10-31T10:25:00Z",
+        "updatedAt": "2026-10-31T10:12:14.670574Z",
+        "closed": false,
+        "eligible": true,
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "createRequestHash": "0x689b1644691aa5a05513c519f22ec0d3de46353463601e729832bbe70e6e08c9",
+        "settlementRequestHash": "0x8ccf17810b734535407834302d297e75bc769037de38c973c6b4b91201d42963",
+        "createEnvelope": {
+          "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+          "requestHash": "0x689b1644691aa5a05513c519f22ec0d3de46353463601e729832bbe70e6e08c9",
+          "timestamp": "1793441601",
+          "data": "{\"closed\":false,\"conditionId\":\"0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52\",\"endDate\":\"2026-10-31T10:25:00Z\",\"marketId\":\"6415479\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T10:12:14.670574Z\"}",
+          "signature": "0x7d4cb74dc0a5b81f0af872f755a7a272b0846c18253fb712b672913e91f899946f9b2f14abee2b0935032810264b9882d5b440c6ca7002fd27a9138a1ca5bacf1c"
+        }
+      },
+      {
+        "id": "6415473",
+        "question": "Solana Up or Down - October 31, 6:20AM-6:25AM ET",
+        "slug": "sol-updown-5m-1793442000",
+        "conditionId": "0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "outcomePrices": [
+          "0.505",
+          "0.495"
+        ],
+        "endDate": "2026-10-31T10:25:00Z",
+        "updatedAt": "2026-10-31T10:12:14.670574Z",
+        "closed": false,
+        "eligible": true,
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "createRequestHash": "0x90522ec397ae03663fef179b47ec1127ac4bd2e919ea6939815c0c516e68004f",
+        "settlementRequestHash": "0xf874d1de94deb5e561a6b7aae61e41419b518232f190310290ba7c2e65d76ace",
+        "createEnvelope": {
+          "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+          "requestHash": "0x90522ec397ae03663fef179b47ec1127ac4bd2e919ea6939815c0c516e68004f",
+          "timestamp": "1793441601",
+          "data": "{\"closed\":false,\"conditionId\":\"0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81\",\"endDate\":\"2026-10-31T10:25:00Z\",\"marketId\":\"6415473\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T10:12:14.670574Z\"}",
+          "signature": "0xddc43159ea4f14fc4b8346ed027deac8b482b3d5ec23457b60c567c33716079c0022b07016a2ced764c7466881e9c041caf3657f8e58f1469a55bab7dc342bd61b"
+        }
+      }
+    ],
+    "deadline": 1793443500,
+    "tradeClosesAt": 1793442255,
+    "observationDeadline": 1793443500,
+    "refundAfter": 1793444100
+  },
+  "keyID": "native 99bf5a3b-a3b8-4106-adb1-7f7fb346969f payout",
+  "buyerKey": "029460296ab338c439c2669975c656b17b29de9a2a6b8af898f38355c7cbc86b7f",
+  "counterpartyKey": "023552628f7b4eeb1dd17032bcc63dcd7a7aa7d2f07948797ccaaf772c8ced0a1a",
+  "mandate": {
+    "id": "99bf5a3b-a3b8-4106-adb1-7f7fb346969f",
+    "proposalId": "2fb57263-793b-49d1-a583-70701b92ca3c",
+    "objective": "Ethereum Up OR Solana Up in the same next 5-minute window.",
+    "policyHash": "7eff51da8f72371162df42cd873404641928e2405d4d8ad74fa01101eabc949b",
+    "scriptSHA256": "35b5007c2b96356ce10c319a62d6b40fa58cca6e2c963ea6018a7917f574ba07",
+    "stakeSatoshis": 5000,
+    "feeCapSatoshis": 1000,
+    "repeat": false,
+    "initialDelegation": true,
+    "beneficiary": "76a9147ecda5c4dd5a01aca8dcd582feb4a4b9dd5f560788ac"
+  },
+  "mandateSignatureVerified": false,
+  "creationProofs": [
+    {
+      "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "requestHash": "0x689b1644691aa5a05513c519f22ec0d3de46353463601e729832bbe70e6e08c9",
+      "timestamp": "1793441619",
+      "data": "{\"closed\":false,\"conditionId\":\"0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52\",\"endDate\":\"2026-10-31T10:25:00Z\",\"marketId\":\"6415479\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T10:12:14.670574Z\"}",
+      "signature": "0xfb3e9917a96bb2becfc35a1b3de3bfc6dbf3e08cd1dd0d40d2fb5b5f34e18c7a2ac22b8ea0acf855093bfad941c39b3cc5e6d56420f9dbe0bb95802fe38d55de1c"
+    },
+    {
+      "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "requestHash": "0x90522ec397ae03663fef179b47ec1127ac4bd2e919ea6939815c0c516e68004f",
+      "timestamp": "1793441619",
+      "data": "{\"closed\":false,\"conditionId\":\"0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81\",\"endDate\":\"2026-10-31T10:25:00Z\",\"marketId\":\"6415473\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T10:12:14.670574Z\"}",
+      "signature": "0xa7bf42a3eeb3ec68799aef356c80fe053d80a662a433bb5e835baf4b3958707d03d3280d7542eb3e73ff8a385af86bfda8d62725c5894cc0702d6cc517edfe0d1c"
+    }
+  ],
+  "script": {
+    "scope": "experimental native seven-field two-original-Airnode AND/OR guard; not deployed by helper",
+    "originalSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "lockingScriptBytes": 12075794,
+    "postSeparatorScriptBytes": 1726,
+    "lockingScriptSha256": "35b5007c2b96356ce10c319a62d6b40fa58cca6e2c963ea6018a7917f574ba07",
+    "requestHashes": [
+      "0xaba51d1b02bd80c04444d81c10cdd6fe283decb37bd38588116bdf980449337d",
+      "0xbd8455551151a080f676e7670ff5e69706c18a68fece56fcfe765862dce610c6"
+    ],
+    "minimumFundingFeeEstimateAtOneSatPerKB": 12077,
+    "timing": "fixed source/signature observation window and lag, not current block age; mature settlement and refund race for the UTXO"
+  },
+  "steps": [
+    {
+      "at": "2026-10-31T10:13:41.052Z",
+      "action": "Policy preview",
+      "message": "Real fresh source policy and derived recipients compiled. No wallet signature, no buyer preparation, no new pool, no claim of network executability."
+    }
+  ],
+  "createdAt": "2026-10-31T10:13:41.051Z",
+  "timing": "Fixed source/signature observation window; source may lead signature by 30s, signature may lag source by 900s. No current-chain-time freshness or absolute settlement expiry. After refund maturity, first valid settlement/refund wins.",
+  "updatedAt": "2026-10-31T10:13:41.052Z",
+  "policy": {
+    "legs": [
+      {
+        "marketId": "6415479",
+        "conditionId": "0x1529558fb13ca10c06c5c3a62d404b27bb0526b23a275fe703b18689f936df52",
+        "outcomesString": "[\"Up\", \"Down\"]",
+        "selectedOutcome": 0,
+        "endsAt": 1793442300
+      },
+      {
+        "marketId": "6415473",
+        "conditionId": "0x64095147ba5e354ad8ec40fe59d0eddc43f075b413fde472c8a4bcc0aef7db81",
+        "outcomesString": "[\"Up\", \"Down\"]",
+        "selectedOutcome": 0,
+        "endsAt": 1793442300
+      }
+    ],
+    "airnodePublicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+    "isOr": true,
+    "observationDeadline": 1793443500,
+    "collateralSatoshis": 10000,
+    "yesRecipientScript": "76a9147ecda5c4dd5a01aca8dcd582feb4a4b9dd5f560788ac",
+    "noRecipientScript": "76a914ba855478ca7b6bffe025594cccfe66cfb91f9ead88ac",
+    "refundAfter": 1793444100,
+    "refundBuyerScript": "76a9147ecda5c4dd5a01aca8dcd582feb4a4b9dd5f560788ac",
+    "refundCounterpartyScript": "76a914ba855478ca7b6bffe025594cccfe66cfb91f9ead88ac",
+    "buyerStakeSatoshis": 5000
+  },
+  "buyerSource": null,
+  "cpSource": null,
+  "sponsorSource": null
+}

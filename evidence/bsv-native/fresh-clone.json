@@ -1,0 +1,6 @@
+{
+  "checkedAt": "2026-10-31T10:24:38.846Z",
+  "status": "PASS",
+  "method": "Staged tracked tree copied to ignored .verify/native-clean; npm ci --ignore-scripts, npm run typecheck, npm run build passed",
+  "limitations": "No wallet/funds, no server binding or native network transaction in clean-clone test. Native helper dependencies pinned separately; public-node execution remains blocked."
+}

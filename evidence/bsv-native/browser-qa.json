@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-10-31T10:24:38.845Z",
+  "status": "PASS",
+  "scope": "Real Chrome CUA screenshots and read-only DOM inspection; screenshot pixels are in tool record, not claimed as local files",
+  "route": "/bsv/native",
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "documentScrollWidth": 1440,
+      "fonts": "loaded",
+      "nativeAuthorizeDisabled": true
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "documentScrollWidth": 768
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "documentScrollWidth": 390,
+      "minFontPx": 12,
+      "minButtonHeightPx": 44
+    }
+  ],
+  "preview": {
+    "proposal": "2fb57263-793b-49d1-a583-70701b92ca3c",
+    "intent": "99bf5a3b-a3b8-4106-adb1-7f7fb346969f",
+    "marketIds": [
+      "6415479",
+      "6415473"
+    ],
+    "nativePoolFunded": false,
+    "walletMandateSigned": false
+  },
+  "temporaryViewportReset": true
+}

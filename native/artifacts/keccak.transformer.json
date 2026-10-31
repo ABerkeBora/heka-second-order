@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "errors": [],
+  "scryptfile": "keccak.scrypt",
+  "sourceMapFile": "keccak.scrypt.map",
+  "ctxMethods": []
+}

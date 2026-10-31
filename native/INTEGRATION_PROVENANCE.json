@@ -1,0 +1,18 @@
+{
+  "scope": "Second Order vendored integration; original compiler provenance remains separately preserved",
+  "changes": [
+    "Renamed original compiler package/lock manifests; runtime-only file dependency installs pinned scryptlib2.2.6 and viem2.38.5",
+    "Added verified existing-raw-transaction local VM export verifyRaw; unchanged compiled artifact",
+    "Removed local debugger paths from rejection report; no result changed",
+    "Re-ran SDK interop test in own project runtime",
+    "Compatible ws8.21.0 root override removes high-severity transitive transport advisory without changing SDK3.2.1, scryptlib2.2.6 or viem pins"
+  ],
+  "artifactSHA256": "1328bb325ee7bb0accafbaedf78057ea27f6fe4ef9f6d8c4a90c81df0cfb5f8f",
+  "files": {
+    "native/package.json": "a817c2bb16d21e1ba26225d267c3dfa9dff2f470903aa5c103e79860ae1e6c7c",
+    "native/pm-followon/consumer-helper.cjs": "c71f33af1c450e26aca6c0e593a69a11121794e2eb8428469d1d7dfa4c65ba77",
+    "native/pm-followon/sdk-results.json": "e8c127d179df241c96901fd036b500fd728b6285ed1861b9664f0d7c19d1a9c6",
+    "native/pm-followon/consumer-results.json": "272abc792ab7526a71c4212dbdf5cd4bb4e869fd72ca96f4bf5ee7a7e3a92221",
+    "native/pm-followon/raw-helper-results.json": "45761e3e1a3cbed90d193d748ea17bbd1abe01fefdde9b8c990a9f537f2ea7b7"
+  }
+}

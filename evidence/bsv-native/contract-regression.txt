@@ -1,0 +1,63 @@
+
+> heka-second-order@1.0.0 test:contracts
+> forge test
+
+Warning: This is a nightly build of Foundry. It is recommended to use the latest stable version. To mute this warning set `FOUNDRY_DISABLE_NIGHTLY_WARNING` in your environment.
+
+No files changed, compilation skipped
+
+Ran 5 tests for test/RealSignedOpenProof.t.sol:RealSignedOpenProofTest
+[PASS] testRealResponseSignedByWrongKeyRejected() (gas: 123760)
+[PASS] testRealSignedOpenResponsesActivateAndFundPool() (gas: 1510473)
+[PASS] testRealSignedResponseEditedValueRejected() (gas: 163115)
+[PASS] testRealSignedResponseForDifferentRequestRejected() (gas: 137100)
+[PASS] testRealSignedResponseTooOldRejected() (gas: 112921)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 31.64ms (24.69ms CPU time)
+
+Ran 16 tests for test/BSVBasketApproval.t.sol:BSVBasketApprovalTest
+[PASS] testAndFalse() (gas: 777409)
+[PASS] testClosedFalseIsNotResolved() (gas: 275367)
+[PASS] testDoubleInitializationBlocked() (gas: 30863)
+[PASS] testDuplicateSourceCannotExecuteTwice() (gas: 417542)
+[PASS] testEditedValueRejectedBeforeStateChange() (gas: 44348)
+[PASS] testFreshEnvelopeDoesNotRefreshStaleSource() (gas: 239967)
+[PASS] testInvalidComponentRejected() (gas: 11112)
+[PASS] testNearOneIsNotFinal() (gas: 372309)
+[PASS] testOrTrue() (gas: 4373195)
+[PASS] testProposedIsNotResolved() (gas: 309788)
+[PASS] testRefundOnlyAfterImmutableDeadline() (gas: 43247)
+[PASS] testSettledCannotRefund() (gas: 778244)
+[PASS] testUneditedStaleProofRejected() (gas: 38574)
+[PASS] testValidOriginalProofCreatesEssentialApprovalState() (gas: 780318)
+[PASS] testWrongRequestRejected() (gas: 37564)
+[PASS] testWrongSignerRejected() (gas: 37300)
+Suite result: ok. 16 passed; 0 failed; 0 skipped; finished in 582.37ms (30.04ms CPU time)
+
+Ran 24 tests for test/SecondOrderMarket.t.sol:SecondOrderMarketTest
+[PASS] testAndOneFalsePaysNoSide() (gas: 2275443)
+[PASS] testAndSettlementAndPermissionlessFixedBeneficiaryClaim() (gas: 2319452)
+[PASS] testBudgetAndMaxActionsEnforcedOnChain() (gas: 1502566)
+[PASS] testCreateProofCannotServeSettlement() (gas: 1613970)
+[PASS] testDifferentRequestRejected() (gas: 1609154)
+[PASS] testDuplicateIntentCannotChangeReserves() (gas: 876526)
+[PASS] testEarlyFinalityStopsTradingAndReplay() (gas: 1982352)
+[PASS] testEditedSignedValueRejectedAndReserveUnchanged() (gas: 1620523)
+[PASS] testExpiredMandateStopsFunding() (gas: 228789)
+[PASS] testFreshSignatureCannotRefreshStaleSource() (gas: 1792641)
+[PASS] testFutureSignatureRejected() (gas: 1598900)
+[PASS] testFuzzTotalClaimsNeverExceedRecordedReserve(uint64,uint64,uint64) (runs: 256, μ: 3069242, ~: 3069292)
+[PASS] testHistoricalSourceCannotSettleNewExposure() (gas: 1782391)
+[PASS] testIntegerPayoutDustGoesToLastWinningStake() (gas: 3041296)
+[PASS] testMandateCannotChangeBeneficiary() (gas: 849219)
+[PASS] testMatchedPoolCanOnlyTimeoutAtDeadline() (gas: 1650680)
+[PASS] testOrOneTruePaysYesSide() (gas: 6264484)
+[PASS] testOutcomeOrderChangeRejectedBeforeFunding() (gas: 386961)
+[PASS] testProposedNearOnePriceDoesNotSettle() (gas: 1866304)
+[PASS] testSignedSplitCannotReleaseCollateralAndDeadlineRefundsEachPayer() (gas: 1993210)
+[PASS] testStaleRealFormatResponseRejected() (gas: 1610677)
+[PASS] testTimeoutAndUnmatchedRefundArePermissionless() (gas: 867255)
+[PASS] testUnsolicitedTokensDoNotEnterReserve() (gas: 2302113)
+[PASS] testWrongSignerRejected() (gas: 1609308)
+Suite result: ok. 24 passed; 0 failed; 0 skipped; finished in 582.46ms (762.44ms CPU time)
+
+Ran 3 test suites in 605.21ms (1.20s CPU time): 45 tests passed, 0 failed, 0 skipped (45 total tests)

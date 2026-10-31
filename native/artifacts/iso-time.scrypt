@@ -1,0 +1,57 @@
+
+library IsoUtc {
+  static function digits(bytes s, int start, int count) : int {
+    int value = 0;
+    loop (4) : i {
+        if((i) < count) {
+          int c = Utils.fromLEUnsigned(s[start + (i) : start + (i + 1)]);
+          require(c >= 48 && c <= 57);
+          value = value * 10 + c - 48;
+        }
+      }
+    return value;
+  }
+  static function parse(bytes s) : int {
+    int size = len(s);
+    require(size >= 20 && size <= 27);
+    require(s[4 : 5] == b'2d' && s[7 : 8] == b'2d' && s[10 : 11] == b'54' && s[13 : 14] == b'3a' && s[16 : 17] == b'3a' && s[size - 1 : len(s)] == b'5a');
+    if(size > 20) {
+        require(size >= 22 && s[19 : 20] == b'2e');
+        loop (6) : i {
+          if(20 + (i) < size - 1) {
+            int c = Utils.fromLEUnsigned(s[20 + (i) : 21 + (i)]);
+            require(c >= 48 && c <= 57);
+          }
+        }
+      }
+    int year = IsoUtc.digits(s, 0, 4);
+    int month = IsoUtc.digits(s, 5, 2);
+    int day = IsoUtc.digits(s, 8, 2);
+    int hour = IsoUtc.digits(s, 11, 2);
+    int minute = IsoUtc.digits(s, 14, 2);
+    int second = IsoUtc.digits(s, 17, 2);
+    require(year >= 1970 && year <= 2100 && month >= 1 && month <= 12 && hour < 24 && minute < 60 && second < 60);
+    bool leap = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+    int daysInMonth = 31;
+    if(month == 2) {
+        daysInMonth = leap ? 29 : 28;
+      } else if(month == 4 || month == 6 || month == 9 || month == 11) {
+        daysInMonth = 30;
+      }
+    require(day >= 1 && day <= daysInMonth);
+    int y = year - (month <= 2 ? 1 : 0);
+    int era = y / 400;
+    int yoe = y - era * 400;
+    int m = month + (month > 2 ? -3 : 9);
+    int doy = (153 * m + 2) / 5 + day - 1;
+    int doe = yoe * 365 + yoe / 4 - yoe / 100 + doy;
+    return (era * 146097 + doe - 719468) * 86400 + hour * 3600 + minute * 60 + second;
+  }
+}
+
+contract IsoTest {
+  int expected;
+  public function unlock(bytes s) {
+    require(IsoUtc.parse(s) == this.expected);
+  }
+}

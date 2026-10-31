@@ -1,0 +1,8 @@
+{
+  "name": "bsv-native-airnode-spike",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Isolated local feasibility investigation, no wallet or broadcast",
+  "scripts": {"compile": "scrypt-cli compile"},
+  "dependencies": {"@bsv/sdk": "3.2.1", "scrypt-ts": "1.4.5", "scrypt-ts-lib": "0.1.28", "scrypt-cli": "0.2.3", "tsx": "4.20.6", "typescript": "5.3.3", "viem": "2.38.5"}
+}

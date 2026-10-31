@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-10-31T09:53:05.162Z",
+  "scope": "compiled local Script replay using genuine already-finalized source responses, dummy UTXO and dummy recipients; no live new prediction or broadcast",
+  "policy": {
+    "sourceEnds": [
+      "1793439900",
+      "1793439900"
+    ],
+    "observationDeadline": "1793441700",
+    "refundAfter": "1793441760",
+    "timing": "fixed signed/source observation window and signing lag; no current block timestamp upper bound; settlement/refund race after maturity"
+  },
+  "cases": [
+    {
+      "name": "two original proofs AND false pays immutable NO 2000sat",
+      "status": "PASS",
+      "accepted": true,
+      "expectedAccepted": true,
+      "error": "",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 35814,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "same proofs OR true pays immutable YES 2000sat",
+      "status": "PASS",
+      "accepted": true,
+      "expectedAccepted": true,
+      "error": "",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 37400,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "genuine proofs cannot redirect fixed payout",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_EVAL_FALSE_IN_STACK, fails at OP_NIP\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 37075,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "edited prices with matching parser token cannot forge original signature",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 19264,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "swapped authentic source cannot satisfy pinned market and condition",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 1402,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "genuine same-market passthrough response cannot satisfy operation request hash",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 19316,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "changed pinned outcome order rejects original final record",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 1818,
+      "lockingScriptBytes": 12075793,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "closed=false cannot satisfy literal finality",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 1269,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2532,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "status=proposed cannot satisfy resolved finality",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 1393,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "early refund rejected",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 4531,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "all-final sequence cannot bypass refund deadline",
+      "status": "PASS",
+      "accepted": false,
+      "expectedAccepted": false,
+      "error": "VerifyError: SCRIPT_ERR_VERIFY, fails at OP_VERIFY\n",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 4529,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    },
+    {
+      "name": "mature non-final refund restores fixed 1000/1000",
+      "status": "PASS",
+      "accepted": true,
+      "expectedAccepted": true,
+      "error": "",
+      "scriptInterpreterRun": true,
+      "elapsedMs": 4611,
+      "lockingScriptBytes": 12075794,
+      "unlockingScriptBytes": 2531,
+      "postSeparatorScriptBytes": 1726,
+      "preimageBytes": 1885
+    }
+  ],
+  "status": "PASS"
+}

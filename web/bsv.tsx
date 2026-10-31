@@ -94,6 +94,7 @@ export default function BsvApp() {
           <a href="/">EVM V1</a>
           <a href="/next">Exact target</a>
           <span>BSV baskets</span>
+          <a href="/bsv/native">Native policy</a>
         </nav>
         <span className="bsv-network">BSV testnet</span>
       </header>

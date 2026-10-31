@@ -1,0 +1,1 @@
+const fs=require('fs'),zlib=require('zlib'),path=require('path');for(const file of fs.readdirSync(path.join(__dirname,'artifacts')).filter(f=>f.endsWith('.json.gz'))){fs.writeFileSync(path.join(__dirname,'artifacts',file.slice(0,-3)),zlib.gunzipSync(fs.readFileSync(path.join(__dirname,'artifacts',file))))}

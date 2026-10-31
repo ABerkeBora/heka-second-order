@@ -1,0 +1,86 @@
+[
+  {
+    "observedAt": "2026-10-31T09:49:54.225Z",
+    "scope": "already finalized market; cryptographic replay, not a newly funded future market",
+    "recordedEndDate": "2026-10-31T09:45:00Z",
+    "request": {
+      "operation": "getMarketById",
+      "parameters": {
+        "id": "6414755"
+      },
+      "responseProjection": {
+        "m": "/id",
+        "i": "/conditionId",
+        "o": "/outcomes",
+        "p": "/outcomePrices",
+        "s": "/umaResolutionStatus",
+        "c": "/closed",
+        "t": "/updatedAt"
+      }
+    },
+    "envelope": {
+      "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "requestHash": "0x24fb001774e04cca13110c9f7ff542e3d831b4d1f822f1b9bc2c5c33f5e3dc26",
+      "timestamp": "1793440194",
+      "data": "{\"c\":true,\"i\":\"0xa33f6fac3e110ffa69ba1660d6f175ca9223857e1f9fbc7fb554420d26c30e05\",\"m\":\"6414755\",\"o\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"p\":\"[\\\"0\\\", \\\"1\\\"]\",\"s\":\"resolved\",\"t\":\"2026-10-31T09:47:28.497015Z\"}",
+      "signature": "0x3022f15e3a0f2fc6a64150ebcd353d1eb788ade2320673c43402d0eb4904af8f036e62c72a9f08646672bb731b3247055b1eba9b42195537c5f3bd885adf6d681c"
+    },
+    "decoded": {
+      "c": true,
+      "i": "0xa33f6fac3e110ffa69ba1660d6f175ca9223857e1f9fbc7fb554420d26c30e05",
+      "m": "6414755",
+      "o": "[\"Up\", \"Down\"]",
+      "p": "[\"0\", \"1\"]",
+      "s": "resolved",
+      "t": "2026-10-31T09:47:28.497015Z"
+    },
+    "inner": "0x80457574a206a5c589fb46b7a897ea97d091d3e592e2d95bd9302823087a7a35",
+    "digest": "0xcb1c42cd42edf6a6777a57af6ac673c6578e9832a5eb6a1139c77b6ae388f213",
+    "publicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+    "address": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "packedBytes": 256,
+    "independentViemVerified": true
+  },
+  {
+    "observedAt": "2026-10-31T09:49:54.216Z",
+    "scope": "already finalized market; cryptographic replay, not a newly funded future market",
+    "recordedEndDate": "2026-10-31T09:45:00Z",
+    "request": {
+      "operation": "getMarketById",
+      "parameters": {
+        "id": "6414754"
+      },
+      "responseProjection": {
+        "m": "/id",
+        "i": "/conditionId",
+        "o": "/outcomes",
+        "p": "/outcomePrices",
+        "s": "/umaResolutionStatus",
+        "c": "/closed",
+        "t": "/updatedAt"
+      }
+    },
+    "envelope": {
+      "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "requestHash": "0xffafbe53529d60c845854b522826534c03244ea578d0720397a9abbb3a3420ee",
+      "timestamp": "1793440194",
+      "data": "{\"c\":true,\"i\":\"0x302c8083037a7fa5201fef2915795771f8ef71f88b1717c05d15d9f5998bd4da\",\"m\":\"6414754\",\"o\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"p\":\"[\\\"1\\\", \\\"0\\\"]\",\"s\":\"resolved\",\"t\":\"2026-10-31T09:47:29.501103Z\"}",
+      "signature": "0x1c54500d6f347621c65b8262331b9e6678cda4bc4f923739b988aafadba9dc6d1fb24db148c62167392be4d881670ce39dbf3534b48c26a132f480c26e02ac791c"
+    },
+    "decoded": {
+      "c": true,
+      "i": "0x302c8083037a7fa5201fef2915795771f8ef71f88b1717c05d15d9f5998bd4da",
+      "m": "6414754",
+      "o": "[\"Up\", \"Down\"]",
+      "p": "[\"1\", \"0\"]",
+      "s": "resolved",
+      "t": "2026-10-31T09:47:29.501103Z"
+    },
+    "inner": "0xa43d4f358ef127fd88cd4559c8512226c5707f376e9854c2c82680fd09b763f8",
+    "digest": "0xd2db9325c5116b545bcf82ee4c5526dd84ec76d7ec248ac9769cf4aed171c44b",
+    "publicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+    "address": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "packedBytes": 256,
+    "independentViemVerified": true
+  }
+]

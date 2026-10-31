@@ -1,0 +1,63 @@
+import "../node_modules/scrypt-ts-lib/artifacts/ec/misc.scrypt";import "iso-time.scrypt";import "keccak-two.scrypt";import "keccak.scrypt";import "../node_modules/scrypt-ts-lib/artifacts/ec/secp256k1.scrypt";
+
+struct PMLegPolicy {
+  bytes requestHash;
+  bytes marketId;
+  bytes conditionId;
+  bytes outcomesJsonToken;
+  int selectedOutcome;
+  int endsAt;
+}
+
+contract PolymarketOutcome {
+  PMLegPolicy leg0;
+  PMLegPolicy leg1;
+  Point airnodePublicKey;
+  bool isOr;
+  int observationDeadline;
+  int collateralSatoshis;
+  bytes yesRecipientScript;
+  bytes noRecipientScript;
+  int refundAfter;
+  bytes refundBuyerScript;
+  bytes refundCounterpartyScript;
+  int buyerStakeSatoshis;
+  function verifyLeg(PMLegPolicy leg, int timestamp, bytes data, Signature signature, bytes pricesJsonToken, bytes updatedAtIso) : bool {
+    require(len(leg.requestHash) == 32 && len(leg.marketId) > 0 && len(leg.marketId) <= 12 && len(leg.conditionId) == 66 && (leg.selectedOutcome == 0 || leg.selectedOutcome == 1));
+    bytes token10 = b'225b5c22315c222c205c22305c225d22';
+    bytes token01 = b'225b5c22305c222c205c22315c225d22';
+    bytes compact10 = b'225b5c22315c222c5c22305c225d22';
+    bytes compact01 = b'225b5c22305c222c5c22315c225d22';
+    require(pricesJsonToken == token10 || pricesJsonToken == token01 || pricesJsonToken == compact10 || pricesJsonToken == compact01);
+    bytes expected = b'7b2263223a747275652c2269223a22' + leg.conditionId + b'222c226d223a22' + leg.marketId + b'222c226f223a' + leg.outcomesJsonToken + b'2c2270223a' + pricesJsonToken + b'2c2273223a227265736f6c766564222c2274223a22' + updatedAtIso + b'227d';
+    require(data == expected);
+    int sourceAt = IsoUtc.parse(updatedAtIso);
+    require(sourceAt >= leg.endsAt && sourceAt <= this.observationDeadline && timestamp >= leg.endsAt && timestamp <= this.observationDeadline);
+    require(sourceAt <= timestamp + 30 && timestamp <= sourceAt + 900);
+    bytes packed = leg.requestHash + reverseBytes(Utils.toLEUnsigned(timestamp, 32), 32) + data;
+    bytes inner = KeccakTwoBlocks.digest(packed);
+    bytes digest = KeccakOneBlock.digest(b'19457468657265756d205369676e6564204d6573736167653a0a3332' + inner);
+    require(SECP256K1.verifySig(Utils.fromLEUnsigned(reverseBytes(digest, 32)), signature, this.airnodePublicKey));
+    int winnerIndex = (pricesJsonToken == token10 || pricesJsonToken == compact10) ? 0 : 1;
+    return winnerIndex == leg.selectedOutcome;
+  }
+  public function spend(bool refund, int t0, bytes d0, Signature s0, bytes p0, bytes u0, int t1, bytes d1, Signature s1, bytes p1, bytes u1, SigHashPreimage preimage, int changeAmount, Ripemd160 changeAddress) {
+    require(this.leg0.marketId != this.leg1.marketId && this.observationDeadline >= this.leg0.endsAt && this.observationDeadline >= this.leg1.endsAt && this.refundAfter > this.observationDeadline && this.collateralSatoshis > 0 && this.buyerStakeSatoshis > 0 && this.buyerStakeSatoshis < this.collateralSatoshis);
+    bytes expectedOutputs = Utils.buildOutput(this.refundBuyerScript, this.buyerStakeSatoshis) + Utils.buildOutput(this.refundCounterpartyScript, this.collateralSatoshis - this.buyerStakeSatoshis);
+    if(!refund) {
+        bool wins0 = this.verifyLeg(this.leg0, t0, d0, s0, p0, u0);
+        bool wins1 = this.verifyLeg(this.leg1, t1, d1, s1, p1, u1);
+        bool yes = this.isOr ? (wins0 || wins1) : (wins0 && wins1);
+        expectedOutputs = Utils.buildOutput(yes ? this.yesRecipientScript : this.noRecipientScript, this.collateralSatoshis);
+      }
+    ***
+    require(Tx.checkPreimageSigHashType(preimage, SigHash.ALL | SigHash.FORKID));
+    require(SigHash.value(preimage) == this.collateralSatoshis);
+    if(refund) {
+        require(SigHash.nSequence(preimage) < 0xffffffff && SigHash.nLocktime(preimage) >= this.refundAfter);
+      }
+    require(changeAmount >= 0);
+    bytes change = changeAmount > 0 ? Utils.buildOutput(Utils.buildPublicKeyHashScript(changeAddress), changeAmount) : b'';
+    require(SigHash.hashOutputs(preimage) == hash256(expectedOutputs + change));
+  }
+}

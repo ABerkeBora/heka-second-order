@@ -1,0 +1,58 @@
+{
+  "observedAt": "2026-10-31T09:52:22.081Z",
+  "http": 200,
+  "url": "https://airnode-polymarket.fly.dev/api/gamma/markets/6414755?x-airnode-project=m%3A%2Fid&x-airnode-project=i%3A%2FconditionId&x-airnode-project=o%3A%2Foutcomes&x-airnode-project=p%3A%2FoutcomePrices&x-airnode-project=s%3A%2FumaResolutionStatus&x-airnode-project=c%3A%2Fclosed&x-airnode-project=t%3A%2FupdatedAt",
+  "matchedRequest": {
+    "path": "/gamma/markets/6414755",
+    "hash": "0x116c2fa7c9bf1956a987a8fac6adac2aa6bac0263238e912181f23eac51da117"
+  },
+  "projection": [
+    [
+      "c",
+      "/closed"
+    ],
+    [
+      "i",
+      "/conditionId"
+    ],
+    [
+      "m",
+      "/id"
+    ],
+    [
+      "o",
+      "/outcomes"
+    ],
+    [
+      "p",
+      "/outcomePrices"
+    ],
+    [
+      "s",
+      "/umaResolutionStatus"
+    ],
+    [
+      "t",
+      "/updatedAt"
+    ]
+  ],
+  "envelope": {
+    "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "requestHash": "0x116c2fa7c9bf1956a987a8fac6adac2aa6bac0263238e912181f23eac51da117",
+    "timestamp": "1793440342",
+    "signature": "0x109e280cfc8b67a12e30978214648cc1b517633a2735d3355036ac631594b17d246dbd57cd27ffdd2b76740e961e4145dbfba3f8e71887b112bf6bd48ea722ab1c",
+    "data": "{\"c\":true,\"i\":\"0xa33f6fac3e110ffa69ba1660d6f175ca9223857e1f9fbc7fb554420d26c30e05\",\"m\":\"6414755\",\"o\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"p\":\"[\\\"0\\\", \\\"1\\\"]\",\"s\":\"resolved\",\"t\":\"2026-10-31T09:47:28.497015Z\"}"
+  },
+  "publicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+  "originalSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+  "decoded": {
+    "c": true,
+    "i": "0xa33f6fac3e110ffa69ba1660d6f175ca9223857e1f9fbc7fb554420d26c30e05",
+    "m": "6414755",
+    "o": "[\"Up\", \"Down\"]",
+    "p": "[\"0\", \"1\"]",
+    "s": "resolved",
+    "t": "2026-10-31T09:47:28.497015Z"
+  },
+  "requestHashDifferentFromOperation": true
+}

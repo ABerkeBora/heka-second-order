@@ -1,0 +1,224 @@
+{
+  "checkedAt": "2026-10-31T10:02:19.251Z",
+  "scope": "local compiled Script VM and SDK interoperation only; no network broadcast or wallet operations",
+  "compiler": {
+    "version": "1.22.0+commit.47800da",
+    "flags": "compile --hex --ast -r, unoptimized",
+    "sha256": "77ce27c6e0b25895f75980ed9e4ec75f64ba064f2294ce9e3c928c65211ecf9e",
+    "url": "https://github.com/sCrypt-Inc/compiler_dist/releases/download/v1.22.0/scryptc-1.22.0-macOS-x86_64"
+  },
+  "dependencies": {
+    "scryptlib": "2.2.6",
+    "viem": "2.38.5",
+    "@bsv/sdk": "3.2.1",
+    "scrypt-ts": "1.4.5",
+    "scrypt-ts-lib": "0.1.28",
+    "scrypt-cli": "0.2.3"
+  },
+  "originalSourceEvidence": [
+    {
+      "request": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6414755"
+        },
+        "responseProjection": {
+          "m": "/id",
+          "i": "/conditionId",
+          "o": "/outcomes",
+          "p": "/outcomePrices",
+          "s": "/umaResolutionStatus",
+          "c": "/closed",
+          "t": "/updatedAt"
+        }
+      },
+      "requestHash": "0x24fb001774e04cca13110c9f7ff542e3d831b4d1f822f1b9bc2c5c33f5e3dc26",
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "fullPublicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+      "packedBytes": 256,
+      "rawDataSha256": "bc295318db4c05fd59b9b2b02919ba6103c9476aa5c5e0fd509699095b8a430f",
+      "independentViemVerified": true
+    },
+    {
+      "request": {
+        "operation": "getMarketById",
+        "parameters": {
+          "id": "6414754"
+        },
+        "responseProjection": {
+          "m": "/id",
+          "i": "/conditionId",
+          "o": "/outcomes",
+          "p": "/outcomePrices",
+          "s": "/umaResolutionStatus",
+          "c": "/closed",
+          "t": "/updatedAt"
+        }
+      },
+      "requestHash": "0xffafbe53529d60c845854b522826534c03244ea578d0720397a9abbb3a3420ee",
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "fullPublicKey": "0x044c67d74fbd8d090415a0670828ef6f176af5aebd7d802cbfe440ef9bacc5ab3a484a7c41ef9655eb8d1b319de6106519fe79c9923cd933293b89d9c9adb7f89f",
+      "packedBytes": 256,
+      "rawDataSha256": "64d6c82a198837e1a2f65aac1240e5b6b81f36c0193059041cf3bf175e63566e",
+      "independentViemVerified": true
+    }
+  ],
+  "tests": [
+    {
+      "file": "pm-followon/primitives-results.json",
+      "status": "PASS"
+    },
+    {
+      "file": "pm-followon/consumer-results.json",
+      "status": "PASS"
+    },
+    {
+      "file": "pm-followon/sdk-results.json",
+      "status": "PASS"
+    }
+  ],
+  "files": [
+    {
+      "file": "package.json",
+      "bytes": 386,
+      "sha256": "63bbfa04fae6b51c9b52f5d13e8ad7c2216cbb8dd29a5060743caff802e707f4"
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 170284,
+      "sha256": "a1a57228275e8f60faeb6ff0c3733414cfbaf3af8522b0c3a8a64f5364608e78"
+    },
+    {
+      "file": "tsconfig.json",
+      "bytes": 195,
+      "sha256": "8c967c41f559d486fd5d77ccd32382503fdf2c6f8aa57b54f572712a93fae652"
+    },
+    {
+      "file": "scrypt.index.json",
+      "bytes": 757,
+      "sha256": "dd903285d0bb9955549e849147f5ff42f1809192e3096895196f0ab4c9dbe182"
+    },
+    {
+      "file": "bundle-fast.cjs",
+      "bytes": 2366,
+      "sha256": "5920a3ad6e5a170743f5cd6f514dc1ab6853a79e8bbb695ee5b560980e8b979b"
+    },
+    {
+      "file": "src/contracts/keccak.ts",
+      "bytes": 2730,
+      "sha256": "71d30b11b79437e2ffa26233c6b1a53a365e363d96e7b0099894fb01f891522b"
+    },
+    {
+      "file": "src/contracts/keccak-two.ts",
+      "bytes": 2163,
+      "sha256": "ff10cf82623860c0eca8449114a8f38169176cc9d50b56ffbd3da4eed1c036a4"
+    },
+    {
+      "file": "src/contracts/iso-time.ts",
+      "bytes": 2172,
+      "sha256": "c9826c807db35a1fe8b5db30fbb9056480207e2b33b17dec1056e92dbdf86260"
+    },
+    {
+      "file": "src/contracts/polymarket-outcome.ts",
+      "bytes": 5402,
+      "sha256": "52b55d26f4f31e6e4da8e85f358b1556f86e476c1ee12b36760a78dfb42180ad"
+    },
+    {
+      "file": "pm-followon/consumer-helper.cjs",
+      "bytes": 5611,
+      "sha256": "7fa0d6262de0a5447b652ec3558cad0c7eac9777912a29c38a6012a9a466560a"
+    },
+    {
+      "file": "pm-followon/test-sdk.cjs",
+      "bytes": 3735,
+      "sha256": "edcc3103f5157598994a43cec5e0739d96221cbc33424fb4ae40d853ce854abe"
+    },
+    {
+      "file": "pm-followon/test-consumer.ts",
+      "bytes": 6151,
+      "sha256": "f434e10f5da68f61f1e2f41fc0850f42036e011a6750dc4f2e2930fd29761765"
+    },
+    {
+      "file": "pm-followon/test-primitives.ts",
+      "bytes": 2228,
+      "sha256": "13fa84b680486cc811e3b55f769f9fa81b24ca911e1d24224f7bd3a80cae7993"
+    },
+    {
+      "file": "pm-followon/fetch.cjs",
+      "bytes": 2686,
+      "sha256": "9c9c65b53ee3002d37baaeb1ac32bfa3806d7a4960737e78df6576f85f827bb6"
+    },
+    {
+      "file": "pm-followon/fixtures.json",
+      "bytes": 3751,
+      "sha256": "5bf8966286d4dab4b3be51ca3bef746ca1a778a67c818aa79943f7d9089df69c"
+    },
+    {
+      "file": "pm-followon/wrong-route.json",
+      "bytes": 1976,
+      "sha256": "be6698e4ef50455f98d62574e2e30dcf9a65b86264f2a26207f5a9852723d281"
+    },
+    {
+      "file": "pm-followon/discovery-brief.json",
+      "bytes": 5550,
+      "sha256": "bd61f51762675464c8d61d1285f8424110fbeea5ae6e2eb0f3a7d04f6a5acda3"
+    },
+    {
+      "file": "pm-followon/primitives-results.json",
+      "bytes": 2251,
+      "sha256": "0d43c59bba11d22fc36f347291f90da503fe0cd405127f8cf1c8001bb83b0878"
+    },
+    {
+      "file": "pm-followon/consumer-results.json",
+      "bytes": 7074,
+      "sha256": "d13d30ec74971314829b6afc4250dc9f5d32f235e23f650e6f52b5e1621c70de"
+    },
+    {
+      "file": "pm-followon/sdk-results.json",
+      "bytes": 1026,
+      "sha256": "90785471c3b8c257e30111cbca0f863c859202a96c8b3f7a081a97c351a75a06"
+    },
+    {
+      "file": "pm-followon/README.md",
+      "bytes": 7911,
+      "sha256": "a44a38f86b62b0256595bdec9dbe7d4d9d58bf872402975e26bf1a74f0df8ec7"
+    },
+    {
+      "file": "artifacts/keccak.json",
+      "bytes": 1897345,
+      "sha256": "4240c1a191be6ffecb750a1e7b513365c0c529335fef6a7fc56586e7c6aa34f3"
+    },
+    {
+      "file": "artifacts/keccak-two.json",
+      "bytes": 4158733,
+      "sha256": "b53126662aab305a8d6ea076466c53838b04803370305e98ceeb9903454ad4bc"
+    },
+    {
+      "file": "artifacts/iso-time.json",
+      "bytes": 5910,
+      "sha256": "c77e866115f86630805d1ae912bddbbc528ac9cfd718f39eaa296d1845d3114f"
+    },
+    {
+      "file": "artifacts/polymarket-outcome.json",
+      "bytes": 24156742,
+      "sha256": "1328bb325ee7bb0accafbaedf78057ea27f6fe4ef9f6d8c4a90c81df0cfb5f8f"
+    }
+  ],
+  "limits": [
+    "Experimental unaudited crypto/consumer composition.",
+    "Only <=271 packed bytes, strict bounded seven-field Up/Down source JSON.",
+    "Original signature authenticates provider statement, not external truth.",
+    "Fixed eligible oracle observation window and lag; not current wall-clock expiry or EVM timing parity.",
+    "Settlement/refund first valid UTXO spend wins after mature refund.",
+    "Local fixtures already finalized; live future-funded scenario and standard wallet/node admission require separate evidence.",
+    "Dummy addresses/outpoints in tests must never be broadcast.",
+    "12,075,794-byte output does not fit a 10MB script policy."
+  ],
+  "portableArtifact": {
+    "gzipFile": "artifacts/polymarket-outcome.json.gz",
+    "gzipBytes": 340534,
+    "gzipSha256": "90d0adaae54e8507ca99e2b4361684674b1b2f64b02980e624ae1397e558902e",
+    "decompressedSha256": "1328bb325ee7bb0accafbaedf78057ea27f6fe4ef9f6d8c4a90c81df0cfb5f8f"
+  },
+  "portableGzipLoaderCompiledSdkTest": "PASS"
+}
