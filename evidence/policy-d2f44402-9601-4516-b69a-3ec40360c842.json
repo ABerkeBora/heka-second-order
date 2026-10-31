@@ -1,0 +1,177 @@
+{
+  "id": "d2f44402-9601-4516-b69a-3ec40360c842",
+  "marketIds": [
+    "6406061",
+    "6406069"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "OR",
+  "reason": "Objective requires at least one of Ethereum or XRP to finish Up. Only Ethereum (id:6406061) and Solana (id:6406069) are listed; XRP is not present in candidates. Selected outcomes are 'Up' for both to satisfy OR condition.",
+  "model": "qwen3:4b",
+  "createdAt": "2026-10-31T03:11:19.702Z",
+  "startedAt": "2026-10-31T03:11:10.062Z",
+  "latencyMs": 9640,
+  "input": {
+    "objective": "Use OR: at least one of Ethereum and XRP must finish Up in the next available window.",
+    "allowedOperators": [
+      "AND",
+      "OR"
+    ],
+    "candidates": [
+      {
+        "id": "6406060",
+        "question": "Bitcoin Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406061",
+        "question": "Ethereum Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406064",
+        "question": "Dogecoin Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406067",
+        "question": "Hyperliquid Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406068",
+        "question": "ZCash Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406069",
+        "question": "Solana Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      }
+    ]
+  },
+  "validator": {
+    "accepted": true,
+    "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+  },
+  "sourceMarkets": [
+    {
+      "id": "6406061",
+      "question": "Ethereum Up or Down - October 30, 11:15PM-11:20PM ET",
+      "slug": "eth-updown-5m-1793416500",
+      "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.505",
+        "0.495"
+      ],
+      "endDate": "2026-10-31T03:20:00Z",
+      "updatedAt": "2026-10-31T03:10:16.268336Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+      "settlementRequestHash": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+        "timestamp": "1793416269",
+        "data": "{\"closed\":false,\"conditionId\":\"0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63\",\"endDate\":\"2026-10-31T03:20:00Z\",\"marketId\":\"6406061\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T03:10:16.268336Z\"}",
+        "signature": "0xb48d6e0e018fbbb155b8ad0f30e20586a5d78f9f75502d8c4ced44f0274e42506ac047dde2ed86dbda76a8831e16f34ee3d7ede41fed5e1be0d860cf16d190951b"
+      }
+    },
+    {
+      "id": "6406069",
+      "question": "Solana Up or Down - October 30, 11:15PM-11:20PM ET",
+      "slug": "sol-updown-5m-1793416500",
+      "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.505",
+        "0.495"
+      ],
+      "endDate": "2026-10-31T03:20:00Z",
+      "updatedAt": "2026-10-31T03:10:16.268336Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+      "settlementRequestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+        "timestamp": "1793416270",
+        "data": "{\"closed\":false,\"conditionId\":\"0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699\",\"endDate\":\"2026-10-31T03:20:00Z\",\"marketId\":\"6406069\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T03:10:16.268336Z\"}",
+        "signature": "0xcf79c1f68b93e865daf0d73179ee4b3664d2d874c21e580042056d0ab20ec4c56a85ccd12a91acb9582113e243c540049481afb92f0d7b3a8a23df79576652171c"
+      }
+    }
+  ],
+  "revision": 2,
+  "policy": {
+    "sources": [
+      {
+        "marketId": "6406061",
+        "conditionId": "0xa4d3cfce6cb6f236d65ffad72e22737ac926eb6656d6823995c0937d79cfdd63",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0x5f15c8177a9a26763cc216c30c20aab6299afc36bfb71c6527dda489a530faed",
+        "settlementRequestHash": "0x504ca09934b1fd9909fceeae1bb391b7b793346f7896c7cff1b4ca2ab3026e8d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      },
+      {
+        "marketId": "6406069",
+        "conditionId": "0xf87df6916780b1d3f9c132cb704f64446439d098b63cdf8d9558eb7e60efd699",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0xc081f5d8fefe126c924dea223dd3baed215672010a0787f45b8621b60a4141ca",
+        "settlementRequestHash": "0x9d06113627b851a86813493f6db4e0a0cb24f2417bf074a321bd9acc5e197d5d",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793416800"
+      }
+    ],
+    "operatorIsOr": true,
+    "tradeClosesAt": "1793416755",
+    "deadline": "1793418600",
+    "maxEnvelopeAge": 300,
+    "maxSourceAge": 900
+  },
+  "policyHash": "0xcf535293f4036db974dbd0f8ee24dd52540dae4d28ac87632dbb9f9bd370e428",
+  "contractAddress": "0x9de37bba7dbc2cb50dffc1c77e6941e68e17356a",
+  "deploymentTx": "0x51f8d5b2ce75b36903f0c28ff1e951f6007943b4d60fc4146a863a87244fec68",
+  "initializationTx": "0x19b73faec229f9ec63d592f6504a596d8d60da58371533e96ea48a6e94d45716",
+  "ready": true
+}

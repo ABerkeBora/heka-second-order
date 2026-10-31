@@ -1,8 +1,8 @@
 {
-  "checkedAt": "2026-10-31T03:01:42.502Z",
+  "checkedAt": "2026-10-31T03:05:04.432Z",
   "route": "http://localhost:3101",
   "build": "production",
-  "method": "Supported CUA browser controls and read-only rendered DOM measurements; substituted for TasteSkill CDP inspector",
+  "method": "Supported CUA browser controls and read-only rendered DOM; substituted for TasteSkill CDP inspector",
   "measurements": [
     {
       "documentWidth": 1440,
@@ -57,16 +57,6 @@
       "smallText": [],
       "smallVisibleButtons": [
         {
-          "height": 59,
-          "text": "Activity",
-          "width": 43.3828125
-        },
-        {
-          "height": 24,
-          "text": "",
-          "width": 24
-        },
-        {
           "height": 34,
           "text": "Inspect evidence",
           "width": 143.40625
@@ -94,17 +84,19 @@
         }
       ],
       "smallText": [],
-      "smallVisibleButtons": [
-        {
-          "height": 57,
-          "text": "Activity",
-          "width": 40.046875
-        }
-      ],
+      "smallVisibleButtons": [],
       "viewport": {
         "height": 844,
         "width": 390
       }
     }
+  ],
+  "walkthrough": [
+    "Real model proposal/deployment through browser",
+    "Bounded funding and independent counterparty receipts",
+    "Real source finality and correct losing/winning result",
+    "Malformed envelope rejected inline",
+    "Check results bound to exact market; unfunded other market rejected",
+    "Fixed beneficiary claim events and zero balance displayed honestly"
   ]
 }

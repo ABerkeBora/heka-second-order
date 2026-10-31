@@ -22,7 +22,7 @@ The local executor holds these test keys server-side. The model sees bounded can
 | Gas per submission and total intent budget | Local executor only; 300000000000000 wei per normal action and 1500000000000000 wei per intent/role. Setup/deployment are separate deployer actions |
 | API fees | Zero for the selected free Gamma operations; no fabricated x402 charge |
 
-Gas checks reserve estimated execution cost plus twice the estimated L1/operator fee before signing. Confirmed journal entries use actual execution cost and returned L1 fee. These checks are application policy, not an on-chain spending cap or a mathematical guarantee against future rollup fee changes. No automatic top-up occurs. Receipt evidence must include any reverted transaction's gas; collateral rollback does not make gas free.
+Gas checks reserve estimated execution cost plus twice the estimated L1/operator fee before signing. Confirmed journal entries record execution cost and returned L1 fee separately; the conservative original fee reservation remains counted toward the total cap. These checks are application policy, not an on-chain spending cap or a mathematical guarantee against future rollup fee changes. No automatic top-up occurs. Receipt evidence must include any reverted transaction's gas; collateral rollback does not make gas free.
 
 ## Transaction and restart reconciliation
 
@@ -40,7 +40,7 @@ Creation and settlement use different locked projections of `getMarketById`. Dis
 
 An open proof is required for both sources on every funding action. A valid terminal proof halts trading immediately. Settlement additionally requires `closed=true`, `status=resolved`, matching identity/outcomes and exactly one-hot terminal prices, with observation no earlier than market creation. Missing finality, HTTP400, stale records and ambiguous prices cannot release collateral. The immutable timeout supplies the void path.
 
-The UI separates funding cutoff from the initially bounded delivery window. `fundingExpiresAt` / on-chain mandate expiry is the pinned trade cutoff. `automationExpiresAt` is fixed to resolution deadline plus 600 seconds; the executor stops signing new transactions after it. At most eight buyer transactions are permitted per intent locally (funding mandate/approval/stake, two evidence submissions, two claims or the timeout void). On-chain `maxActions=1` applies only to funding. Permissionless manual claim/refund remains possible after automation expiry.
+The UI separates funding cutoff from the initially bounded delivery window. `fundingExpiresAt` / on-chain mandate expiry is the pinned trade cutoff. `automationExpiresAt` is fixed to resolution deadline plus 600 seconds; the executor checks expiry again before preparing, signing and rebroadcasting. Confirmed receipt reads remain allowed, and completed outcomes stay completed after the window. At most eight buyer transactions are permitted per intent locally (funding mandate/approval/stake, two evidence submissions, two claims or the timeout void). On-chain `maxActions=1` applies only to funding. Permissionless manual claim/refund remains possible after automation expiry.
 
 ## Verification actually run in this review
 
@@ -57,3 +57,5 @@ These Node tests do not prove deployed payment, fee-budget exhaustion or crash r
 The Airnode signer authenticates what it returned, not upstream truth or cache consistency. The metadata signer is a pinned trust choice. A fresh envelope may cover an older upstream state. Ambiguous/stale data can force refunds and prevent the intended position outcome even when the software operates correctly.
 
 RPC availability, receipt finality and local journal integrity are trusted operational dependencies. One receipt confirmation is not a demonstrated deep-reorg recovery strategy. Losing the journal removes the exact-transaction retry record, although on-chain consumed intents and claim flags still protect the recorded market from duplicate economic execution. Keep ignored runtime backups when preserving a review scenario.
+
+The isolated recovery fault test additionally proves expiry blocks new preparation and pending rebroadcast while allowing confirmed-receipt reconciliation. It does not access live test keys.

@@ -1,0 +1,84 @@
+{
+  "id": "d2f44402-9601-4516-b69a-3ec40360c842",
+  "marketIds": [
+    "6406061",
+    "6406069"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "OR",
+  "reason": "Objective requires at least one of Ethereum or XRP to finish Up. Only Ethereum (id:6406061) and Solana (id:6406069) are listed; XRP is not present in candidates. Selected outcomes are 'Up' for both to satisfy OR condition.",
+  "model": "qwen3:4b",
+  "createdAt": "2026-10-31T03:11:19.702Z",
+  "startedAt": "2026-10-31T03:11:10.062Z",
+  "latencyMs": 9640,
+  "input": {
+    "objective": "Use OR: at least one of Ethereum and XRP must finish Up in the next available window.",
+    "allowedOperators": [
+      "AND",
+      "OR"
+    ],
+    "candidates": [
+      {
+        "id": "6406060",
+        "question": "Bitcoin Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406061",
+        "question": "Ethereum Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406064",
+        "question": "Dogecoin Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406067",
+        "question": "Hyperliquid Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406068",
+        "question": "ZCash Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      },
+      {
+        "id": "6406069",
+        "question": "Solana Up or Down - October 30, 11:15PM-11:20PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:20:00Z"
+      }
+    ]
+  },
+  "validator": {
+    "accepted": true,
+    "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+  }
+}

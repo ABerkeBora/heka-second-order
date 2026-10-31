@@ -18,7 +18,7 @@ import {
 import { privateKeyToAccount } from "viem/accounts";
 import { baseSepolia } from "viem/chains";
 import { estimateL1Fee, estimateOperatorFee } from "viem/op-stack";
-import { root, runtime, evidence } from "./store.ts";
+import { root, runtime, evidence, state } from "./store.ts";
 export const client = createPublicClient({
   chain: baseSepolia,
   transport: http(process.env.RPC_URL || "https://sepolia.base.org", {
@@ -106,6 +106,16 @@ function acquireLock() {
     } catch {}
   });
 }
+function checkDelegationTime(id: string) {
+  const scope = state.intents.find((i) => i.id === id.split(":")[0]);
+  if (!scope) return;
+  const proposal = state.proposals.find((p) => p.id === scope.proposalId);
+  const expiry =
+    scope.mandate.automationExpiresAt ||
+    (proposal ? Number(proposal.policy.deadline) + 600 : 0);
+  if (!expiry || Math.floor(Date.now() / 1000) >= expiry)
+    throw Error("Delegation expired; only receipt reconciliation is allowed");
+}
 export async function send(
   id: string,
   role: string,
@@ -140,6 +150,7 @@ export async function send(
     }
   }
   if (!entry) {
+    checkDelegationTime(id);
     const account = privateKeyToAccount(roles()[role].privateKey);
     const wallet = createWalletClient({
       account,
@@ -176,6 +187,7 @@ export async function send(
     )
       throw Error("Total intent gas budget exhausted; no top-up");
     if (maximum > cap) throw Error("Action exceeds the app-enforced gas cap");
+    checkDelegationTime(id);
     const raw = await wallet.signTransaction(prepared);
     entry = journal[id] = {
       id,
@@ -195,6 +207,7 @@ export async function send(
     .getTransactionReceipt({ hash: entry.hash })
     .catch(() => null);
   if (!receipt) {
+    checkDelegationTime(id);
     try {
       await client.sendRawTransaction({ serializedTransaction: entry.raw });
       entry.status = "submitted";

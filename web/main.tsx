@@ -47,7 +47,13 @@ type Proposal = {
     maxSourceAge?: number;
   };
 };
-type Delivery = { amountUnits: string; beneficiary: string; payer: string; refund: boolean; transactionHash: string };
+type Delivery = {
+  amountUnits: string;
+  beneficiary: string;
+  payer: string;
+  refund: boolean;
+  transactionHash: string;
+};
 type Intent = {
   id: string;
   marketId?: string;
@@ -57,6 +63,7 @@ type Intent = {
   status: string;
   side: string | number;
   stakeUnits: string;
+  buyerStakeUnits?: string;
   result?: "YES" | "NO" | null;
   phase?: number;
   deliveries?: { buyer?: Delivery; counterparty?: Delivery };
@@ -135,7 +142,7 @@ const words = (value?: string) =>
 const isRejected = (value?: string) =>
   /reject|fail|error|block/i.test(value || "");
 const isPending = (value?: string) =>
-  /pending|running|submitted|executing|approving/i.test(value || "");
+  /pending|running|submitted|executing|approving|authorizing|funding|waiting/i.test(value || "");
 function amount(value: unknown, decimals = 6) {
   if (value === null || value === undefined || value === "") return "—";
   try {
@@ -241,7 +248,10 @@ function App() {
   const [drawer, setDrawer] = useState(false);
   const [sourceIndex, setSourceIndex] = useState(0);
   const [envelope, setEnvelope] = useState("");
-  const [submittedProof, setSubmittedProof] = useState<{ marketId: string; txHash?: string } | null>(null);
+  const [submittedProof, setSubmittedProof] = useState<{
+    marketId: string;
+    txHash?: string;
+  } | null>(null);
   const [drawerError, setDrawerError] = useState<string | null>(null);
   const [showAllSources, setShowAllSources] = useState(false);
   const config = state.config || {};
@@ -253,7 +263,7 @@ function App() {
     (item) => item.proposalId === proposal?.id,
   );
   const proposalFunded = proposalIntent?.steps?.some(
-    (step) => step.action === "Agent funded position",
+    (step) => step.action === "Agent funded position" && /confirmed|success/i.test(step.status),
   );
   const proposalSources = (proposal?.marketIds || [])
     .map(
@@ -321,16 +331,24 @@ function App() {
       !["claimed", "refunded", "delegation expired"].includes(item.status),
   ).length;
   const eligibleCount = markets.filter((m) => m.eligible !== false).length;
-  const checks = evidenceContract && state.evidence?.marketId === evidenceContract
-    ? state.evidence.checks || []
-    : [];
-  const lastUpdated =
-    state.discovery?.updatedAt || state.discovery?.checkedAt || state.updatedAt;
+  const checks =
+    evidenceContract && state.evidence?.marketId === evidenceContract
+      ? state.evidence.checks || []
+      : [];
+  const lastUpdated = state.discovery?.checkedAt || state.discovery?.updatedAt;
   const activeSteps = intent?.steps || [];
+  const buyerFunded = activeSteps.some(
+    (step) => step.action === "Agent funded position" && /confirmed|success/i.test(step.status),
+  ) || (!!intent?.buyerStakeUnits && /^\d+$/.test(intent.buyerStakeUnits) && BigInt(intent.buyerStakeUnits) > 0n);
   const buyerDelivery = intent?.deliveries?.buyer;
   const counterpartyDelivery = intent?.deliveries?.counterparty;
-  const positionSide = String(intent?.side) === '0' ? 'NO' : String(intent?.side) === '1' ? 'YES' : String(intent?.side || '');
-  const basketVoided = intent?.phase === 3 || intent?.status === 'refunded';
+  const positionSide =
+    String(intent?.side) === "0"
+      ? "NO"
+      : String(intent?.side) === "1"
+        ? "YES"
+        : String(intent?.side || "");
+  const basketVoided = intent?.phase === 3 || intent?.status === "refunded";
   const proposedOperator = proposal?.operator || "AND";
   const truthRows = useMemo(
     () =>
@@ -1119,13 +1137,29 @@ function App() {
                     )}
                     {intent.result ? (
                       <div className="basket-result">
-                        <div><span>Basket result</span><strong>{intent.result}</strong></div>
-                        <p>Your {positionSide} position {positionSide === intent.result ? "won" : "did not win"}.</p>
+                        <div>
+                          <span>Basket result</span>
+                          <strong>{intent.result}</strong>
+                        </div>
+                        <p>
+                          Your {positionSide} position{" "}
+                          {positionSide === intent.result
+                            ? "won"
+                            : "did not win"}
+                          .
+                        </p>
                       </div>
                     ) : basketVoided ? (
                       <div className="basket-result refund-result">
-                        <div><span>Basket result</span><strong>Void</strong></div>
-                        <p>{buyerDelivery?.refund ? "Your original stake was returned." : "Original stakes are eligible for refund under the fixed policy."}</p>
+                        <div>
+                          <span>Basket result</span>
+                          <strong>Void</strong>
+                        </div>
+                        <p>
+                          {buyerDelivery?.refund
+                            ? "Your original stake was returned."
+                            : "Original stakes are eligible for refund under the fixed policy."}
+                        </p>
                       </div>
                     ) : null}
                     <div className="position-summary">
@@ -1140,9 +1174,9 @@ function App() {
                         </strong>
                       </div>
                       <div>
-                        <span>Funded stake</span>
+                        <span>{buyerFunded ? "Funded stake" : "Authorized stake"}</span>
                         <strong>
-                          {amount(intent.stakeUnits, decimals)}{" "}
+                          {amount(buyerFunded && intent.buyerStakeUnits !== undefined ? intent.buyerStakeUnits : intent.stakeUnits, decimals)}{" "}
                           <small>{symbol}</small>
                         </strong>
                       </div>
@@ -1156,7 +1190,10 @@ function App() {
                       <div>
                         <span>Collected</span>
                         <strong>
-                          {amount(buyerDelivery?.amountUnits ?? intent.payoutUnits, decimals)}{" "}
+                          {amount(
+                            buyerDelivery?.amountUnits ?? intent.payoutUnits,
+                            decimals,
+                          )}{" "}
                           <small>{symbol}</small>
                         </strong>
                       </div>
@@ -1348,9 +1385,18 @@ function App() {
                     <div className="counterparty-delivery">
                       <div>
                         <span>Counterparty test role</span>
-                        <strong>{counterpartyDelivery.refund ? "Stake returned" : "Delivered"}: {amount(counterpartyDelivery.amountUnits, decimals)} {symbol}</strong>
+                        <strong>
+                          {counterpartyDelivery.refund
+                            ? "Stake returned"
+                            : "Delivered"}
+                          : {amount(counterpartyDelivery.amountUnits, decimals)}{" "}
+                          {symbol}
+                        </strong>
                       </div>
-                      <TxLink hash={counterpartyDelivery.transactionHash} explorer={explorer} />
+                      <TxLink
+                        hash={counterpartyDelivery.transactionHash}
+                        explorer={explorer}
+                      />
                     </div>
                   )}
                   <p className="footnote">
@@ -1519,7 +1565,9 @@ function App() {
               {[0, 1].map((index) => (
                 <option value={index} key={index}>
                   {index === 0 ? "A" : "B"}
-                  {evidenceSources[index] ? ` · ${evidenceSources[index].id}` : ""}
+                  {evidenceSources[index]
+                    ? ` · ${evidenceSources[index].id}`
+                    : ""}
                 </option>
               ))}
             </select>
@@ -1543,9 +1591,7 @@ function App() {
             </p>
             <button
               className="primary-button"
-              disabled={
-                !!busy || !evidenceContract || !envelope.trim()
-              }
+              disabled={!!busy || !evidenceContract || !envelope.trim()}
               onClick={() => inspectProof(false)}
             >
               {busy === "Submitting evidence"
@@ -1559,7 +1605,10 @@ function App() {
               </p>
             )}
             {submittedProof && submittedProof.marketId === evidenceContract && (
-              <div className="check-row"><span>Evidence submitted</span><TxLink hash={submittedProof.txHash} explorer={explorer} /></div>
+              <div className="check-row">
+                <span>Evidence submitted</span>
+                <TxLink hash={submittedProof.txHash} explorer={explorer} />
+              </div>
             )}
             <div className="tamper-section">
               <div className="section-heading">
@@ -1594,7 +1643,9 @@ function App() {
                   ))}
                 </div>
               ) : (
-                <div className="empty-row">No recorded checks for this market.</div>
+                <div className="empty-row">
+                  No recorded checks for this market.
+                </div>
               )}
             </div>
           </section>

@@ -1,0 +1,20 @@
+{
+  "checkedAt": "2026-10-31T03:07:35.522212+00:00",
+  "repository": "https://github.com/ABerkeBora/heka-second-order",
+  "testedCommit": "be2731a6c759d40af5561a89f053b1b234f58231",
+  "source": "fresh GitHub clone",
+  "checks": {
+    "npmCi": true,
+    "forgeBuild": true,
+    "productionBuild": true,
+    "productionStartOn3101": true,
+    "apiMarketsEmpty": true,
+    "apiIntentsEmpty": true,
+    "noWalletOrPrivateEnvironmentCopied": true,
+    "noPublishedEvidenceInjectedAsLiveState": true
+  },
+  "warnings": [
+    "Foundry reports parent repository revision for plain vendored directories; immutable archive revisions and source provenance are pinned separately. Compiler succeeded."
+  ],
+  "screenshot": "evidence/screenshots/clean-clone-empty.jpg"
+}

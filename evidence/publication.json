@@ -1,0 +1,29 @@
+{
+  "repository": {
+    "defaultBranchRef": {
+      "name": "codex/build"
+    },
+    "url": "https://github.com/ABerkeBora/heka-second-order",
+    "visibility": "PUBLIC"
+  },
+  "publishedCommit": "be2731a6c759d40af5561a89f053b1b234f58231",
+  "authorLogin": "ABerkeBora",
+  "committerLogin": "ABerkeBora",
+  "author": {
+    "name": "ABerkeBora",
+    "email": "23353551+ABerkeBora@users.noreply.github.com",
+    "date": "2026-10-31T03:04:24Z"
+  },
+  "committer": {
+    "name": "ABerkeBora",
+    "email": "23353551+ABerkeBora@users.noreply.github.com",
+    "date": "2026-10-31T03:04:24Z"
+  },
+  "accountVerified": "ABerkeBora",
+  "sourceSecretsScan": {
+    "stagedFiles": 623,
+    "realIsolatedWalletKeyMatches": 0,
+    "privatePathsStaged": 0,
+    "embeddedGitlinks": 0
+  }
+}

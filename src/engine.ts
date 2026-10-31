@@ -276,6 +276,7 @@ async function fundingSteps(intent: any) {
   for (const role of ["buyer", "counterparty"]) {
     const recoveredFund = await reconcile(`${intent.id}:${role}:fund`);
     if (recoveredFund) {
+      await syncIntent(intent);
       recordTx(
         intent,
         role === "buyer"
@@ -313,6 +314,7 @@ async function fundingSteps(intent: any) {
     recordTx(intent, `${role} allowance`, receiptB);
     const prior = await reconcile(`${intent.id}:${role}:fund`);
     if (prior) {
+      await syncIntent(intent);
       recordTx(
         intent,
         role === "buyer"
@@ -336,6 +338,7 @@ async function fundingSteps(intent: any) {
       "fund",
       [fundId, amount, fresh.map((f) => proofArgs(f.response))],
     );
+    await syncIntent(intent);
     recordTx(
       intent,
       role === "buyer"
@@ -360,6 +363,9 @@ function recordTx(intent: any, action: string, r: any) {
 export async function syncIntent(intent: any) {
   const contract = intent.contractAddress as Address;
   const m = (await read(contract, marketAbi(), "marketState")) as any;
+  intent.buyerStakeUnits = (
+    (await read(contract, marketAbi(), "stakes", [address("buyer")])) as any
+  )[0].toString();
   intent.reserveUnits = m.reserve.toString();
   intent.yesStakeUnits = m.yesStake.toString();
   intent.noStakeUnits = m.noStake.toString();
@@ -396,10 +402,23 @@ export async function runIntent(intent: any) {
       (intent.mandate.automationExpiresAt ||
         Number(pExpiry.policy.deadline) + 600)
     ) {
-      await syncIntent(intent);
-      intent.status = "delegation expired";
-      intent.error =
-        "Delegation expired. No new transaction will be signed. Permissionless claim/refund remains available through the judge script.";
+      const expiredState = await syncIntent(intent);
+      const stakes = (await Promise.all(
+        ["buyer", "counterparty"].map((role) =>
+          read(intent.contractAddress, marketAbi(), "stakes", [address(role)]),
+        ),
+      )) as any[];
+      const delivered =
+        [2, 3].includes(Number(expiredState.phase)) &&
+        stakes.every((s) => s[0] === 0n || s[1]);
+      intent.status = delivered
+        ? Number(expiredState.phase) === 3
+          ? "refunded"
+          : "claimed"
+        : "delegation expired";
+      intent.error = delivered
+        ? undefined
+        : "Delegation expired. No new transaction will be signed. Permissionless claim/refund remains available through the judge script.";
       save();
       return intent;
     }
@@ -447,6 +466,7 @@ export async function runIntent(intent: any) {
               "submitEvidence",
               [i, proofArgs(response)],
             );
+            await syncIntent(intent);
             recordTx(intent, `Agent submitted source ${i + 1}`, r);
             intent.sources[i].updatedAt = data.updatedAt;
           } catch (error) {
@@ -488,6 +508,7 @@ export async function runIntent(intent: any) {
             "claim",
             [address(role)],
           );
+          await syncIntent(intent);
           recordTx(intent, label, receipt);
           recordClaim(intent, role, receipt);
         } else if (stake[1] && !intent.deliveries?.[role]) {
@@ -765,6 +786,10 @@ export async function tamperChecks(intent: any) {
   } as any;
   save();
   evidence(`rejections-${intent.id}.json`, {
+    marketId: intent.contractAddress,
+    intentId: intent.id,
+    network: "Base Sepolia",
+    chainId: 84532,
     checkedAt: new Date().toISOString(),
     checks,
     before,

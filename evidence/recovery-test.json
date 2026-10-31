@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checkedAt": "2026-10-31T02:58:45.518Z",
+  "checkedAt": "2026-10-31T03:07:05.677Z",
   "command": "node scripts/recovery-test.mjs",
   "mode": "Isolated local mocked RPC fault/restart; not a live-chain transaction",
   "productionFilesCopied": [
@@ -8,7 +8,7 @@
     "src/store.ts"
   ],
   "productionSourceSha256": {
-    "src/chain.ts": "0fe416b904ddd6d346b6d8562e2536413680fdd1aa91ea83ca51d5bd92b483ff",
+    "src/chain.ts": "9c8ef83491c37e2595066e09ec9ed78cb291c30cbcc87753ddeb7a1843ea2456",
     "src/store.ts": "651d074cc6441d0705baa1d87040f7b6c758e35eea6d0d848365e92bb7ebd94a"
   },
   "transactionHash": "0xf08e01da735eb54eedea66fed1df2098c400405ab834f33d268ccf5d97bb53c0",
@@ -24,20 +24,25 @@
     "noNewNonceOrPreparationOnRestart": true,
     "repeatedReconcileReturnsSameReceipt": true,
     "changedArgumentsRejected": true,
-    "successfulExitReleasesLock": true
+    "successfulExitReleasesLock": true,
+    "expiredNewActionRejectedBeforePreparation": true,
+    "expiredNewActionCreatesNoJournalEntry": true,
+    "expiredPendingRebroadcastRejected": true,
+    "expiryChecksCauseNoNewNoncePreparationOrBroadcast": true,
+    "confirmedReceiptReadableAfterExpiry": true
   },
   "broadcastAttempts": 2,
   "rejectedBroadcastAttempts": 1,
   "acceptedBroadcastAttempts": 1,
   "rpcCounters": {
-    "eth_chainId": 5,
+    "eth_chainId": 9,
     "eth_fillTransaction": 1,
     "eth_getTransactionCount": 1,
     "eth_getBlockByNumber": 1,
     "eth_maxPriorityFeePerGas": 1,
     "eth_estimateGas": 2,
     "eth_call": 2,
-    "eth_getTransactionReceipt": 6,
+    "eth_getTransactionReceipt": 9,
     "eth_sendRawTransaction": 2,
     "eth_getTransactionByHash": 1
   },

@@ -2209,3 +2209,13 @@ small {
     margin: -10px -10px -10px 0;
   }
 }
+@media (max-width: 1100px) {
+  .text-button,
+  .quiet-button,
+  .page-title .quiet-button,
+  .source-label .text-button,
+  .main-nav button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

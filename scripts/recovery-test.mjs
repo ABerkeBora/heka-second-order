@@ -32,6 +32,7 @@ const counters = {};
 const rawAttempts = [];
 const accepted = new Map();
 let allowBroadcast = false;
+let hideReceipts = false;
 const blockHash = '0x' + 'ab'.repeat(32);
 const block = { number: '0x1', hash: blockHash, parentHash: '0x' + '00'.repeat(32), nonce: '0x0000000000000000', sha3Uncles: '0x' + '00'.repeat(32), logsBloom: '0x' + '00'.repeat(256), transactionsRoot: '0x' + '00'.repeat(32), stateRoot: '0x' + '00'.repeat(32), receiptsRoot: '0x' + '00'.repeat(32), miner: '0x' + '00'.repeat(20), difficulty: '0x0', totalDifficulty: '0x0', extraData: '0x', size: '0x100', gasLimit: '0x1c9c380', gasUsed: '0x0', timestamp: '0x6b000000', baseFeePerGas: '0x3b9aca00', transactions: [], uncles: [] };
 function rpc(method, params = []) {
@@ -43,7 +44,7 @@ function rpc(method, params = []) {
   if (method === 'eth_maxPriorityFeePerGas' || method === 'eth_gasPrice') return '0x3b9aca00';
   if (method === 'eth_estimateGas') return '0xc350';
   if (method === 'eth_call') return '0x' + '00'.repeat(32); // OP L1/operator-fee oracle returns zero in this fixture.
-  if (method === 'eth_getTransactionReceipt') return accepted.get(params[0])?.receipt || null;
+  if (method === 'eth_getTransactionReceipt') return hideReceipts ? null : accepted.get(params[0])?.receipt || null;
   if (method === 'eth_getTransactionByHash') return null;
   if (method === 'eth_sendRawTransaction') {
     const raw = params[0]; const hash = keccak256(raw); rawAttempts.push({ raw, hash, allowed: allowBroadcast });
@@ -67,15 +68,27 @@ const rpcUrl = `http://127.0.0.1:${server.address().port}`;
 fs.writeFileSync(path.join(sandbox, 'runner.mjs'), `
 import assert from 'node:assert/strict';
 import {send,reconcile} from './src/chain.ts';
+import {state} from './src/store.ts';
 const id=${JSON.stringify(id)}; const tx={to:${JSON.stringify(target)},data:${JSON.stringify(calldata)}};
 if(process.argv[2]==='fault') {
   try { await send(id,'buyer',tx); throw Error('Fault unexpectedly accepted'); }
   catch(error) { if(!String(error.message).includes('Deliberate isolated RPC broadcast fault')) throw error; console.log('EXPECTED_BROADCAST_FAULT_AFTER_JOURNAL_PERSIST'); process.kill(process.pid,'SIGKILL'); }
-} else {
+} else if(process.argv[2]==='restart') {
   const first=await reconcile(id); assert.equal(first.status,'success');
   const second=await reconcile(id); assert.equal(second.transactionHash,first.transactionHash);
   await assert.rejects(send(id,'buyer',{...tx,data:${JSON.stringify(changedCalldata)}}),/arguments changed/);
   console.log(JSON.stringify({status:'PASS',transactionHash:first.transactionHash,repeatedReceiptSameHash:true,changedArgumentsRejected:true}));
+} else {
+  const scope=id.split(':')[0];
+  state.intents=[{id:scope,proposalId:'expired-fixture-policy',mandate:{automationExpiresAt:Math.floor(Date.now()/1000)-60}}];
+  await assert.rejects(send(scope+':buyer:expired-new','buyer',tx),/Delegation expired/);
+  if(process.argv[2]==='expired-confirmed') {
+    const receipt=await reconcile(id); assert.equal(receipt.status,'success');
+    console.log(JSON.stringify({status:'PASS',expiredNewActionRejected:true,confirmedReceiptReadableAfterExpiry:true,transactionHash:receipt.transactionHash}));
+  } else if(process.argv[2]==='expired-unconfirmed') {
+    await assert.rejects(reconcile(id),/Delegation expired/);
+    console.log(JSON.stringify({status:'PASS',expiredNewActionRejected:true,expiredPendingRebroadcastRejected:true}));
+  } else throw Error('Unknown isolated test mode');
 }
 `);
 function child(mode) { return new Promise((resolve, reject) => { const proc = spawn(process.execPath, ['runner.mjs', mode], { cwd: sandbox, env: { PATH: process.env.PATH, RPC_URL: rpcUrl, WALLET_FILE: walletFile, NODE_ENV: 'test' }, stdio: ['ignore', 'pipe', 'pipe'] }); let output = '', errors = ''; proc.stdout.on('data', b => output += b); proc.stderr.on('data', b => errors += b); proc.on('error', reject); const timeout = setTimeout(() => { proc.kill('SIGKILL'); reject(Error('Isolated recovery child exceeded 40 seconds')); }, 40000); proc.on('close', (code, signal) => { clearTimeout(timeout); resolve({ code, signal, output: output.trim(), errors: errors.trim() }); }); }); }
@@ -93,6 +106,29 @@ try {
   assert.ok(rawAttempts.length >= 2); assert.ok(rawAttempts.every(attempt => attempt.raw === before.raw && attempt.hash === before.hash));
   for (const method of ['eth_getTransactionCount', 'eth_estimateGas', 'eth_getBlockByNumber', 'eth_maxPriorityFeePerGas', 'eth_call']) assert.equal(counters[method] || 0, beforeRestartCounters[method] || 0, `Restart unexpectedly prepared another transaction (${method})`);
   assert.ok(!fs.existsSync(path.join(sandbox, '.runtime', 'executor.lock')), 'Successful process exit must release lock');
-  result = { status: 'PASS', checkedAt: new Date().toISOString(), command: 'node scripts/recovery-test.mjs', mode: 'Isolated local mocked RPC fault/restart; not a live-chain transaction', productionFilesCopied: ['src/chain.ts', 'src/store.ts'], productionSourceSha256: Object.fromEntries(['chain.ts', 'store.ts'].map(name => [`src/${name}`, createHash('sha256').update(fs.readFileSync(path.join(sandbox, 'src', name))).digest('hex')])), transactionHash: before.hash, action: 'Mock approve zero tokens to a public fixture address', assertions: { persistedBeforeRejectedBroadcast: true, firstProcessKilled: first.signal, stalePidLockRecovered: true, identicalRawBytesAcrossRestart: true, identicalHashAcrossRestart: true, acceptedUniqueHashes: accepted.size, acceptedEconomicExecutions: 1, noNewNonceOrPreparationOnRestart: true, repeatedReconcileReturnsSameReceipt: true, changedArgumentsRejected: true, successfulExitReleasesLock: true }, broadcastAttempts: rawAttempts.length, rejectedBroadcastAttempts: rawAttempts.filter(a => !a.allowed).length, acceptedBroadcastAttempts: rawAttempts.filter(a => a.allowed).length, rpcCounters: counters, limits: ['Mock RPC returns zero L1/operator fees; this test does not validate live fee estimation.', 'One known public fixture key is used only in the private sandbox; no real funds are accessed.', 'No real wallet, app .runtime, source APIs, live RPC, or port 3101 is used.', 'This proves executor journal recovery in this fault case, not chain reorg handling.'] };
+  const beforeExpiryCounters = { ...counters };
+  const beforeExpiryAttempts = rawAttempts.length;
+  const journalBeforeExpiry = fs.readFileSync(journalFile, 'utf8');
+  const expiredConfirmed = await child('expired-confirmed');
+  assert.equal(expiredConfirmed.code, 0, expiredConfirmed.errors || expiredConfirmed.output);
+  assert.match(expiredConfirmed.output, /confirmedReceiptReadableAfterExpiry/);
+  const journalAfterConfirmedExpiry = JSON.parse(fs.readFileSync(journalFile, 'utf8'));
+  assert.deepEqual(Object.keys(journalAfterConfirmedExpiry), [id], 'Expired action must not create a journal entry');
+  assert.equal(journalAfterConfirmedExpiry[id].raw, before.raw);
+  assert.equal(journalAfterConfirmedExpiry[id].hash, before.hash);
+  hideReceipts = true;
+  const expiredUnconfirmed = await child('expired-unconfirmed');
+  hideReceipts = false;
+  assert.equal(expiredUnconfirmed.code, 0, expiredUnconfirmed.errors || expiredUnconfirmed.output);
+  assert.match(expiredUnconfirmed.output, /expiredPendingRebroadcastRejected/);
+  assert.equal(rawAttempts.length, beforeExpiryAttempts, 'Expiry checks must not broadcast or rebroadcast');
+  const journalAfterExpiry = JSON.parse(fs.readFileSync(journalFile, 'utf8'));
+  assert.deepEqual(Object.keys(journalAfterExpiry), Object.keys(JSON.parse(journalBeforeExpiry)));
+  assert.equal(journalAfterExpiry[id].raw, before.raw);
+  assert.equal(journalAfterExpiry[id].hash, before.hash);
+  for (const method of ['eth_fillTransaction', 'eth_getTransactionCount', 'eth_estimateGas', 'eth_getBlockByNumber', 'eth_maxPriorityFeePerGas', 'eth_call']) assert.equal(counters[method] || 0, beforeExpiryCounters[method] || 0, `Expired delegation unexpectedly prepared/signed a new transaction (${method})`);
+  assert.equal(accepted.size, 1);
+  assert.ok(!fs.existsSync(path.join(sandbox, '.runtime', 'executor.lock')), 'Expired-child exit must release lock');
+  result = { status: 'PASS', checkedAt: new Date().toISOString(), command: 'node scripts/recovery-test.mjs', mode: 'Isolated local mocked RPC fault/restart; not a live-chain transaction', productionFilesCopied: ['src/chain.ts', 'src/store.ts'], productionSourceSha256: Object.fromEntries(['chain.ts', 'store.ts'].map(name => [`src/${name}`, createHash('sha256').update(fs.readFileSync(path.join(sandbox, 'src', name))).digest('hex')])), transactionHash: before.hash, action: 'Mock approve zero tokens to a public fixture address', assertions: { persistedBeforeRejectedBroadcast: true, firstProcessKilled: first.signal, stalePidLockRecovered: true, identicalRawBytesAcrossRestart: true, identicalHashAcrossRestart: true, acceptedUniqueHashes: accepted.size, acceptedEconomicExecutions: 1, noNewNonceOrPreparationOnRestart: true, repeatedReconcileReturnsSameReceipt: true, changedArgumentsRejected: true, successfulExitReleasesLock: true, expiredNewActionRejectedBeforePreparation: true, expiredNewActionCreatesNoJournalEntry: true, expiredPendingRebroadcastRejected: true, expiryChecksCauseNoNewNoncePreparationOrBroadcast: true, confirmedReceiptReadableAfterExpiry: true }, broadcastAttempts: rawAttempts.length, rejectedBroadcastAttempts: rawAttempts.filter(a => !a.allowed).length, acceptedBroadcastAttempts: rawAttempts.filter(a => a.allowed).length, rpcCounters: counters, limits: ['Mock RPC returns zero L1/operator fees; this test does not validate live fee estimation.', 'One known public fixture key is used only in the private sandbox; no real funds are accessed.', 'No real wallet, app .runtime, source APIs, live RPC, or port 3101 is used.', 'This proves executor journal recovery in this fault case, not chain reorg handling.'] };
   fs.mkdirSync(path.join(project, 'evidence'), { recursive: true }); fs.writeFileSync(path.join(project, 'evidence', 'recovery-test.json'), JSON.stringify(result, null, 2) + '\n'); console.log(JSON.stringify(result, null, 2));
 } finally { await new Promise(resolve => server.close(resolve)); }
