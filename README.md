@@ -9,7 +9,7 @@ Second Order runs locally on **http://localhost:3101**. It uses **Base Sepolia**
 | Route | Behavior |
 | --- | --- |
 | [V1 — original flow](http://localhost:3101/) | Preserved reviewed-basket workflow and completed historical receipts. Immutable baseline: [`v1-baseline`](https://github.com/ABerkeBora/heka-second-order/tree/v1-baseline), commit `8bfd72c…`. |
-| [V2 — exact target](http://localhost:3101/next) | Requires the requested assets, Up/Down directions, AND/OR and exact shared window. Unsupported or unavailable targets stop before deployment, minting or funding. Current development branch: `codex/next`. |
+| [V2 — exact target](http://localhost:3101/next) | Requires the requested assets, Up/Down directions, AND/OR and exact shared window. Unsupported or unavailable targets stop before deployment, minting or funding. Published branch: [`codex/next`](https://github.com/ABerkeBora/heka-second-order/tree/codex/next), working source `b84aa61…`. |
 
 V1 and V2 have separate API, state, proposal/intent, journal, collateral and evidence namespaces. A single server process, global executor queue and PID lock serialize shared test-wallet nonces. Do not launch a second server for `/next`. V2 evidence lives in `evidence/v2/`; prior V1 records remain intact. See [V1 preservation](BASELINE_V1.md).
 
@@ -94,8 +94,8 @@ npm test
 npm run test:contracts
 npm run test:recovery
 npm run test:refund
-node scripts/namespace-test.mjs
-node scripts/next-gates-test.mjs
+npm run test:namespace
+npm run test:next-gates
 npm run typecheck
 npm run build
 ```
@@ -131,6 +131,8 @@ The exact target `Ethereum Up OR Solana Up in the same next 5-minute window.` pa
 V2 market: [0x7d34c8ac853eaceba1306f626420bc7fe36b3442](https://sepolia.basescan.org/address/0x7d34c8ac853eaceba1306f626420bc7fe36b3442), Base Sepolia 84532. Separate V2 SOU collateral: [0xac32bd83e88540c4509845ad7add0c3969d5df51](https://sepolia.basescan.org/address/0xac32bd83e88540c4509845ad7add0c3969d5df51). Proposal `9f16f2f2-3f6d-4bd1-a13f-022199fad70c`; intent `30e23be6-245b-42ee-ba34-3dd314aafe57`.
 
 After one initial browser delegation, the agent [funded the buyer YES side with 1 SOU](https://sepolia.basescan.org/tx/0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc); the separate test counterparty [funded NO with 1 SOU](https://sepolia.basescan.org/tx/0xb29698970677045a0676f2a18e817ef28a0e29eeb802aeab22d93dfd47fa075e). The funding snapshot records 11 confirmed V2 setup/funding transactions and a 2 SOU reserve. **Final settlement/claims remain PENDING; funding is not represented as a payout.** All four V2 deployed tamper cases, duplicate intent, over-budget and protected-state checks subsequently passed (7/7); read-only rejection calls did not consume a transaction fee. The current delivered state belongs in [MORNING_HANDOFF_V2](MORNING_HANDOFF_V2.md) and [TRACK_REQUIREMENTS_V2](TRACK_REQUIREMENTS_V2.md).
+
+The public working source is [`b84aa61`](https://github.com/ABerkeBora/heka-second-order/commit/b84aa61a0dc2b73975c09f92d9f0280a91a13a8d). A clean GitHub checkout at that exact SHA passed npm install, typecheck, production/contract build and start on 3101. Direct `/`, `/next`, `/api/state` and `/api/next/state` all returned HTTP200; both namespaces started empty and all 41 code-manifest files matched. A hidden-checkout `/next` fallback failure was found, fixed and actually retested: [clean-clone evidence](evidence/v2/clean-clone.json). No private environment, wallet or published historical positions were copied into live state.
 
 V2 evidence:
 
@@ -183,7 +185,7 @@ See [contract design](docs/CONTRACT.md), [execution safety](docs/EXECUTION_SAFET
 
 The implementation targets **API3 — Any API in your contract**. Conditional BSV work did not pass its integration gate and is not claimed as a qualified track. The [V2 presentation outline](docs/PRESENTATION_V2.md) and [V2 submission draft](docs/SUBMISSION_V2.md) are preparation material; the [V1 outline](docs/PRESENTATION.md) and [V1 draft](docs/SUBMISSION.md) remain preserved. A video of at most 2.5 minutes still needs to be recorded, and the user must submit any competition entry. No entry is sent by this application.
 
-Published general rules currently allow one submission per team, with up to three partner tracks, and list **31 October 2026 at 15:00 Europe/Berlin** as the deadline. The V2 rule recheck and unresolved mandatory evidence belong in `TRACK_REQUIREMENTS_V2.md` and `MORNING_HANDOFF_V2.md`; V1 records remain in their original files. `codex/next` final publication and V2 finish-gate checks are still in progress at this funding snapshot.
+Published general rules currently allow one submission per team, with up to three partner tracks, and list **31 October 2026 at 15:00 Europe/Berlin** as the deadline. The V2 rule recheck and unresolved mandatory evidence belong in `TRACK_REQUIREMENTS_V2.md` and `MORNING_HANDOFF_V2.md`; V1 records remain in their original files. `codex/next` source publication and the exact clean-clone checks above passed. The official finish rule recheck also passed at 04:06 UTC / 05:06 Europe/Berlin with no changes: [V2 rules record](evidence/v2/rules-check.json). Live settlement/claims remain pending at this snapshot; the video and actual entry remain user actions.
 
 ## License
 

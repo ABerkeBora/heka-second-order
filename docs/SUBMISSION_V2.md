@@ -2,11 +2,11 @@
 
 Draft for user review. **Video PENDING; no entry submitted.** At this snapshot, the new V2 settlement/claims remain PENDING. All four new deployed tamper rejections, duplicate/budget/protected-state checks and responsive browser QA passed. V1 historical success is not substituted for those V2 results.
 
-**Track:** API3 — Any API in your contract.  
-**Repository:** [ABerkeBora/heka-second-order](https://github.com/ABerkeBora/heka-second-order); V2 branch `codex/next` final publication pending.  
-**Local routes:** V1 `http://localhost:3101/`; V2 `http://localhost:3101/next`.  
-**Network:** Base Sepolia, chain ID 84532.  
-**V2 contract:** [0x7d34c8ac853eaceba1306f626420bc7fe36b3442](https://sepolia.basescan.org/address/0x7d34c8ac853eaceba1306f626420bc7fe36b3442).  
+**Track:** API3 — Any API in your contract.
+**Repository:** [ABerkeBora/heka-second-order](https://github.com/ABerkeBora/heka-second-order); published V2 branch [`codex/next`](https://github.com/ABerkeBora/heka-second-order/tree/codex/next), working source [`b84aa61`](https://github.com/ABerkeBora/heka-second-order/commit/b84aa61a0dc2b73975c09f92d9f0280a91a13a8d).
+**Local routes:** V1 `http://localhost:3101/`; V2 `http://localhost:3101/next`.
+**Network:** Base Sepolia, chain ID 84532.
+**V2 contract:** [0x7d34c8ac853eaceba1306f626420bc7fe36b3442](https://sepolia.basescan.org/address/0x7d34c8ac853eaceba1306f626420bc7fe36b3442).
 **Collateral:** [six-decimal SOU](https://sepolia.basescan.org/address/0xac32bd83e88540c4509845ad7add0c3969d5df51), public-mint test units with no value or redemption promise.
 
 ## Customer problem and benefit
@@ -47,4 +47,4 @@ Observed single-market records lacked a uniformly present winner field; open rec
 
 An Airnode signature establishes source attribution and request integrity, not upstream truth, cache consistency or profitable prediction. The executor holds isolated server-side test keys; this is not a production non-custodial wallet. Gas, transaction count and automation-time caps are application checks; rollup fees are estimates and receipt costs remain real test gas. RPC availability, journal integrity and ordinary chain finality remain assumptions; deep-reorg recovery is not demonstrated. No automatic top-up, production customer adoption, BSV bridge or arbitrary new trusted API listing is claimed. Selected Gamma operations are free; no x402 fee is fabricated.
 
-The user must choose the team's one submission, record a video of at most 150 seconds and submit before **31 October 2026 15:00 Europe/Berlin**. Up to three partner tracks may be selected; this project targets API3. Root's final rule/evidence reconciliation belongs in `TRACK_REQUIREMENTS_V2.md` and the V2 morning handoff before any complete qualification claim.
+The user must choose the team's one submission, record a video of at most 150 seconds and submit before **31 October 2026 15:00 Europe/Berlin**. Up to three partner tracks may be selected; this project targets API3. The [finish rule recheck](../evidence/v2/rules-check.json) at 04:06 UTC / 05:06 Europe/Berlin found no changes. Public source publication and [clean-clone checks](../evidence/v2/clean-clone.json) passed on exact commit `b84aa61…`: install/typecheck/production build/contract build/start, both routes/APIs HTTP200, two empty namespaces and 41 matching code files. An initially discovered hidden-checkout `/next` fallback failure was fixed and actually retested. Live settlement/claim remains pending, and the video/actual entry must still be completed before a full submission claim.

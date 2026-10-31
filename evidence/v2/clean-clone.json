@@ -1,8 +1,8 @@
 {
-  "status": "PENDING",
-  "checkedAt": "2026-10-31T04:07:36.012048+00:00",
+  "status": "PASS",
+  "checkedAt": "2026-10-31T04:10:35.673013+00:00",
   "source": "GitHub public commit fetched into earlier clean clone; detached at exact V2 SHA",
-  "testedCommit": "8dceb90f124c260e31bc14cab69533c6079dd2e1",
+  "testedCommit": "b84aa61a0dc2b73975c09f92d9f0280a91a13a8d",
   "codeManifestFilesCompared": 41,
   "checks": {
     "npmCi": true,
@@ -10,7 +10,7 @@
     "productionBuild": true,
     "contractBuild": true,
     "productionStartPort3101": true,
-    "rootAndNextBothHttp200": false,
+    "rootAndNextBothHttp200": true,
     "bothApiNamespacesEmpty": true,
     "noWalletOrPrivateEnvironmentCopied": true,
     "noPublishedEvidenceInjectedAsLiveState": true,
@@ -19,5 +19,13 @@
   "warnings": [
     "Plain vendor Git revision discovery warnings;535sources/licenses independently matched official pinned archives in V1 evidence/vendor-integrity.json."
   ],
-  "initialFailure": "Direct/next404 under hidden .verify checkout: absolute sendFile dotfile policy. Root index and both APIs were200. Source fix awaiting actual clean-clone retest."
+  "initialFailure": "Direct/next404 under hidden .verify checkout: absolute sendFile dotfile policy. Root index and both APIs were200. Source fix awaiting actual clean-clone retest.",
+  "actualRouteStatuses": {
+    "/": 200,
+    "/next": 200,
+    "/api/state": 200,
+    "/api/next/state": 200
+  },
+  "resolvedFailure": "Fixed sendFile to filename within explicit dist root; direct root/next now actualHTTP200 under hiddencheckout. No credentials/state copied.",
+  "latestSourceRecheck": "After one engine evidence-binding guard change: typecheck, production startup, all4actualHTTP200, both API namespaces empty and41exactsourcehashes. Dependencies/client/contract source unchanged from preceding npmci/build/forge checks."
 }

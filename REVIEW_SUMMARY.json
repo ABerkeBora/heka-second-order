@@ -1,0 +1,35 @@
+{
+  "project": "Second Order",
+  "checkedAtUtc": "2026-10-31T04:17:01.508595+00:00",
+  "v1": {
+    "url": "http://localhost:3101/",
+    "status": "Hazır; tamamlanmış settlement ve 2/0 SOU claim kanıtı.",
+    "baselineCommit": "8bfd72c6d762ce2700230361369381a089f71d2f"
+  },
+  "v2": {
+    "url": "http://localhost:3101/next",
+    "status": "Hedef, no-action ve gerçek fonlama doğrulandı; yeni oracle sonucu bekleniyor.",
+    "commit": "b84aa61a0dc2b73975c09f92d9f0280a91a13a8d"
+  },
+  "changes": [
+    "Varlık, yön, AND/OR ve aynı zaman penceresi bağımsız eşleşiyor.",
+    "Haftalık veya katalogda bulunmayan hedef fonlama öncesinde reddediliyor.",
+    "V1/V2 kayıtları ayrı; ekonomik işlemler ortak kuyrukta sıralanıyor."
+  ],
+  "verified": [
+    "evidence/v2/no-action-live.json",
+    "evidence/v2/funding-live.json",
+    "evidence/v2/contract-verification.json:56 PASS; rejections:7 PASS",
+    "46 birim,20 backend,44 canlı izolasyon; temiz clone ve üç ekran QA PASS",
+    "https://sepolia.basescan.org/tx/0x20b50e2c70cb32247320c17f66984c3c12e30d6946dc75314bad85d569163abc"
+  ],
+  "pending": [
+    "Yeni V2 kaynağının kesinleşmesi ve otomatik tahsilat/iade.",
+    "En fazla150 saniye video ve kullanıcının Devfolio gönderimi."
+  ],
+  "recommendation": {
+    "version": "V2",
+    "reason": "V2 hedef dışı pozisyon açılmasını engelliyor ve gerçek fonlama kanıtına sahip. Sonuç beklerken V1’in tamamlanmış payout kanıtı sunumda ayrı gösterilebilir; bu mühendislik doğrulamasıdır, dış pilot yapılmadı.",
+    "demoRisk": "medium"
+  }
+}

@@ -1,6 +1,6 @@
 # Second Order V2 — sabah teslimi
 
-**Durum: gerçek hedef doğrulama ve agent fonlaması çalışıyor; son settlement/claim henüz PENDING.** V2, kullanıcının istediği varlık/olay/yön/zaman/AND-OR hedefini doğrular; bulunamayan hedef yerine başka varlığa pozisyon açmaz. Pilot, müşteri veya gelir iddiası yok. Bu dosya fonlama snapshot'ını anlatır; dört tamper ve responsive kontroller geçti; finality ve son yayın kanıtı sonradan gerçek sonuçla güncellenmeli.
+**Durum: V2 kabul kriterleri ve mühendislik teslimi doğrulandı; yeni havuzun oracle sonucu ve settlement/claim PENDING.** V2, kullanıcının istediği varlık/olay/yön/zaman/AND-OR hedefini doğrular; bulunamayan hedef yerine başka varlığa pozisyon açmaz. Pilot, müşteri veya gelir iddiası yok. Bu dosya fonlama snapshot'ını anlatır; dört tamper, responsive QA, source yayını/temiz clone ve finish rule kontrolleri geçti; finality/tahsilat sonucu sonradan gerçek receipt ile güncellenmeli.
 
 ## Açma ve korunmuş V1
 
@@ -9,7 +9,7 @@
 
 İkisi aynı sunucuda, aynı **3101** portunda. Çalışan süreç varsa ikinci sunucu açmayın. Durmuşsa proje dizininde `npm run build` ve `npm start`; temiz kurulum `npm ci`, `forge build`, `.env.example` üzerinden özel `.env`, ardından build/start. Ayrıntılar [README](README.md) içinde. Paylaşılan Ollama `qwen3:4b` ve yalnız izole Base Sepolia test rolleri kullanılır; anahtarlar UI/model/repo'ya girmez.
 
-V1, [`v1-baseline`](https://github.com/ABerkeBora/heka-second-order/tree/v1-baseline) / `8bfd72c…` ile sabit; [BASELINE_V1](BASELINE_V1.md) korunuyor. V2 branch'i **codex/next**; API `/api/next`, private runtime `.runtime/next`, evidence `evidence/v2/`. V1'in tamamlanmış 31 receipt'i ve eski state'i korunuyor. Aynı test rollerinin nonce'ları için tek global sıra/PID lock var; ayrı uygulama süreçleri başlatılmamalı. V2 farklı market ve teminat tokenı kullanıyor. Son branch push/temiz clone ve finish gate root tarafından devam ediyor; yayımlanmış tamamlanma sonucu henüz iddia edilmiyor.
+V1, [`v1-baseline`](https://github.com/ABerkeBora/heka-second-order/tree/v1-baseline) / `8bfd72c…` ile sabit; [BASELINE_V1](BASELINE_V1.md) korunuyor. V2 branch'i **codex/next**; API `/api/next`, private runtime `.runtime/next`, evidence `evidence/v2/`. V1'in tamamlanmış 31 receipt'i ve eski state'i korunuyor. Aynı test rollerinin nonce'ları için tek global sıra/PID lock var; ayrı uygulama süreçleri başlatılmamalı. V2 farklı market ve teminat tokenı kullanıyor. Çalışan source [`b84aa61…`](https://github.com/ABerkeBora/heka-second-order/commit/b84aa61a0dc2b73975c09f92d9f0280a91a13a8d), public `codex/next` branch'ine push edildi. Bu exact commit'in temiz clone/production kontrolleri PASS; canlı settlement/claim sonucu henüz tamamlandı diye sunulmuyor.
 
 ## Kullanıcı değeri ve kapsam
 
@@ -43,7 +43,8 @@ Ağ **Base Sepolia / 84532**. [Market](https://sepolia.basescan.org/address/0x7d
 | Final kaynaklar → settlement → collection/refund | **PENDING**, sabit request/deadline içinde agent takip ediyor |
 | Canlı V1/V2 izolasyonu | **44/44 PASS**, block **52487936**: V1 aynı 31 hash, buyer/counterparty eski SOU bakiyesi 5/5, eski reserve 0. [isolation-live.json](evidence/v2/isolation-live.json) |
 | Responsive üretim QA | **PASS**, 1440/768/390 px, font ≥11 px, gradient/yatay taşma yok, tablet/phone küçük control yok. Tablet paneller 367,99/340 px, phone 354/354 px. [browser-qa.json](evidence/v2/browser-qa.json), `evidence/v2/screenshots/`; V1 gerçek 2 SOU claim ekranı da yeniden görüldü |
-| Son source push/temiz clone + finish rule check | **PENDING**, root kapanış kontrolünde; kural tablosu [TRACK_REQUIREMENTS_V2](TRACK_REQUIREMENTS_V2.md). Settlement/claim bekleyişi ayrıca yukarıda açık |
+| Public source ve temiz clone | **PASS**, exact `b84aa61…`; npm ci/typecheck/production build/forge build/start, 41 code-manifest eşleşmesi, `/`, `/next` ve iki API'de HTTP200, iki boş namespace. Gizli checkout altında bulunan `/next` 404 sorunu düzeltildi ve gerçekten yeniden test edildi. [clean-clone.json](evidence/v2/clean-clone.json) |
+| Finish rule check | **PASS**, gerçek API3 tabı aria-selected, submission/judging ve genel kurallar **05:06 Europe/Berlin / 04:06 UTC** yeniden okundu, değişiklik yok: [rules-check.json](evidence/v2/rules-check.json). Video/başvuru PENDING kalır |
 
 ## Karşılaştırma ve öneri
 
@@ -51,7 +52,7 @@ Ağ **Base Sepolia / 84532**. [Market](https://sepolia.basescan.org/address/0x7d
 | --- | --- | --- |
 | Kullanıcı hedefi | Gösterilen alternatif sepet ilk yetkiden önce incelenebilir | Tam iki varlık/yön/olay/pencere/AND-OR eşleşir; alternatif pozisyon açılmaz |
 | Kanıt | Tamamlanmış 2/0 SOU OR payout, sabit baseline | Gerçek exact-target fonlama, no-action ve gate/isolation/rejection kanıtları PASS; son payout henüz PENDING |
-| Sunum seçimi | Korunan çalışan geri dönüş noktası | Son kaynak/tahsilat ve yayın kapıları da geçerse **V2 önerilir**; müşteri faydası hedef dışı fonlamayı engellemesidir |
+| Sunum seçimi | Korunan çalışan geri dönüş noktası | **V2 önerilir**: hedef dışı fonlamayı engeller ve gerçek fonlama kanıtına sahiptir. Yeni havuz sonucu beklerken tamamlanmış V1 payout kanıtı ayrı gösterilebilir |
 
 **Demo riski: orta.** Canlı kaynak finality/cache/API erişimi ve yerel modelin kabul/ret davranışı zamanlamayı etkiler; model yanlış ret verebilir ve uygulama no-action kalır. Bu mühendislik riski, müşteri doğrulamasıyla karıştırılmamalı: pilot, ödeme yapan müşteri, gerçek gelir veya talep kanıtı yok. V1'i riskli bir yeniden koşu için bozmayın.
 
@@ -63,4 +64,12 @@ Server yalnız izole test anahtarları tutar. Stake, recipient/beneficiary ve fu
 
 ## Sunum ve teslim
 
-[150 saniyelik V2 sunum taslağı](docs/PRESENTATION_V2.md), [V2 submission copy](docs/SUBMISSION_V2.md) hazır. **Video PENDING; yarışma girişi gönderilmedi.** Kullanıcı tek takım submission'ında hangi projeyi göndereceğini seçer; en fazla üç partner track. Son tarih **31 Ekim 2026 15:00 Europe/Berlin**; root final kural kontrolünü kaydedecek. Fonlama ile settlement'ı karıştırmayın; kalan zorunlu maddeler PASS diye sunulmamalı.
+[150 saniyelik V2 sunum taslağı](docs/PRESENTATION_V2.md), [V2 submission copy](docs/SUBMISSION_V2.md) hazır. **Video PENDING; yarışma girişi gönderilmedi.** Kullanıcı tek takım submission'ında hangi projeyi göndereceğini seçer; en fazla üç partner track. Son tarih **31 Ekim 2026 15:00 Europe/Berlin**; final kural kontrolü 05:06 Europe/Berlin'de tekrar yapıldı ve kaydedildi. Fonlama ile settlement'ı karıştırmayın; kalan zorunlu maddeler PASS diye sunulmamalı.
+
+## Son kısa inceleme kaydı
+
+[REVIEW_SUMMARY.json](REVIEW_SUMMARY.json), yukarıdaki aynı V1/V2 karşılaştırmasını kısa makine-okunur biçimde taşır. V1 tamamlanmış settlement/claim baseline'ıdır. V2'nin açık kabul ölçütleri gerçek hedef eşleştirme, iki no-action reddi, izole kayıtlar ve gerçek agent funding receipt'iyle PASS; yeni havuzun kaynak kesinleşmesi/tahsilatı bu kayıtta PENDING kalır. **Tercih V2, demo riski orta**: müşteri hedefi dışında pozisyon açılmasını engeller; mühendislik kanıtı vardır, dış pilot yapılmadı.
+
+Kaynak hâlâ unsigned400/missing umaResolutionStatus veriyorsa beklemek doğrudur; bu imzalı bir sonuç veya yokluk kanıtı değildir. Mevcut sunucu30s worker'ı yalnız mevcut mandate içinde takip eder. Sabit deadline31Ekim05:40Europe/Berlin; çözüm yoksa void/refund, automation expiry05:50'ye kadar yetkilidir. Otomatik top-up yok. Sabah ilk küçük eylem: `/next` Activity'yi açıp son receipt'i incelemek (1dk). Sunucu bu recovery penceresi boyunca kapalı kalmışsa README'deki permissionless refund/claim komutları kullanılır; geçmiş veri silinmez.
+
+Son gerçek havuz snapshot'ı: [pool-status-at-handoff.json](evidence/v2/pool-status-at-handoff.json), 04:17UTC, 11 confirmed işlem, reserve2SOU, payout yok. Bu dış sonuç bekleyişi V2'nin açık fonlama kabul ölçütünden ayrı tutulur; tamamlanmış tahsilat gibi sunulmaz.

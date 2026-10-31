@@ -1,0 +1,31 @@
+{
+  "checkedAtUtc": "2026-10-31T04:17:01.508595+00:00",
+  "intentId": "30e23be6-245b-42ee-ba34-3dd314aafe57",
+  "contractAddress": "0x7d34c8ac853eaceba1306f626420bc7fe36b3442",
+  "network": "Base Sepolia84532",
+  "status": "waiting",
+  "phase": 1,
+  "result": null,
+  "reserveUnits": "2000000",
+  "buyerStakeUnits": "1000000",
+  "deliveries": null,
+  "sources": [
+    {
+      "id": "6406433",
+      "status": "Awaiting finality",
+      "message": "The Airnode responded with 400: {\"error\":\"The response has no value at \\\"/umaResolutionStatus\\\"\"}",
+      "lastCheck": "2026-10-31T04:16:39.519Z"
+    },
+    {
+      "id": "6406432",
+      "status": "Awaiting finality",
+      "message": "The Airnode responded with 400: {\"error\":\"The response has no value at \\\"/umaResolutionStatus\\\"\"}",
+      "lastCheck": "2026-10-31T04:16:39.548Z"
+    }
+  ],
+  "confirmedTransactions": 11,
+  "fundingExpiresAt": 1793419755,
+  "automationExpiresAt": 1793422200,
+  "refundDeadline": "1793421600",
+  "interpretation": "UnsignedHTTP400 missing-finality is not a signed outcome/nonexistence proof. No final payout is claimed. Existing worker continues within its recorded mandate; fixeddeadline refund path remains."
+}

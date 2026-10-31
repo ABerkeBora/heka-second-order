@@ -23,7 +23,7 @@ Official sources:
 |---|---|---|
 | Contract/network and judge response path | README exact network/contract, raw-response UI uses/api/next; documented APP_NAMESPACE=next script; malformed envelope rejected in UI | PASS |
 | Valid action plus edited/stale/wrong-request/wrong-key rejection | Valid fresh proofs produced initialization/funding; four deployed guard failures plus duplicate/cap/protected state allPASS, screenshot rejections.jpg | PASS |
-| Public repository/setup README | Existing public repo; codex/next publication and two URLs required | PENDING |
+| Public repository/setup README | Public defaultcodex/next;b84aa61… source verified GitHubABerkeBora author/committer; clean-clone41hashes npmci/build/start and bothdirectURLs200. evidence/v2/publication.json, clean-clone.json | PASS |
 | <=150second video with valid action and four failures | Outline exists; finished video user action | PENDING |
 | Detailed description including data reliance, forgery damage, missing data | docs/SUBMISSION_V2.md records customer effect, data reliance/forgery harm/missing fields and source trust limits | PASS |
 | Devfolio actual submission | User action, not authorized in this build; one submission/team/up to3 partner tracks | PENDING |

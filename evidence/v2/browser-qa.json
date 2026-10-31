@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-31T04:05:05.350Z",
+  "checkedAt": "2026-10-31T04:16:33.403Z",
   "status": "PASS",
   "viewports": [
     {
@@ -96,7 +96,46 @@
     "Full bounded mandate reviewed before one browser approval",
     "Automatic buyer and counterparty funding confirmed",
     "Malformed envelope inline rejection without transaction",
-    "All seven deployed proof/duplicate/budget/protected-state checks PASS"
+    "All seven deployed proof/duplicate/budget/protected-state checks PASS",
+    "Clean GitHub clone root and /next directly rendered with empty independent states",
+    "V1 completed2SOU collection retained; V2 funded pending-source state shown without invented payout"
   ],
-  "substitution": "Supported CUA screenshot and rendered-DOM checks used instead of skill CDP inspector"
+  "substitution": "Supported CUA screenshot and rendered-DOM checks used instead of skill CDP inspector",
+  "activityViewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nWaiting\n30e23be6-245b-42ee-ba34-3dd314aafe57\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n2.00 SOU\nCollected\n— SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\nbuyer mandate\n31 Oct, 05:01 CET\n\nConfirmed on Base Sepol",
+      "fontsLoaded": "loaded",
+      "innerWidth": 1440,
+      "scrollWidth": 1440,
+      "smallControls": [
+        "",
+        "Inspect evidence ",
+        "Reconcile and check sources",
+        "Evidence "
+      ]
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nWaiting\n30e23be6-245b-42ee-ba34-3dd314aafe57\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n2.00 SOU\nCollected\n— SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\nbuyer mandate\n31 Oct, 05:01 CET\n\nConfirmed on Base Sepol",
+      "fontsLoaded": "loaded",
+      "innerWidth": 768,
+      "scrollWidth": 768,
+      "smallControls": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "confirmedText": "Agent activity\n\nFollow each intent from proposal to funding and collection.\n\nInspect evidence\nCurrent intent\nWaiting\n30e23be6-245b-42ee-ba34-3dd314aafe57\nPosition\nYES\nFunded stake\n1.00 SOU\nPool reserve\n2.00 SOU\nCollected\n— SOU\nMandate accepted\n31 Oct, 05:00 CET\n\nOne immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.\n\nConfirmed\nbuyer mandate\n31 Oct, 05:01 CET\n\nConfirmed on Base Sepol",
+      "fontsLoaded": "loaded",
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "smallControls": []
+    }
+  ]
 }

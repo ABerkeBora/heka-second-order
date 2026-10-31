@@ -1,6 +1,6 @@
 # Second Order V2 — 150-second recording plan
 
-A recording outline, not a finished video. At the current snapshot V2 settlement/claims remain PENDING. The four deployed tamper cases plus duplicate/budget/protected-state checks passed (7/7), and production browser QA passed at 1440/768/390 pixels. Update the narration only from actual evidence before recording; a waiting source must stay visibly waiting.
+A recording outline, not a finished video. At the current snapshot V2 settlement/claims remain PENDING. The four deployed tamper cases plus duplicate/budget/protected-state checks passed (7/7), and production browser QA passed at 1440/768/390 pixels. Public source `b84aa61…` passed exact clean-clone install/typecheck/production/contract build/start, including direct `/next` HTTP200. The finish rules were reread at 04:06 UTC with no changes. Update payout narration only from actual evidence before recording; a waiting source must stay visibly waiting.
 
 | Time | Screen / evidence | Point |
 | --- | --- | --- |

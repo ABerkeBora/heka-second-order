@@ -1,0 +1,14 @@
+{
+  "checkedAtUtc": "2026-10-31T04:11:08.201326+00:00",
+  "repository": "https://github.com/ABerkeBora/heka-second-order",
+  "visibility": "PUBLIC",
+  "branch": "codex/next",
+  "defaultBranch": "codex/next",
+  "testedSourceCommit": "b84aa61a0dc2b73975c09f92d9f0280a91a13a8d",
+  "authorLogin": "ABerkeBora",
+  "committerLogin": "ABerkeBora",
+  "v1BaselineTag": "v1-baseline",
+  "v1BaselineCommit": "8bfd72c6d762ce2700230361369381a089f71d2f",
+  "cleanClone": "evidence/v2/clean-clone.json",
+  "secretsScan": "evidence/v2/publication-scan.json"
+}
