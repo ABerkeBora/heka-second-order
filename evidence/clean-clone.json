@@ -1,7 +1,7 @@
 {
-  "checkedAt": "2026-10-31T03:19:31.306891+00:00",
+  "checkedAt": "2026-10-31T03:52:49.169240+00:00",
   "repository": "https://github.com/ABerkeBora/heka-second-order",
-  "testedCommit": "b7c24c7be12663605d4d7c36ee592ade2e38a090",
+  "testedCommit": "cb22d73fe42addfff333000a90b9de9e8b0403df",
   "source": "fresh GitHub clone, fast-forwarded to final code candidate",
   "checks": {
     "npmCi": true,
@@ -14,7 +14,7 @@
     "noPublishedEvidenceInjectedAsLiveState": true,
     "allCodeManifestFilesMatch": true
   },
-  "codeFilesCompared": 31,
+  "codeFilesCompared": 33,
   "warnings": [
     "Plain vendored directories inherit parent Git revision discovery. Independently535 source/license files match exact pinned official archives."
   ],

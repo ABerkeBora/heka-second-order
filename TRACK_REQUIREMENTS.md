@@ -39,7 +39,7 @@ Seçilen partner track **API3**. BSV koşullu kapısı geçmedi ve seçilmiyor; 
 
 | Madde | Kanıt / kalan iş | Durum |
 | --- | --- | --- |
-| Public source ve setup/run README | [ABerkeBora/heka-second-order](https://github.com/ABerkeBora/heka-second-order), PUBLIC ve ABerkeBora author/committer doğrulandı; `evidence/publication.json`. Temiz GitHub clone b7c24c7… install/contract build/production build/start PASS: `evidence/clean-clone.json`. Son evidence/doküman kapanış push'u root tarafından tamamlanıyor | PASS |
+| Public source ve setup/run README | [ABerkeBora/heka-second-order](https://github.com/ABerkeBora/heka-second-order), PUBLIC ve ABerkeBora author/committer doğrulandı; `evidence/publication.json`. Temiz GitHub clone cb22d73… install/contract build/production build/start PASS: `evidence/clean-clone.json`. Son kod ve evidence public repoya push edildi | PASS |
 | En fazla 150 sn video | Kullanıcının kaydetmesi ve süre/link kontrolü gerekiyor; outline hazır | PENDING |
 | Devfolio'da ayrıntılı açıklama ve giriş | `docs/SUBMISSION.md` hazır; hangi projenin tek takım submission'ı olacağını kullanıcı seçip gönderir, bu görev gönderim yetkisi içermiyor | PENDING |
 | Deadline ve track seçimi | Son kontrol yukarıda; kullanıcı 15:00 öncesinde gönderim yapmalı | PENDING |
