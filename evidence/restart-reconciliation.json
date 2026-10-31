@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-31T02:57:41.966Z",
+  "network": "Base Sepolia",
+  "mode": "real confirmed transaction receipt reconciliation after process restart",
+  "intentId": "29e88761-5cee-43d0-8a87-4b1ac50b9752",
+  "status": "claimed",
+  "result": "NO",
+  "deliveries": {
+    "buyer": {
+      "amountUnits": "0",
+      "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "refund": false,
+      "transactionHash": "0x85e129612f33c11e2195f5c6bf2ba4de3865a4bb851a7ac55ea339f89bf713ee"
+    },
+    "counterparty": {
+      "amountUnits": "2000000",
+      "beneficiary": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "payer": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "refund": false,
+      "transactionHash": "0xef5fcb107d5f291adc4f656873c06f52345c189122efc6d020393bb277c488f9"
+    }
+  },
+  "checks": {
+    "transactionCountUnchanged": true,
+    "hashSetUnchanged": true,
+    "reserveUnchanged": true,
+    "buyerPayoutReconstructedFromClaimEvent": true
+  }
+}

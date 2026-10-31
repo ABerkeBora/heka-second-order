@@ -1,0 +1,17 @@
+{
+  "recordedAt": "2026-10-31 04:03 CET",
+  "startCheck": "2026-10-31 approximately03:39 Europe/Berlin",
+  "finishCheck": "2026-10-31 03:59\u201304:01 Europe/Berlin",
+  "sources": [
+    "https://hackathon.tum-blockchain.com/prizes#api3",
+    "https://hackathon.tum-blockchain.com/prizes#how-to-submit"
+  ],
+  "method": "Reloaded real browser page; separately selected general and API3 tabs; expanded submission/judging/examples",
+  "changedRequirementsObserved": false,
+  "deadline": "2026-10-31T15:00:00+01:00",
+  "oneSubmissionPerTeam": true,
+  "maximumPartnerTracks": 3,
+  "videoMaximumSeconds": 150,
+  "videoRecorded": false,
+  "competitionEntrySubmitted": false
+}

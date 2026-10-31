@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-31T02:40:39.194Z",
+  "httpStatus": 200,
+  "request": {
+    "operation": "getMarketById",
+    "parameters": {
+      "id": "6405900"
+    },
+    "responseProjection": {
+      "marketId": "/id",
+      "conditionId": "/conditionId",
+      "closed": "/closed",
+      "endDate": "/endDate",
+      "outcomes": "/outcomes",
+      "updatedAt": "/updatedAt"
+    }
+  },
+  "response": {
+    "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "requestHash": "0x05e27c22838c66dfd1d9b52ec62c42294f1b342301d760cdde2903d227a7e787",
+    "timestamp": "1793414439",
+    "data": "{\"closed\":false,\"conditionId\":\"0x89e45e013dc507bc3a696aa8770ca4be98bc339b6895f2e0baf4af0c64384ac1\",\"endDate\":\"2026-10-31T02:45:00Z\",\"marketId\":\"6405900\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T02:36:16.558265Z\"}",
+    "signature": "0x3f252efe38944bc5fb24ddbef7e6b78ec5ced0626b1d05a689560b250143169d3e52ed959e463d399e830e64f8583165c53989eb12f1c94313585ff8c9b117e71c"
+  }
+}

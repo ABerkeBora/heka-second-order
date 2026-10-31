@@ -1,0 +1,39 @@
+{
+  "network": "Base Sepolia",
+  "chainId": 84532,
+  "address": "0x80249acd6afd72d4d2826b788b0e972848a073e4",
+  "checkedAt": "2026-10-31T02:51:31.589Z",
+  "runtimeBytes": 15441,
+  "deployedRuntimeHash": "0x57626737e3f128644cc61604706ada12d0d1f5291537b80aa2fa935a496bfcae",
+  "normalizedRuntimeMatchesArtifact": true,
+  "collateral": "0x78f97e3b9b1b367F60355ddcc06fb157d7d33D08",
+  "policy": {
+    "sources": [
+      {
+        "marketId": "6405927",
+        "conditionId": "0x0d724837faeccdc1e404c16bc52f32218266415313fb9bf453a9c60076a49aeb",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0xe260c441c5aeebc83972cc1ef31e37b65dfbbecf18096199582a0e86041b8a46",
+        "settlementRequestHash": "0x91bdd3f4bbe19783be1d7fe136e6cac8ec3ef5b05b642230faa9db13b10bca63",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793415000"
+      },
+      {
+        "marketId": "6405928",
+        "conditionId": "0x57f5011d1a5c92f1deff265a0c984e4e6ff5b66d4ec4ba243b96ff797a50fa0e",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0x306743512e40f66444fa77dbaa5fee64b6f621dda0224f734a0af6fbfab60040",
+        "settlementRequestHash": "0x3c3047d210c18c043b5c654a50d3d09f02d5d8e51655b818c2bb37f8b25ba949",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793415000"
+      }
+    ],
+    "operatorIsOr": false,
+    "tradeClosesAt": "1793414955",
+    "deadline": "1793416800",
+    "maxEnvelopeAge": 300,
+    "maxSourceAge": 900
+  }
+}

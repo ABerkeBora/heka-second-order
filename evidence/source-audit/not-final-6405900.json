@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-31T02:40:39.460Z",
+  "httpStatus": 400,
+  "request": {
+    "operation": "getMarketById",
+    "parameters": {
+      "id": "6405900"
+    },
+    "responseProjection": {
+      "marketId": "/id",
+      "conditionId": "/conditionId",
+      "closed": "/closed",
+      "status": "/umaResolutionStatus",
+      "outcomes": "/outcomes",
+      "outcomePrices": "/outcomePrices",
+      "updatedAt": "/updatedAt"
+    }
+  },
+  "response": {
+    "error": "The response has no value at \"/umaResolutionStatus\""
+  }
+}

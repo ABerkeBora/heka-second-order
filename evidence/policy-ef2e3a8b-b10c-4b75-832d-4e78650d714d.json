@@ -1,0 +1,119 @@
+{
+  "id": "ef2e3a8b-b10c-4b75-832d-4e78650d714d",
+  "marketIds": [
+    "6406020",
+    "6406027"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "AND",
+  "reason": "Objective requires both Ethereum and XRP to finish Up; selected markets are Ethereum (6406020) and XRP (6406027) with Up outcomes (index 0).",
+  "model": "qwen3:4b",
+  "createdAt": "2026-10-31T02:53:15.990Z",
+  "startedAt": "2026-10-31T02:53:05.552Z",
+  "latencyMs": 10438,
+  "input": {
+    "objective": "Require both Ethereum and XRP to finish Up in the next available window.",
+    "allowedOperators": [
+      "AND",
+      "OR"
+    ],
+    "candidates": [
+      {
+        "id": "6406014",
+        "question": "BNB Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406016",
+        "question": "Hyperliquid Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406017",
+        "question": "ZCash Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406018",
+        "question": "Bitcoin Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406020",
+        "question": "Ethereum Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406027",
+        "question": "XRP Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      }
+    ]
+  },
+  "validator": {
+    "accepted": true,
+    "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+  },
+  "policy": {
+    "sources": [
+      {
+        "marketId": "6406020",
+        "conditionId": "0x221f0a04e25a8f902745f57806cc225645bddfb1799f6f3ac6333bfe7f031b88",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0xf1c3bba3a96d102a5fe3a6141332bcb204ed960cfb0b1f3ed13f4ea6d9cda819",
+        "settlementRequestHash": "0xd6f47c53aa5cc9f735384a4bd4eabf335a3cee5125575af27c44e66643c69cde",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793415900"
+      },
+      {
+        "marketId": "6406027",
+        "conditionId": "0x1ae42e84217aa71132a9026132427d4628ad0c7d2acb851c46d4e0fe1a581cde",
+        "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+        "createRequestHash": "0x52bb23d61dad8d59046ed23fc4ea874de8df898ca67bf88bf820900ec10c6389",
+        "settlementRequestHash": "0xeceeddc7c39ede6bb88695e199febff127556e2fa239c1948aac746af6bc770c",
+        "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "selectedOutcome": 0,
+        "endTime": "1793415900"
+      }
+    ],
+    "operatorIsOr": false,
+    "tradeClosesAt": "1793415855",
+    "deadline": "1793417700",
+    "maxEnvelopeAge": 300,
+    "maxSourceAge": 900
+  },
+  "policyHash": "0x7f116bacccc2316c8d5cbc533d0a7931d4ff71387b8b32e12eaf02c01247e78b",
+  "contractAddress": "0x170f2941eae8bde433714389ed29abaebf0d9e35",
+  "deploymentTx": "0xebf43b2284d3a3daa14e36e60b16aa388bb2e1620bbe06f5548d77f7836a2343",
+  "initializationTx": "0xbd63c36c8a969d816cf2af031a356c53a18d98b4f3ffbbb191d9b704035aa1b3",
+  "ready": true,
+  "revision": 2
+}

@@ -1,0 +1,84 @@
+{
+  "id": "4d4e246c-afd0-4847-a324-698891409d16",
+  "marketIds": [
+    "6405927",
+    "6405928"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "AND",
+  "reason": "Objective specifies combining Ethereum and XRP upside outcomes with AND. Shortest window is 10:45PM-10:50PM ET on Oct 30, 2026 for both markets.",
+  "model": "qwen3:4b",
+  "createdAt": "2026-10-31T02:41:40.306Z",
+  "startedAt": "2026-10-31T02:41:24.732Z",
+  "latencyMs": 15574,
+  "input": {
+    "objective": "Combine Ethereum and XRP upside outcomes with AND. Use the shortest upcoming window.",
+    "allowedOperators": [
+      "AND",
+      "OR"
+    ],
+    "candidates": [
+      {
+        "id": "6405920",
+        "question": "ZCash Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      },
+      {
+        "id": "6405925",
+        "question": "Hyperliquid Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      },
+      {
+        "id": "6405926",
+        "question": "BNB Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      },
+      {
+        "id": "6405927",
+        "question": "Ethereum Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      },
+      {
+        "id": "6405928",
+        "question": "XRP Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      },
+      {
+        "id": "6405929",
+        "question": "Dogecoin Up or Down - October 30, 10:45PM-10:50PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T02:50:00Z"
+      }
+    ]
+  },
+  "validator": {
+    "accepted": true,
+    "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+  }
+}

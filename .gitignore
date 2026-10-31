@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+.local/
+.runtime/
+out/
+cache/
+broadcast/
+.taste-skill/
+vendor/starter/
+.DS_Store
+
+.verify/

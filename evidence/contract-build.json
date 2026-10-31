@@ -1,0 +1,28 @@
+{
+  "checkedAt": "2026-10-31T03:45:26.719524+01:00",
+  "compiler": "solc0.8.37",
+  "evm": "cancun",
+  "optimizerRuns": 200,
+  "viaIR": true,
+  "sourceSha256": {
+    "contracts/SecondOrderMarket.sol": "e9506470b424872c66ba5271db79413dab793cbccc9e1233d8a8eb4d9133c8f6",
+    "contracts/TestCollateral.sol": "1a5c55c33f8c7aaa4f927c42accc7f0ff21536db6bd0f3ed66cd3f9f314952a1",
+    "contracts/vendor/IsoTimestamp.sol": "d470121962ed07441f7e0ce0825c81026edca1b25122964a975484fb65f4cc2b",
+    "contracts/vendor/AirnodeV2Attestation.sol": "76a6f2cff1060ff1f45c1a09a5a400f31e095054aa071e8c4fd1bb630fa9ecbc",
+    "contracts/vendor/ProjectedJson.sol": "28cec87ee36e4f61a2a6dfcc0d1cb0b8a2287b12802875054d7d891c548f29c2"
+  },
+  "SecondOrderMarket": {
+    "runtimeBytes": 15441,
+    "runtimeSha256": "769154a9fb9578f755756015773e2f18a61439bf9024d348a9f69b13a8823809",
+    "initcodeBytes": 17352,
+    "validateOpenProof": true,
+    "UnsupportedPayout": true
+  },
+  "TestCollateral": {
+    "name": "Second Order Units",
+    "symbol": "SOU",
+    "decimals": 6,
+    "runtimeBytes": 1764
+  },
+  "note": "Build evidence only; no deployment/transaction implied."
+}

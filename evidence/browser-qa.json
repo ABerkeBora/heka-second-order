@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-10-31T03:01:42.502Z",
+  "route": "http://localhost:3101",
+  "build": "production",
+  "method": "Supported CUA browser controls and read-only rendered DOM measurements; substituted for TasteSkill CDP inspector",
+  "measurements": [
+    {
+      "documentWidth": 1440,
+      "fontFamily": "\"IBM Plex Sans\", sans-serif",
+      "fontLoaded": true,
+      "gradients": 0,
+      "headings": [
+        {
+          "size": "26px",
+          "text": "Agent activity"
+        }
+      ],
+      "smallText": [],
+      "smallVisibleButtons": [
+        {
+          "height": 63,
+          "text": "Activity",
+          "width": 43.3828125
+        },
+        {
+          "height": 32,
+          "text": "",
+          "width": 32
+        },
+        {
+          "height": 34,
+          "text": "Inspect evidence",
+          "width": 143.40625
+        },
+        {
+          "height": 28,
+          "text": "Evidence",
+          "width": 73.8203125
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "documentWidth": 768,
+      "fontFamily": "\"IBM Plex Sans\", sans-serif",
+      "fontLoaded": true,
+      "gradients": 0,
+      "headings": [
+        {
+          "size": "26px",
+          "text": "Agent activity"
+        }
+      ],
+      "smallText": [],
+      "smallVisibleButtons": [
+        {
+          "height": 59,
+          "text": "Activity",
+          "width": 43.3828125
+        },
+        {
+          "height": 24,
+          "text": "",
+          "width": 24
+        },
+        {
+          "height": 34,
+          "text": "Inspect evidence",
+          "width": 143.40625
+        },
+        {
+          "height": 28,
+          "text": "Evidence",
+          "width": 73.8203125
+        }
+      ],
+      "viewport": {
+        "height": 1024,
+        "width": 768
+      }
+    },
+    {
+      "documentWidth": 390,
+      "fontFamily": "\"IBM Plex Sans\", sans-serif",
+      "fontLoaded": true,
+      "gradients": 0,
+      "headings": [
+        {
+          "size": "24px",
+          "text": "Agent activity"
+        }
+      ],
+      "smallText": [],
+      "smallVisibleButtons": [
+        {
+          "height": 57,
+          "text": "Activity",
+          "width": 40.046875
+        }
+      ],
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-10-31T02:40:18.857Z",
+  "httpStatus": 200,
+  "request": {
+    "operation": "getMarketById",
+    "parameters": {
+      "id": "6437745"
+    },
+    "responseProjection": {
+      "marketId": "/id",
+      "conditionId": "/conditionId",
+      "closed": "/closed",
+      "status": "/umaResolutionStatus",
+      "outcomes": "/outcomes",
+      "outcomePrices": "/outcomePrices",
+      "updatedAt": "/updatedAt"
+    }
+  },
+  "response": {
+    "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+    "requestHash": "0xf8cfbdfc93f13fcbc1488525b7c7f93598e4a90f4dee3a6dcf5148dab4d8fffe",
+    "timestamp": "1793414418",
+    "data": "{\"closed\":true,\"conditionId\":\"0x8ed7bf5bcf4f5916993a037d58c6e764bcfb809b54d9f2e8b5c272971ab67096\",\"marketId\":\"6437745\",\"outcomePrices\":\"[\\\"0\\\", \\\"1\\\"]\",\"outcomes\":\"[\\\"Bagnis/Gomez\\\", \\\"Drzewiecki/Matuszewski\\\"]\",\"status\":\"resolved\",\"updatedAt\":\"2026-10-31T02:39:31.225013Z\"}",
+    "signature": "0x65308e52d19fd5482d264ea0fb2df6c3b5d985f12a89a66111fd592e89807c92398430d52b05fce29b090e9b1c26e1fbd4ea21af104765b60f0c61fac7f72f201b"
+  }
+}

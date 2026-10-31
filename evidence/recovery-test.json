@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-31T02:58:45.518Z",
+  "command": "node scripts/recovery-test.mjs",
+  "mode": "Isolated local mocked RPC fault/restart; not a live-chain transaction",
+  "productionFilesCopied": [
+    "src/chain.ts",
+    "src/store.ts"
+  ],
+  "productionSourceSha256": {
+    "src/chain.ts": "0fe416b904ddd6d346b6d8562e2536413680fdd1aa91ea83ca51d5bd92b483ff",
+    "src/store.ts": "651d074cc6441d0705baa1d87040f7b6c758e35eea6d0d848365e92bb7ebd94a"
+  },
+  "transactionHash": "0xf08e01da735eb54eedea66fed1df2098c400405ab834f33d268ccf5d97bb53c0",
+  "action": "Mock approve zero tokens to a public fixture address",
+  "assertions": {
+    "persistedBeforeRejectedBroadcast": true,
+    "firstProcessKilled": "SIGKILL",
+    "stalePidLockRecovered": true,
+    "identicalRawBytesAcrossRestart": true,
+    "identicalHashAcrossRestart": true,
+    "acceptedUniqueHashes": 1,
+    "acceptedEconomicExecutions": 1,
+    "noNewNonceOrPreparationOnRestart": true,
+    "repeatedReconcileReturnsSameReceipt": true,
+    "changedArgumentsRejected": true,
+    "successfulExitReleasesLock": true
+  },
+  "broadcastAttempts": 2,
+  "rejectedBroadcastAttempts": 1,
+  "acceptedBroadcastAttempts": 1,
+  "rpcCounters": {
+    "eth_chainId": 5,
+    "eth_fillTransaction": 1,
+    "eth_getTransactionCount": 1,
+    "eth_getBlockByNumber": 1,
+    "eth_maxPriorityFeePerGas": 1,
+    "eth_estimateGas": 2,
+    "eth_call": 2,
+    "eth_getTransactionReceipt": 6,
+    "eth_sendRawTransaction": 2,
+    "eth_getTransactionByHash": 1
+  },
+  "limits": [
+    "Mock RPC returns zero L1/operator fees; this test does not validate live fee estimation.",
+    "One known public fixture key is used only in the private sandbox; no real funds are accessed.",
+    "No real wallet, app .runtime, source APIs, live RPC, or port 3101 is used.",
+    "This proves executor journal recovery in this fault case, not chain reorg handling."
+  ]
+}

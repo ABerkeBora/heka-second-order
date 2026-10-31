@@ -1,0 +1,54 @@
+Warning: This is a nightly build of Foundry. It is recommended to use the latest stable version. To mute this warning set `FOUNDRY_DISABLE_NIGHTLY_WARNING` in your environment. 
+
+Compiling 3 files with Solc 0.8.37
+Solc 0.8.37 finished in 108.67s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/SecondOrderMarket.t.sol:41:5:
+   |
+41 |     function _openData(uint8 i, bool closed, string memory updated, string memory labels) internal view returns (bytes memory) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> test/SecondOrderMarket.t.sol:47:5:
+   |
+47 |     function _finalData(uint8 i, string memory status, string memory prices, string memory updated) internal view returns (bytes memory) {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Ran 5 tests for test/RealSignedOpenProof.t.sol:RealSignedOpenProofTest
+[PASS] testRealResponseSignedByWrongKeyRejected() (gas: 123760)
+[PASS] testRealSignedOpenResponsesActivateAndFundPool() (gas: 1510473)
+[PASS] testRealSignedResponseEditedValueRejected() (gas: 163115)
+[PASS] testRealSignedResponseForDifferentRequestRejected() (gas: 137100)
+[PASS] testRealSignedResponseTooOldRejected() (gas: 112921)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 1.17s (32.28ms CPU time)
+
+Ran 24 tests for test/SecondOrderMarket.t.sol:SecondOrderMarketTest
+[PASS] testAndOneFalsePaysNoSide() (gas: 2275443)
+[PASS] testAndSettlementAndPermissionlessFixedBeneficiaryClaim() (gas: 2319452)
+[PASS] testBudgetAndMaxActionsEnforcedOnChain() (gas: 1502566)
+[PASS] testCreateProofCannotServeSettlement() (gas: 1613970)
+[PASS] testDifferentRequestRejected() (gas: 1609154)
+[PASS] testDuplicateIntentCannotChangeReserves() (gas: 876526)
+[PASS] testEarlyFinalityStopsTradingAndReplay() (gas: 1982352)
+[PASS] testEditedSignedValueRejectedAndReserveUnchanged() (gas: 1620523)
+[PASS] testExpiredMandateStopsFunding() (gas: 228789)
+[PASS] testFreshSignatureCannotRefreshStaleSource() (gas: 1792641)
+[PASS] testFutureSignatureRejected() (gas: 1598900)
+[PASS] testFuzzTotalClaimsNeverExceedRecordedReserve(uint64,uint64,uint64) (runs: 256, μ: 3069234, ~: 3069292)
+[PASS] testHistoricalSourceCannotSettleNewExposure() (gas: 1782391)
+[PASS] testIntegerPayoutDustGoesToLastWinningStake() (gas: 3041296)
+[PASS] testMandateCannotChangeBeneficiary() (gas: 849219)
+[PASS] testMatchedPoolCanOnlyTimeoutAtDeadline() (gas: 1650680)
+[PASS] testOrOneTruePaysYesSide() (gas: 6264484)
+[PASS] testOutcomeOrderChangeRejectedBeforeFunding() (gas: 386961)
+[PASS] testProposedNearOnePriceDoesNotSettle() (gas: 1866304)
+[PASS] testSignedSplitCannotReleaseCollateralAndDeadlineRefundsEachPayer() (gas: 1993210)
+[PASS] testStaleRealFormatResponseRejected() (gas: 1610677)
+[PASS] testTimeoutAndUnmatchedRefundArePermissionless() (gas: 867255)
+[PASS] testUnsolicitedTokensDoNotEnterReserve() (gas: 2302113)
+[PASS] testWrongSignerRejected() (gas: 1609308)
+Suite result: ok. 24 passed; 0 failed; 0 skipped; finished in 1.18s (1.31s CPU time)
+
+Ran 2 test suites in 1.18s (2.35s CPU time): 29 tests passed, 0 failed, 0 skipped (29 total tests)

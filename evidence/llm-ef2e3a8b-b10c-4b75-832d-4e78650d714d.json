@@ -1,0 +1,84 @@
+{
+  "id": "ef2e3a8b-b10c-4b75-832d-4e78650d714d",
+  "marketIds": [
+    "6406020",
+    "6406027"
+  ],
+  "selectedOutcomeIndexes": [
+    0,
+    0
+  ],
+  "operator": "AND",
+  "reason": "Objective requires both Ethereum and XRP to finish Up; selected markets are Ethereum (6406020) and XRP (6406027) with Up outcomes (index 0).",
+  "model": "qwen3:4b",
+  "createdAt": "2026-10-31T02:53:15.990Z",
+  "startedAt": "2026-10-31T02:53:05.552Z",
+  "latencyMs": 10438,
+  "input": {
+    "objective": "Require both Ethereum and XRP to finish Up in the next available window.",
+    "allowedOperators": [
+      "AND",
+      "OR"
+    ],
+    "candidates": [
+      {
+        "id": "6406014",
+        "question": "BNB Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406016",
+        "question": "Hyperliquid Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406017",
+        "question": "ZCash Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406018",
+        "question": "Bitcoin Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406020",
+        "question": "Ethereum Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      },
+      {
+        "id": "6406027",
+        "question": "XRP Up or Down - October 30, 11:00PM-11:05PM ET",
+        "outcomes": [
+          "Up",
+          "Down"
+        ],
+        "endDate": "2026-10-31T03:05:00Z"
+      }
+    ]
+  },
+  "validator": {
+    "accepted": true,
+    "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+  }
+}

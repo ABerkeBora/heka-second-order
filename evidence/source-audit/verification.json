@@ -1,0 +1,96 @@
+{
+  "checkedAt": "2026-10-31T02:41:17.685Z",
+  "method": "Independent metadata algorithm and viem EIP-191 recovery; preserves exact UTF-8 data bytes",
+  "results": [
+    {
+      "file": "create-6405900.json",
+      "derivedRequestHash": "0x05e27c22838c66dfd1d9b52ec62c42294f1b342301d760cdde2903d227a7e787",
+      "returnedRequestHash": "0x05e27c22838c66dfd1d9b52ec62c42294f1b342301d760cdde2903d227a7e787",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "create-6405901.json",
+      "derivedRequestHash": "0x7b391dcaaf6e29a79258d89b0b3c954212c8af25431f3470c290f92b4c0f3f3e",
+      "returnedRequestHash": "0x7b391dcaaf6e29a79258d89b0b3c954212c8af25431f3470c290f92b4c0f3f3e",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "discovery.json",
+      "derivedRequestHash": "0xb4affc2cc5e0f43a88c0c5a22170c72dfd2c5190e6d732914e0a34912f83344f",
+      "returnedRequestHash": "0xb4affc2cc5e0f43a88c0c5a22170c72dfd2c5190e6d732914e0a34912f83344f",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "future-window.json",
+      "derivedRequestHash": "0xaf1aef283983abdd07486212439131bad8def894cb7209682a7edd657592ec7a",
+      "returnedRequestHash": "0xaf1aef283983abdd07486212439131bad8def894cb7209682a7edd657592ec7a",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "get-6405827.json",
+      "derivedRequestHash": "0x927657597dea43eac215a39b7e15a54eb2e930fdd6a742fde2e170a1d313d894",
+      "returnedRequestHash": "0x927657597dea43eac215a39b7e15a54eb2e930fdd6a742fde2e170a1d313d894",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "get-6405900.json",
+      "derivedRequestHash": "0xd4c4548716a4b21ef0cb1ce1aced0998eb2569eadd71c948aff10a88831212b1",
+      "returnedRequestHash": "0xd4c4548716a4b21ef0cb1ce1aced0998eb2569eadd71c948aff10a88831212b1",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "get-6405901.json",
+      "derivedRequestHash": "0xc01bb1df05d397a26c75e3b63ed57898f415a582ce03b979f935f9a92a0fea51",
+      "returnedRequestHash": "0xc01bb1df05d397a26c75e3b63ed57898f415a582ce03b979f935f9a92a0fea51",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "recent-closed.json",
+      "derivedRequestHash": "0x1cba545217c902557ae5dd0820b52844463464c111791dcd742fae70d85e5442",
+      "returnedRequestHash": "0x1cba545217c902557ae5dd0820b52844463464c111791dcd742fae70d85e5442",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "settlement-6437686.json",
+      "derivedRequestHash": "0x6d2c4aac0210c73b1d7c52acffb1794818ccf627f9727a86e38d60dcbf572525",
+      "returnedRequestHash": "0x6d2c4aac0210c73b1d7c52acffb1794818ccf627f9727a86e38d60dcbf572525",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    },
+    {
+      "file": "settlement-6437745.json",
+      "derivedRequestHash": "0xf8cfbdfc93f13fcbc1488525b7c7f93598e4a90f4dee3a6dcf5148dab4d8fffe",
+      "returnedRequestHash": "0xf8cfbdfc93f13fcbc1488525b7c7f93598e4a90f4dee3a6dcf5148dab4d8fffe",
+      "hashMatches": true,
+      "recoveredSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "expectedSigner": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "signerMatches": true
+    }
+  ]
+}

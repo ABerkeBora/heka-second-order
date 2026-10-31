@@ -1,0 +1,339 @@
+{
+  "id": "29e88761-5cee-43d0-8a87-4b1ac50b9752",
+  "proposalId": "4d4e246c-afd0-4847-a324-698891409d16",
+  "proposal": {
+    "id": "4d4e246c-afd0-4847-a324-698891409d16",
+    "marketIds": [
+      "6405927",
+      "6405928"
+    ],
+    "selectedOutcomeIndexes": [
+      0,
+      0
+    ],
+    "operator": "AND",
+    "reason": "Objective specifies combining Ethereum and XRP upside outcomes with AND. Shortest window is 10:45PM-10:50PM ET on Oct 30, 2026 for both markets.",
+    "model": "qwen3:4b",
+    "createdAt": "2026-10-31T02:41:40.306Z",
+    "startedAt": "2026-10-31T02:41:24.732Z",
+    "latencyMs": 15574,
+    "input": {
+      "objective": "Combine Ethereum and XRP upside outcomes with AND. Use the shortest upcoming window.",
+      "allowedOperators": [
+        "AND",
+        "OR"
+      ],
+      "candidates": [
+        {
+          "id": "6405920",
+          "question": "ZCash Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        },
+        {
+          "id": "6405925",
+          "question": "Hyperliquid Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        },
+        {
+          "id": "6405926",
+          "question": "BNB Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        },
+        {
+          "id": "6405927",
+          "question": "Ethereum Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        },
+        {
+          "id": "6405928",
+          "question": "XRP Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        },
+        {
+          "id": "6405929",
+          "question": "Dogecoin Up or Down - October 30, 10:45PM-10:50PM ET",
+          "outcomes": [
+            "Up",
+            "Down"
+          ],
+          "endDate": "2026-10-31T02:50:00Z"
+        }
+      ]
+    },
+    "validator": {
+      "accepted": true,
+      "reason": "Two allowed, distinct, fresh open markets; operator and outcome indexes validated independently"
+    },
+    "policy": {
+      "sources": [
+        {
+          "marketId": "6405927",
+          "conditionId": "0x0d724837faeccdc1e404c16bc52f32218266415313fb9bf453a9c60076a49aeb",
+          "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+          "createRequestHash": "0xe260c441c5aeebc83972cc1ef31e37b65dfbbecf18096199582a0e86041b8a46",
+          "settlementRequestHash": "0x91bdd3f4bbe19783be1d7fe136e6cac8ec3ef5b05b642230faa9db13b10bca63",
+          "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+          "selectedOutcome": 0,
+          "endTime": "1793415000"
+        },
+        {
+          "marketId": "6405928",
+          "conditionId": "0x57f5011d1a5c92f1deff265a0c984e4e6ff5b66d4ec4ba243b96ff797a50fa0e",
+          "outcomesHash": "0x52023b067a8976cb087a0d8e8d27fadf528ae1c343d8488e613550865a6eeee8",
+          "createRequestHash": "0x306743512e40f66444fa77dbaa5fee64b6f621dda0224f734a0af6fbfab60040",
+          "settlementRequestHash": "0x3c3047d210c18c043b5c654a50d3d09f02d5d8e51655b818c2bb37f8b25ba949",
+          "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+          "selectedOutcome": 0,
+          "endTime": "1793415000"
+        }
+      ],
+      "operatorIsOr": false,
+      "tradeClosesAt": "1793414955",
+      "deadline": "1793416800",
+      "maxEnvelopeAge": 300,
+      "maxSourceAge": 900
+    },
+    "policyHash": "0xd54d5022d1fff87528b45098deee67e0e52ec65e4949a730346b90581097ade1",
+    "deploymentTx": "0x44fffb55ddf8476e18b8ff5efab31fda587f2d01220a373ea61f5fc58fb026a3",
+    "initializationTx": "0x9733affe52cc9404466061096a11a488e81ab1be7e1f74d3f251afb47cedf030",
+    "ready": true,
+    "previousDeployments": [
+      {
+        "address": "0x33e592bbb5b55f9c59b69eb44e6de81a50d8ccc2",
+        "transactionHash": "0xd915c2bc9ac3f01abfeeabab3cf9b8277f1037f3f9c6711c79e9c712fc5c47c6",
+        "reason": "Unfunded initial revision, replaced before mandate"
+      }
+    ],
+    "contractAddress": "0x80249acd6afd72d4d2826b788b0e972848a073e4",
+    "revision": 2
+  },
+  "sourceMarkets": [
+    {
+      "id": "6405927",
+      "question": "Ethereum Up or Down - October 30, 10:45PM-10:50PM ET",
+      "slug": "eth-updown-5m-1793414700",
+      "conditionId": "0x0d724837faeccdc1e404c16bc52f32218266415313fb9bf453a9c60076a49aeb",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.505",
+        "0.495"
+      ],
+      "endDate": "2026-10-31T02:50:00Z",
+      "updatedAt": "2026-10-31T02:40:15.778849Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0xe260c441c5aeebc83972cc1ef31e37b65dfbbecf18096199582a0e86041b8a46",
+      "settlementRequestHash": "0x91bdd3f4bbe19783be1d7fe136e6cac8ec3ef5b05b642230faa9db13b10bca63",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0xe260c441c5aeebc83972cc1ef31e37b65dfbbecf18096199582a0e86041b8a46",
+        "timestamp": "1793414484",
+        "data": "{\"closed\":false,\"conditionId\":\"0x0d724837faeccdc1e404c16bc52f32218266415313fb9bf453a9c60076a49aeb\",\"endDate\":\"2026-10-31T02:50:00Z\",\"marketId\":\"6405927\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T02:40:15.778849Z\"}",
+        "signature": "0x611e592719d44bd99190fbde86d8e9fbe6563a80db3c96c58d83547e2b9168d30e780e034bb0273d94bd69e8a11aee9db2853369c2bdbacb3d8872bb2e67cd961b"
+      }
+    },
+    {
+      "id": "6405928",
+      "question": "XRP Up or Down - October 30, 10:45PM-10:50PM ET",
+      "slug": "xrp-updown-5m-1793414700",
+      "conditionId": "0x57f5011d1a5c92f1deff265a0c984e4e6ff5b66d4ec4ba243b96ff797a50fa0e",
+      "outcomes": [
+        "Up",
+        "Down"
+      ],
+      "outcomePrices": [
+        "0.505",
+        "0.495"
+      ],
+      "endDate": "2026-10-31T02:50:00Z",
+      "updatedAt": "2026-10-31T02:40:15.778849Z",
+      "closed": false,
+      "eligible": true,
+      "signer": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+      "createRequestHash": "0x306743512e40f66444fa77dbaa5fee64b6f621dda0224f734a0af6fbfab60040",
+      "settlementRequestHash": "0x3c3047d210c18c043b5c654a50d3d09f02d5d8e51655b818c2bb37f8b25ba949",
+      "createEnvelope": {
+        "airnode": "0xbb451127f6d8B2bAEfB9ddFb7c724DAc38Eb9D2E",
+        "requestHash": "0x306743512e40f66444fa77dbaa5fee64b6f621dda0224f734a0af6fbfab60040",
+        "timestamp": "1793414484",
+        "data": "{\"closed\":false,\"conditionId\":\"0x57f5011d1a5c92f1deff265a0c984e4e6ff5b66d4ec4ba243b96ff797a50fa0e\",\"endDate\":\"2026-10-31T02:50:00Z\",\"marketId\":\"6405928\",\"outcomes\":\"[\\\"Up\\\", \\\"Down\\\"]\",\"updatedAt\":\"2026-10-31T02:40:15.778849Z\"}",
+        "signature": "0x9d72bba18a2a2a44065c14fa14e2d1b1a20c3fdf516b53c6170b5e1082be43704e8d07fd6bc1b050182a0ca2251d855f4266423987456ecb946001902c6ebe1d1b"
+      }
+    }
+  ],
+  "marketId": "0x80249acd6afd72d4d2826b788b0e972848a073e4",
+  "contractAddress": "0x80249acd6afd72d4d2826b788b0e972848a073e4",
+  "status": "claimed",
+  "side": "YES",
+  "stakeUnits": "1000000",
+  "createdAt": "2026-10-31T02:46:08.251Z",
+  "steps": [
+    {
+      "id": "5c623697-00f0-4396-bdbc-6ff2f5ccb22d",
+      "action": "Mandate accepted",
+      "message": "One immutable market, one position, fixed beneficiary. No new authorization is needed for bounded funding and delivery.",
+      "status": "confirmed",
+      "timestamp": "2026-10-31T02:46:08.453Z"
+    },
+    {
+      "id": "2904830f-8b54-4006-af73-8a6640db2c96",
+      "action": "buyer mandate",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x27bd5bb41793bf8ceed3a2841800429d318ecc194c4120e68a0db2c07b9908c5",
+      "timestamp": "2026-10-31T02:46:11.829Z"
+    },
+    {
+      "id": "5961e0ac-4cc9-4868-b718-e09a89b657e5",
+      "action": "buyer allowance",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x51d7de6425e9a130c2d115b9be21db5fd0bed2afe078c1598005f1764c9b2dff",
+      "timestamp": "2026-10-31T02:46:13.930Z"
+    },
+    {
+      "id": "e5c56c12-fc83-4865-9618-64392b9d0355",
+      "action": "Agent funded position",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x9a1e7fdf5e3f064cb12b9cb4f6432ee90087c34793a4c26fc285d837b08e014c",
+      "timestamp": "2026-10-31T02:46:16.312Z"
+    },
+    {
+      "id": "1d25bf30-0fde-4024-9c59-e1e30aee0b50",
+      "action": "counterparty mandate",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xf1be6e599878d99192377186e44aa787c6ea3f1dd1ad5eb6c11f09015dfdb2ea",
+      "timestamp": "2026-10-31T02:46:18.537Z"
+    },
+    {
+      "id": "c27f211b-6f41-403d-8c8a-7bef3a420ef6",
+      "action": "counterparty allowance",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x2d932018691e14fdece5d3c5c41cbb4c7804c986d9dd9b2647b6319b463fe07c",
+      "timestamp": "2026-10-31T02:46:20.621Z"
+    },
+    {
+      "id": "3fefdb49-b8bf-4bc6-a573-0e365bd0457f",
+      "action": "Counterparty funded opposite side",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xcb63e6961be15badfd7f8ed6e5061da82824b752d47c3da6abe9962d21ca28d8",
+      "timestamp": "2026-10-31T02:46:22.830Z"
+    },
+    {
+      "id": "dcd30e5e-8e5f-4209-ace2-3cf95545a9d1",
+      "action": "Agent submitted source 1",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x4aa93d6ea1bb065b5ea5d90a3b86e6a3879067e71b3b5226d7d74920d10d7b89",
+      "timestamp": "2026-10-31T02:56:16.351Z"
+    },
+    {
+      "id": "902312ce-29ad-45f3-bd91-e7b6f710399e",
+      "action": "Agent submitted source 2",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xba469def95fb56a83df2e63d18a84f7f74666f0c333de6cb445491600920ad85",
+      "timestamp": "2026-10-31T02:56:18.440Z"
+    },
+    {
+      "id": "3a2c86ad-f7d3-4682-934e-0c678c7a99ed",
+      "action": "Agent delivered buyer result",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0x85e129612f33c11e2195f5c6bf2ba4de3865a4bb851a7ac55ea339f89bf713ee",
+      "timestamp": "2026-10-31T02:56:21.360Z"
+    },
+    {
+      "id": "40838e29-9f60-4557-ad80-128a9c5e5aa0",
+      "action": "Counterparty collected result",
+      "message": "Confirmed on Base Sepolia",
+      "status": "confirmed",
+      "txHash": "0xef5fcb107d5f291adc4f656873c06f52345c189122efc6d020393bb277c488f9",
+      "timestamp": "2026-10-31T02:56:23.846Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "6405927",
+      "status": "Final — selected outcome lost",
+      "lastCheck": "2026-10-31T02:55:44.130Z",
+      "updatedAt": "2026-10-31T02:51:57.421202Z"
+    },
+    {
+      "id": "6405928",
+      "status": "Final — selected outcome won",
+      "lastCheck": "2026-10-31T02:55:44.169Z",
+      "updatedAt": "2026-10-31T02:51:57.424898Z"
+    }
+  ],
+  "mandate": {
+    "network": "Base Sepolia",
+    "chainId": 84532,
+    "asset": "0x78f97e3b9b1b367f60355ddcc06fb157d7d33d08",
+    "tokenSymbol": "SOU",
+    "recipient": "0x80249acd6afd72d4d2826b788b0e972848a073e4",
+    "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+    "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+    "side": "YES",
+    "perAction": "1000000",
+    "total": "1000000",
+    "maxActions": 1,
+    "expiresAt": 1793414955,
+    "gasCapWei": "300000000000000",
+    "totalGasCapWei": "1500000000000000",
+    "apiFeeUnits": "0",
+    "limits": "Spend, recipient, beneficiary, expiry and intent enforced on chain; gas caps enforced in local executor"
+  },
+  "reserveUnits": "0",
+  "yesStakeUnits": "1000000",
+  "noStakeUnits": "1000000",
+  "phase": 2,
+  "result": "NO",
+  "buyerBalanceUnits": "4000000",
+  "counterpartyBalanceUnits": "6000000",
+  "payoutUnits": "0",
+  "deliveries": {
+    "buyer": {
+      "amountUnits": "0",
+      "beneficiary": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "payer": "0xBF984147822f4D20e624b741fBB28F1b47Bc3FaF",
+      "refund": false,
+      "transactionHash": "0x85e129612f33c11e2195f5c6bf2ba4de3865a4bb851a7ac55ea339f89bf713ee"
+    },
+    "counterparty": {
+      "amountUnits": "2000000",
+      "beneficiary": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "payer": "0x33C6A616efce2b0558D0a7C412dDF4A96AD27D62",
+      "refund": false,
+      "transactionHash": "0xef5fcb107d5f291adc4f656873c06f52345c189122efc6d020393bb277c488f9"
+    }
+  }
+}

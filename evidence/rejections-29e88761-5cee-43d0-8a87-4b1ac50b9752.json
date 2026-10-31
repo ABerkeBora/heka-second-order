@@ -1,0 +1,80 @@
+{
+  "checkedAt": "2026-10-31T03:00:48.330Z",
+  "checks": [
+    {
+      "name": "Edited value",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Different request",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Wrong signer",
+      "status": "PASS",
+      "message": "Expected NotSignedByAirnode; contract returned NotSignedByAirnode",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Stale real response",
+      "status": "PASS",
+      "message": "Expected ResponseTooOld; contract returned ResponseTooOld",
+      "mode": "RPC call to deployed shared proof guard; no transaction broadcast"
+    },
+    {
+      "name": "Duplicate intent",
+      "status": "PASS",
+      "message": "Expected DuplicateIntent; contract returned DuplicateIntent",
+      "mode": "Recorded funding-phase RPC check; current trading window has ended"
+    },
+    {
+      "name": "Over budget",
+      "status": "PASS",
+      "message": "Expected BudgetExceeded; contract returned BudgetExceeded",
+      "mode": "Recorded funding-phase RPC check; current trading window has ended"
+    },
+    {
+      "name": "Protected state unchanged",
+      "status": "PASS",
+      "message": "Reserve and source state compared before and after read-only rejection checks"
+    }
+  ],
+  "before": {
+    "phase": 2,
+    "tradingHalted": true,
+    "result": false,
+    "sourceFinal": [
+      true,
+      true
+    ],
+    "sourceSelectedWon": [
+      false,
+      true
+    ],
+    "yesStake": "1000000",
+    "noStake": "1000000",
+    "reserve": "0",
+    "winnerRemainingStake": "0"
+  },
+  "after": {
+    "phase": 2,
+    "tradingHalted": true,
+    "result": false,
+    "sourceFinal": [
+      true,
+      true
+    ],
+    "sourceSelectedWon": [
+      false,
+      true
+    ],
+    "yesStake": "1000000",
+    "noStake": "1000000",
+    "reserve": "0",
+    "winnerRemainingStake": "0"
+  }
+}
